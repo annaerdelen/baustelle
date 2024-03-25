@@ -1,0 +1,10 @@
+{
+  "name": "baustelle",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "find ./ -name node_modules -type d -exec rm -rf {} +",
+    "dev": "pnpm -r run dev",
+    "web:dev": "pnpm -F web run dev",
+    "studio:dev": "pnpm -F studio run dev"
+  }
+}

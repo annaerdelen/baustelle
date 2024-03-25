@@ -1,0 +1,61 @@
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.breakword {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.cursor-right {
+  cursor: e-resize;
+}
+
+.cursor-left {
+  cursor: w-resize;
+}
+
+.clip-left {
+  clip-path: inset(0% 0% 0% 100%);
+}
+
+.clip-right {
+  clip-path: inset(0% 100% 0% 0%);
+}
+
+.clip-top {
+  clip-path: inset(100% 0% 0% 0%);
+}
+
+.clip-bottom {
+  clip-path: inset(0% 0% 100% 0%);
+}
+
+.svg-full svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mask {
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 75%);
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.gpu {
+  transform: translate3d();
+}

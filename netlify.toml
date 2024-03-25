@@ -1,0 +1,8 @@
+[build]
+  base = "web/"
+  command = "pnpm run generate"
+  publish = "dist/"
+  functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"

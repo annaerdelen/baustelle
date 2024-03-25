@@ -1,0 +1,46 @@
+{
+  "name": "studio",
+  "private": true,
+  "version": "1.0.0",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/dashboard": "^3.1.6",
+    "@sanity/orderable-document-list": "^1.2.1",
+    "@sanity/vision": "^3.32.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-is": "^18.2.0",
+    "rxjs": "^7.8.1",
+    "sanity": "^3.32.0",
+    "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
+    "sanity-plugin-media": "^2.2.5",
+    "sanity-plugin-mux-input": "^2.2.4",
+    "styled-components": "^5.3.9"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^3.0.0",
+    "@types/react": "^18.0.25",
+    "@types/styled-components": "^5.1.26",
+    "eslint": "^8.6.0",
+    "prettier": "^3.0.2",
+    "typescript": "^4.9.5"
+  },
+  "prettier": {
+    "semi": true,
+    "printWidth": 150,
+    "bracketSpacing": true,
+    "singleQuote": true
+  }
+}

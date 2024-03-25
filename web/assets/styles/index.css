@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TODO */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+body {
+  @apply text-14 tracking-base selection:bg-gray leading-tight underline-offset-[3px] decoration-1;
+}
+
+/**
+ * Layout
+ */
+
+.spacing-x {
+}
+
+/**
+ * Typography
+ */
+
+.copy {
+}

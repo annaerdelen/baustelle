@@ -1,0 +1,35 @@
+{
+  "name": "web",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.22.0",
+    "nuxt": "^3.10.3",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.4.0",
+    "@nuxtjs/algolia": "^1.9.0",
+    "@nuxtjs/sanity": "^1.9.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@portabletext/vue": "^1.0.6",
+    "@sanity/image-url": "^1.0.2",
+    "algoliasearch": "^4.19.1",
+    "buffer": "^6.0.3",
+    "gsap": "^3.12.5",
+    "hls.js": "^1.5.7",
+    "just-debounce-it": "^3.2.0",
+    "sanity-algolia": "^1.1.0",
+    "shopify-buy": "^2.20.0"
+  }
+}
