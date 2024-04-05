@@ -9,7 +9,6 @@ export const structure = (S, context) =>
       S.listItem().title('Global Settings').icon(FiSettings).child(S.editor().schemaType('global').documentId('global')),
       S.divider(),
       S.listItem().title('Homepage').icon(FiHome).child(S.editor().schemaType('homepage').documentId('homepage')),
-      // S.listItem().title('Test').icon(FiHome).child(S.editor().schemaType('testPage').documentId('testPage')),
       S.listItem()
         .title('Work')
         .icon(FiCircle)

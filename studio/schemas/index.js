@@ -1,5 +1,4 @@
 import homepage from './documents/homepage';
-// import testPage from './documents/testPage';
 import project from './documents/project';
 import projectsOverview from './documents/projectsOverview';
 import category from './documents/category';
@@ -33,5 +32,4 @@ export const schemaTypes = [
   mediaGallery,
   copy,
   cta,
-  // testPage,
 ];
