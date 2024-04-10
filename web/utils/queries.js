@@ -35,6 +35,24 @@ export const video = `
   },
 `;
 
+export const mediaGallery = `
+  mediaGallery[]{
+    _key,
+    _type,
+    _type == "mainImage" => {
+      'image': asset._ref,
+      'alt': alt,
+      'crop': crop,
+      'hotspot': hotspot,
+      'dimensions': asset->metadata.dimensions,
+      'originalFilename': asset->originalFilename,
+    },
+    _type == "mainVideo" => {
+      'src': video.asset->playbackId,
+    },
+  }
+`;
+
 export const mediaContent = `
   _key,
   type,

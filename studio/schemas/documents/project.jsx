@@ -75,6 +75,10 @@ export default {
         },
       ],
     },
+    {
+      name: 'mediaGallery',
+      type: 'mediaGallery',
+    },
   ],
   preview: {
     select: {

@@ -11,4 +11,8 @@
 
 <script setup>
 const sanityStore = useSanityStore();
+
+// watchEffect(()=> {
+//   textBox.value = route.name
+// })
 </script>

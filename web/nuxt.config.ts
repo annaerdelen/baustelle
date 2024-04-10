@@ -7,7 +7,7 @@ export default defineNuxtConfig({
 
   //TODO
   app: {
-    pageTransition: { name: 'page' },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
 
   //TODO

@@ -5,11 +5,15 @@
     </section>
 
     <copy :title="date" :blocks="project.description" />
+
+    <section class="grid grid-cols-4">
+      <Media v-for="item in project.mediaGallery" :key="item._key" :media="item" />
+    </section>
   </article>
 </template>
 
 <script setup>
-import { seo, global, blockContent, media } from '@/utils/queries';
+import { seo, global, blockContent, media, mediaGallery } from '@/utils/queries';
 
 const query = groq`{
   ${global}
@@ -20,7 +24,8 @@ const query = groq`{
     description[]{
       ...,
       ${blockContent}
-    }
+    },
+    ${mediaGallery}
   },
 }`;
 
@@ -31,6 +36,8 @@ project.value = data.value.project;
 if (!project.value) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 
 useSeo({ global: data.value.global, title: project.value.title, seo: project.value.seo });
+
+const width = ref(process.client ? window.innerWidth : 0);
 
 const date = computed(() => {
   const date = new Date(project.value.date);

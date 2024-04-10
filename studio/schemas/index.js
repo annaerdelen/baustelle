@@ -10,10 +10,11 @@ import page from './documents/page';
 import legal from './documents/legal';
 import global from './documents/global';
 import socialLink from './objects/socialLink';
-import mediaGallery from './modules/mediaGallery';
+import mediaGallery from './objects/mediaGallery';
 import copy from './modules/copy';
 import cta from './objects/cta';
 import guide from './documents/guide';
+import mainVideo from './objects/mainVideo';
 
 export const schemaTypes = [
   guide,
@@ -26,10 +27,11 @@ export const schemaTypes = [
   category,
   seo,
   mainImage,
+  mainVideo,
+  mediaGallery,
   media,
   blockContent,
   socialLink,
-  mediaGallery,
   copy,
   cta,
 ];

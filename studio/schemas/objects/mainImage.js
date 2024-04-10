@@ -1,7 +1,10 @@
+import { FiImage } from 'react-icons/fi';
+
 export default {
   title: 'Image',
   name: 'mainImage',
   type: 'image',
+  icon: FiImage,
   options: {
     hotspot: true,
   },
@@ -19,11 +22,9 @@ export default {
       dimensions: 'asset.metadata.dimensions',
       image: 'asset',
     },
-    prepare(selection) {
-      const { filename, dimensions, image } = selection;
+    prepare({ filename, image }) {
       return {
         title: filename,
-        subtitle: dimensions ? `(${dimensions.width}px × ${dimensions.height}px)` : '…',
         media: image,
       };
     },
