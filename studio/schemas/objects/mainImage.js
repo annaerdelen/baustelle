@@ -19,7 +19,6 @@ export default {
   preview: {
     select: {
       filename: 'asset.originalFilename',
-      dimensions: 'asset.metadata.dimensions',
       image: 'asset',
     },
     prepare({ filename, image }) {

@@ -2,7 +2,7 @@
   <article>
     <ul>
       <li
-        v-for="project in homepage.projects"
+        v-for="project in data?.homepage.projects"
         :key="project._id"
         class="h-screen w-full flex justify-center items-center"
         :data-project="project.slug.current"
@@ -26,11 +26,9 @@ const query = groq`{
   }
 }`;
 
-const homepage = ref(undefined);
-const { data } = await useAsyncData('data', () => useSanity().fetch(query));
-homepage.value = data.value.homepage;
+const { data } = await useSanityQuery(query);
 
-useSeo({ global: data.value.global });
+useSeo({ global: data.value?.global });
 
 // definePageMeta({
 //   pageTransition: globalTransition,

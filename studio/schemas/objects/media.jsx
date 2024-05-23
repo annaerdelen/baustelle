@@ -30,6 +30,9 @@ export default {
       name: 'video',
       type: 'mux.video',
       hidden: ({ parent }) => !parent?.type || parent.type !== 'video',
+      options: {
+        collapsed: false,
+      },
     },
   ],
   preview: {

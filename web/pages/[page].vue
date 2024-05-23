@@ -1,6 +1,6 @@
 <template>
   <article class="pt-12">
-    <Modules :modules="page.content" />
+    <Modules :modules="data?.page.content" />
   </article>
 </template>
 
@@ -24,11 +24,9 @@ const query = groq`{
   },
 }`;
 
-const page = ref(undefined);
-const { data } = await useAsyncData('data', () => useSanity().fetch(query, { slug: useRoute().params.page }));
-page.value = data.value.page;
+const { data } = await useSanityQuery(query, { slug: useRoute().params.page });
 
-if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
+if (!data.value?.page) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 
-useSeo({ global: data.value.global, title: page.value.title, seo: page.value.seo });
+useSeo({ global: data.value.global, title: data.value?.page.title, seo: data.value?.page.seo });
 </script>

@@ -24,6 +24,7 @@ const fetchData = async () => {
     console.log(err);
   }
 };
+
 const postData = async () => {
   try {
     const data = await $fetch('/api/hello', {

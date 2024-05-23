@@ -18,6 +18,7 @@
       },
     ]"
     :modifiers="modifiers"
+    :style="`aspect-ratio:${dimensions.width / dimensions.height}`"
   />
   <NuxtImg
     v-if="width"
@@ -36,6 +37,7 @@
       },
     ]"
     :modifiers="modifiers"
+    :style="`aspect-ratio:${dimensions.width / dimensions.height}`"
   />
 </template>
 
@@ -61,7 +63,7 @@ const placeholder = computed(() =>
     .width(30)
     .blur(30)
     .auto('format')
-    .url()
+    .url(),
 );
 
 const modifiers = computed(() => ({ crop: props.media.crop || '', hotspot: props.media.hotspot || '' }));

@@ -1,6 +1,6 @@
 <template>
   <article class="p-2 pt-12 flex flex-col space-y-2">
-    <NuxtLink v-for="project in page.projects" :key="project._id" :to="'/work/' + project.slug.current" class="flex">
+    <NuxtLink v-for="project in data?.projects" :key="project._id" :to="'/work/' + project.slug.current" class="flex">
       <Media :media="project.media" class="w-[30rem]" />
       <h2 class="pl-2">
         {{ project.title }}
@@ -21,9 +21,7 @@ const query = groq`{
   },
 }`;
 
-const page = ref(undefined);
-const { data } = await useAsyncData('data', () => useSanity().fetch(query));
-page.value = data.value;
+const { data } = await useSanityQuery(query);
 
-useSeo({ global: data.value.global, title: page.value.projectsOverview.title, seo: page.value.projectsOverview.seo });
+useSeo({ global: data.value?.global, title: data.value?.projectsOverview.title, seo: data.value?.projectsOverview.seo });
 </script>

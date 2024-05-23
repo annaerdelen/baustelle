@@ -56,9 +56,6 @@ module.exports = {
       spacing: {
         '8px': '0.8rem',
       },
-      height: {
-        screen: '100svh',
-      },
       gridTemplateColumns: {
         12: 'repeat(12, minmax(0, 1fr))',
         14: 'repeat(14, minmax(0, 1fr))',

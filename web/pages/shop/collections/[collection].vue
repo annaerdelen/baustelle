@@ -1,9 +1,9 @@
 <template>
   <article class="p-2 pt-8">
-    <p>{{ collection.store.title }}</p>
+    <p>{{ data?.collection.store.title }}</p>
 
     <ul>
-      <li v-for="product in products" :key="product._id">{{ product?.title }}</li>
+      <li v-for="product in data?.products" :key="product._id">{{ product?.title }}</li>
     </ul>
   </article>
 </template>
@@ -29,19 +29,18 @@ const productsQuery = groq`{
   },
 }`;
 
-const collection = ref(undefined);
-const products = ref(undefined);
-const { data } = await useAsyncData('data', () => useSanity().fetch(query, { slug: useRoute().params.collection }));
-collection.value = data.value.collection;
+const products = ref(null);
 
-if (!collection.value) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
+const { data } = await useSanityQuery(query, { slug: useRoute().params.collection });
 
-const shopifyCollection = await $shopifyClient.collection.fetchWithProducts(collection.value.store.gid);
+if (!data.value?.collection) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
+
+const shopifyCollection = await $shopifyClient.collection.fetchWithProducts(data.value?.collection.store.gid);
 
 const sanityProducts = await Promise.all(
   shopifyCollection.products.map(async (product) => {
     return useAsyncData(product.handle, () => useSanity().fetch(productsQuery, { slug: product.handle })).data;
-  })
+  }),
 );
 
 products.value = sanityProducts.map((product) => toRaw(product.value)?.product);

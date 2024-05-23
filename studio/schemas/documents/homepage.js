@@ -3,7 +3,6 @@ import { FiHome } from 'react-icons/fi';
 export default {
   type: 'document',
   name: 'homepage',
-  title: 'Hompage',
   icon: FiHome,
   fields: [
     {

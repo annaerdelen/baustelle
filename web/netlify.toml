@@ -1,0 +1,12 @@
+[build]
+  base ="/web"
+  command = "pnpm run generate"
+  publish = "dist"
+  functions = "functions/"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  base ="/web"
+  command = "pnpm dev"

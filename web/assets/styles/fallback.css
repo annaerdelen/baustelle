@@ -1,4 +1,8 @@
 @supports not (height: 100svh) {
+  .h-svh {
+    height: 100vh;
+  }
+
   .h-screen {
     height: 100vh;
   }

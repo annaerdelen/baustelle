@@ -39,7 +39,7 @@ export default defineConfig({
             },
           ],
         }),
-        projectUsersWidget({ layout: 'medium' }),
+        // projectUsersWidget({ layout: 'medium' }),
       ],
     }),
     ...(isDev ? [visionTool()] : []),

@@ -1,13 +1,13 @@
 <template>
   <article class="pb-48">
     <section class="h-screen relative pointer-events-none">
-      <Media :media="project.media" class="w-full h-full block" />
+      <Media :media="data?.project.media" class="w-full h-full block" />
     </section>
 
-    <copy :title="date" :blocks="project.description" />
+    <copy :title="date" :blocks="data?.project.description" />
 
     <section class="grid grid-cols-4">
-      <Media v-for="item in project.mediaGallery" :key="item._key" :media="item" />
+      <Media v-for="item in data?.project.mediaGallery" :key="item._key" :media="item" />
     </section>
   </article>
 </template>
@@ -29,18 +29,16 @@ const query = groq`{
   },
 }`;
 
-const project = ref(undefined);
-const { data } = await useAsyncData('data', () => useSanity().fetch(query, { slug: useRoute().params.project }));
-project.value = data.value.project;
+const { data } = await useSanityQuery(query, { slug: useRoute().params.project });
 
-if (!project.value) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
+if (!data.value?.project) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 
-useSeo({ global: data.value.global, title: project.value.title, seo: project.value.seo });
+useSeo({ global: data.value.global, title: data.value?.project.title, seo: data.value?.project.seo });
 
 const width = ref(process.client ? window.innerWidth : 0);
 
 const date = computed(() => {
-  const date = new Date(project.value.date);
+  const date = new Date(data.value?.project.date);
   return `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}, ${date.getFullYear()}`;
 });
 

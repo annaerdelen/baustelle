@@ -1,5 +1,4 @@
-import React from 'react'
-import {FiX} from 'react-icons/fi'
+import React from 'react';
 
 export const slugify = (slug) => {
   return slug
@@ -15,39 +14,31 @@ export const slugify = (slug) => {
     .replace(/ö/g, 'oe')
     .replace(/ü/g, 'ue')
     .replace(/ß/g, 'ss')
-    .slice(0, 200)
-}
+    .slice(0, 200);
+};
 
 export const slugValidation = (Rule) =>
   Rule.custom((slug) => {
-    if (typeof slug === 'undefined') return true
+    if (typeof slug === 'undefined') return true;
 
-    const slugRule = new RegExp('^[a-z0-9]+(?:-[a-z0-9]+)*$')
+    const slugRule = new RegExp('^[a-z0-9]+(?:-[a-z0-9]+)*$');
 
-    return slugRule.test(slug.current)
-      ? true
-      : 'Please only use lowercase letters, numbers or single hyphens.'
-  }).required()
+    return slugRule.test(slug.current) ? true : 'Please only use lowercase letters, numbers or single hyphens.';
+  }).required();
 
 export const generatePreviewMediaTitle = (options) => {
-  if (options.type === 'image' && options.image) return options.imageName
-  if (options.type === 'video' && options.playbackId) return 'Video'
+  if ((options.type === 'image' || options.type === 'mainImage') && options.image) return options.imageName;
+  if ((options.type === 'video' || options.type === 'mainVideo') && options.playbackId) return 'Video';
 
-  return '[Empty]'
-}
+  return '[Empty]';
+};
 
 export const generatePreviewMedia = (options) => {
-  if (options.type === 'image' && options.image) return options.image
-  if (options.type === 'video' && options.playbackId)
+  if ((options.type === 'image' || options.type === 'mainImage') && options.image) return options.image;
+  if ((options.type === 'video' || options.type === 'mainVideo') && options.playbackId)
     return (
       <figure>
-        <img
-          style={{objectFit: 'cover'}}
-          src={`https://image.mux.com/${options.playbackId}/animated.webp`}
-          alt="Video Preview"
-        />
+        <img style={{ objectFit: 'cover' }} src={`https://image.mux.com/${options.playbackId}/animated.webp`} alt="Video Preview" />
       </figure>
-    )
-
-  // return FiX
-}
+    );
+};

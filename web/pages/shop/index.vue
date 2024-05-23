@@ -6,7 +6,7 @@
       Cart {{ shopifyStore.loading ? ' ' : shopifyStore.totalProductsInCart }}
     </button>
 
-    <NuxtLink v-for="item in products" :key="item._id" :to="'/shop/products/' + item.slug">
+    <NuxtLink v-for="item in data?.products" :key="item._id" :to="'/shop/products/' + item.slug">
       <p>{{ item.title }}</p>
       <p>{{ convertPriceEur(item.price) }}</p>
     </NuxtLink>
@@ -20,15 +20,13 @@ import { convertPriceEur } from '@/utils/shopify/helper';
 
 const query = groq`{
   ${global}
-  "products": *[_type == "product"][]{
+  "products": *[_type == "product" && !store.isDeleted][]{
     ..., 
     ${product}
   },
 }`;
 
-const products = ref(undefined);
-const { data } = await useAsyncData('data', () => useSanity().fetch(query));
-products.value = data.value.products;
+const { data } = await useSanityQuery(query);
 
 const shopifyStore = useShopifyStore();
 

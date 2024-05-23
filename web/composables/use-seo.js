@@ -9,7 +9,7 @@ export default function ({ global, title, seo, hidden = false }) {
       lang,
     },
     meta: [
-      hidden && { name: 'robots', content: 'noindex, nofollow' },
+      (hidden || seo?.notIndexed) && { name: 'robots', content: 'noindex, nofollow' },
       { name: 'robots', content: 'noindex, nofollow' }, //TODO
       {
         name: 'title',
