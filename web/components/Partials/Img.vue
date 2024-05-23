@@ -1,43 +1,19 @@
 <template>
   <NuxtImg
-    v-if="!width"
     provider="sanity"
-    loading="lazy"
-    :placeholder="placeholder"
-    :width="dimensions.width"
-    :height="dimensions.height"
-    sizes="640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536px 2560:1920px 3200:2560px 3201:3200px"
+    :preload="preload && !lazy ? true : false"
+    :loading="!preload && lazy ? 'lazy' : 'eager'"
+    placeholder-class="placeholder-active"
+    :placeholder
+    :width="width ? width : dimensions.width"
+    :height="width ? '' : dimensions.height"
     densities="x1"
-    :src="src"
+    :src
+    :modifiers
     :alt="alt || 'TODO'"
-    :class="[
-      classNames,
-      {
-        portrait: dimensions.width < dimensions.height,
-        landscape: dimensions.width > dimensions.height,
-      },
-    ]"
-    :modifiers="modifiers"
-    :style="`aspect-ratio:${dimensions.width / dimensions.height}`"
-  />
-  <NuxtImg
-    v-if="width"
-    provider="sanity"
-    loading="lazy"
-    :placeholder="placeholder"
-    :width="width"
-    densities="x1"
-    :src="src"
-    :alt="alt || 'TODO'"
-    :class="[
-      classNames,
-      {
-        portrait: dimensions.width < dimensions.height,
-        landscape: dimensions.width > dimensions.height,
-      },
-    ]"
-    :modifiers="modifiers"
-    :style="`aspect-ratio:${dimensions.width / dimensions.height}`"
+    :class="[classNames, { portrait: dimensions.width < dimensions.height, landscape: dimensions.width > dimensions.height }]"
+    :style="styles"
+    :sizes="width ? false : sizes"
   />
 </template>
 
@@ -46,27 +22,23 @@ const { $urlFor } = useNuxtApp();
 
 const props = defineProps({
   src: String,
-  classNames: [String, Array, Object],
-  style: [String, Array, Object],
   alt: String,
   media: Object,
   width: Number,
-  preload: {
-    type: Boolean,
-    default: false,
-  },
+  classNames: [String, Array, Object],
+  width: Number,
+  preload: { type: Boolean, default: false },
+  lazy: { type: Boolean, default: false },
 });
 
 const placeholder = computed(() =>
   $urlFor(props.src)
     .rect(dimensions.value.cropLeft || 0, dimensions.value.cropTop || 0, dimensions.value.width, dimensions.value.height)
-    .width(30)
-    .blur(30)
+    .width(10)
+    .blur(20)
     .auto('format')
     .url(),
 );
-
-const modifiers = computed(() => ({ crop: props.media.crop || '', hotspot: props.media.hotspot || '' }));
 
 const dimensions = computed(() => {
   const originalWidth = props.media.dimensions.width;
@@ -82,6 +54,12 @@ const dimensions = computed(() => {
 
   return { width, height, cropLeft, cropTop };
 });
+
+const modifiers = computed(() => ({ crop: props.media.crop || '', hotspot: props.media.hotspot || '' }));
+
+const styles = `aspect-ratio:${dimensions.value.width / dimensions.value.height}`;
+
+const sizes = '640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536px 2560:1920px 3200:2560px 3201:3200px';
 </script>
 
 <style scoped>
@@ -89,11 +67,11 @@ img {
   @apply w-full h-full object-cover;
 }
 
-.hauto img {
+.hauto img:not(.placeholder-active) {
   @apply w-full h-auto;
 }
 
-.wauto img {
+.wauto img:not(.placeholder-active) {
   @apply w-auto h-full;
 }
 </style>

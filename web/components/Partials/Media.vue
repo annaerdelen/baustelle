@@ -1,6 +1,6 @@
 <template>
   <figure>
-    <Img v-if="image && media.image" :media="media" :src="media.image" :alt="media.alt" :class-names="assetClassNames" :width="width" />
+    <Img v-if="image && media.image" :preload :lazy :width :media :src="media.image" :alt="media.alt" :class-names="assetClassNames" />
     <Video v-if="video && media.src" :src="media.src" :class-names="assetClassNames" />
   </figure>
 </template>
@@ -10,6 +10,8 @@ const { media } = defineProps({
   media: Object,
   assetClassNames: [String, Object, Array],
   width: Number,
+  preload: { type: Boolean, default: false },
+  lazy: { type: Boolean, default: false },
 });
 
 const image = media.type === 'image' || media._type === 'mainImage';
