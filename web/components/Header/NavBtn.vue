@@ -5,7 +5,7 @@
     aria-controls="mobile-nav"
     @click="globalStore.setIsNavOpen()"
   >
-    <span class="visually-hidden">Menu</span>
+    <span class="sr-only">Menu</span>
 
     <span class="origin-top-left" :class="[{ 'rotate-45 -translate-y-[0.085rem] translate-x-[0.5rem]': globalStore.isNavOpen }, classes]" />
     <span :class="[{ 'opacity-0': globalStore.isNavOpen }, classes]" />
