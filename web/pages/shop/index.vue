@@ -1,5 +1,5 @@
 <template>
-  <article class="p-2 pt-8 flex flex-col space-y-2">
+  <div class="p-2 pt-8 flex flex-col space-y-2">
     <Cart />
 
     <button :class="{ 'opacity-50': shopifyStore.loading }" class="text-left">
@@ -10,7 +10,7 @@
       <p>{{ item.title }}</p>
       <p>{{ convertPriceEur(item.price) }}</p>
     </NuxtLink>
-  </article>
+  </div>
 </template>
 
 <script setup>

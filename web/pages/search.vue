@@ -1,11 +1,11 @@
 <template>
-  <article class="p-2 pt-48">
+  <div class="p-2 pt-48">
     <ais-instant-search :index-name="indexName" :search-client="algolia">
       <ais-search-box />
 
       <ais-hits>
         <template #item="{ item }">
-          <article>
+          <div>
             <h2>
               <ais-highlight :hit="item" attribute="title" />
             </h2>
@@ -20,11 +20,11 @@
                 <span v-if="index < item.tags.length - 1">, </span>
               </span>
             </p> -->
-          </article>
+          </div>
         </template>
       </ais-hits>
     </ais-instant-search>
-  </article>
+  </div>
 </template>
 
 <script setup>

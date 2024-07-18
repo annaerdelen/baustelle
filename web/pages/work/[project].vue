@@ -1,5 +1,5 @@
 <template>
-  <article class="pb-48">
+  <div class="pb-48">
     <section class="h-screen relative pointer-events-none">
       <Media :media="data?.project.media" class="w-full h-full block" />
     </section>
@@ -9,7 +9,7 @@
     <section class="grid grid-cols-4">
       <Media v-for="item in data?.project.mediaGallery" :key="item._key" :media="item" />
     </section>
-  </article>
+  </div>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <article class="p-2 pt-8">
+  <div class="p-2 pt-8">
     <div>
       <p>{{ data?.product.title }}</p>
       <p>{{ convertPriceEur(data?.product.variants[0].price) }}</p>
@@ -12,7 +12,7 @@
     </div>
 
     <button :class="{ loading: loading }" @click="addToCart">{{ loading ? 'Adding ...' : 'Add to cart' }}</button>
-  </article>
+  </div>
 </template>
 
 <script setup>

@@ -1,7 +1,6 @@
 export const seo = `
   seo{
     metaDescription,
-    notIndexed,
     'ogImage': ogImage.asset->url,
   },
 `;

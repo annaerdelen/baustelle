@@ -1,11 +1,11 @@
 <template>
-  <article class="p-2 pt-8">
+  <div class="p-2 pt-8">
     <p>{{ data?.collection.store.title }}</p>
 
     <ul>
       <li v-for="product in data?.products" :key="product._id">{{ product?.title }}</li>
     </ul>
-  </article>
+  </div>
 </template>
 
 <script setup>

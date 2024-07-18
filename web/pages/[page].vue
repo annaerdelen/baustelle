@@ -1,7 +1,7 @@
 <template>
-  <article class="pt-12">
+  <div class="pt-12">
     <Modules :modules="data?.page.content" />
-  </article>
+  </div>
 </template>
 
 <script setup>

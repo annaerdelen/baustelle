@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <div>
     <ul>
       <li
         v-for="project in data?.homepage.projects"
@@ -10,7 +10,7 @@
         <ProjectPreview :project="project" />
       </li>
     </ul>
-  </article>
+  </div>
 </template>
 
 <script setup>
