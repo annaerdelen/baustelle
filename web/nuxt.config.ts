@@ -1,14 +1,13 @@
 export default defineNuxtConfig({
   ssr: true,
 
-  //TODO
   app: {
+    //TODO
     head: {
       // script: [
       //   { defer: true, 'data-domain': 'domain.de', src: 'https://plausible.io/js/plausible.js' }
       // ],
       // link: [
-      // TODO
       // {
       //   rel: 'preload',
       //   as: 'font',

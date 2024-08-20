@@ -52,11 +52,11 @@ export default defineConfig({
   },
 
   // Don't show media library on image selection
-  form: {
-    image: {
-      assetSources: (previousAssetSources) => {
-        return previousAssetSources.filter((assetSource) => assetSource.title !== mediaAssetSource.title);
-      },
-    },
-  },
+  // form: {
+  //   image: {
+  //     assetSources: (previousAssetSources) => {
+  //       return previousAssetSources.filter((assetSource) => assetSource.title !== mediaAssetSource.title);
+  //     },
+  //   },
+  // },
 });

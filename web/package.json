@@ -20,14 +20,15 @@
   "dependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/algolia": "^1.9.0",
-    "@nuxtjs/sanity": "^1.9.0",
+    "@nuxtjs/sanity": "^1.11.4",
     "@pinia/nuxt": "^0.5.1",
     "@portabletext/vue": "^1.0.6",
+    "@sanity/client": "^6.21.3",
     "@sanity/image-url": "^1.0.2",
     "algoliasearch": "^4.19.1",
     "buffer": "^6.0.3",
     "gsap": "^3.12.5",
-    "hls.js": "^1.5.7",
+    "hls.js": "^1.5.14",
     "just-debounce-it": "^3.2.0",
     "sanity-algolia": "^1.1.0",
     "shopify-buy": "^2.20.0"
