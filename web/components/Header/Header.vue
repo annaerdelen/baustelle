@@ -1,7 +1,7 @@
 <template>
   <header class="fixed top-0 w-full flex justify-between p-2 z-40">
     <NuxtLink to="/">
-      <h1>{{ sanityStore.global?.siteTitle }}</h1>
+      <h1>{{ globalStore?.siteTitle }}</h1>
     </NuxtLink>
 
     <NavDesktop />
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-const sanityStore = useSanityStore();
+const globalStore = useGlobalStore();
 
 // watchEffect(()=> {
 //   textBox.value = route.name
