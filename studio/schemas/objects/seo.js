@@ -4,6 +4,12 @@ export default {
   type: 'object',
   fields: [
     {
+      title: 'Hide this Page from Search Engine Indexing?',
+      name: 'notIndexed',
+      type: 'boolean',
+      initialValue: false,
+    },
+    {
       title: 'Meta Description',
       name: 'metaDescription',
       type: 'text',

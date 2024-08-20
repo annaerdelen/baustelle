@@ -1,4 +1,4 @@
-export default function ({ global, title, seo }) {
+export default function ({ global, title, seo, hidden = false }) {
   const lang = 'en'; //TODO
   const description = seo?.metaDescription || global.metaDescription;
   const image = seo?.ogImage || global.ogImage || '';
@@ -9,6 +9,7 @@ export default function ({ global, title, seo }) {
       lang,
     },
     meta: [
+      hidden || seo?.notIndexed ? { name: 'robots', content: 'noindex, nofollow' } : {}, //TODO
       { name: 'robots', content: 'noindex, nofollow' }, //TODO
       {
         name: 'title',
