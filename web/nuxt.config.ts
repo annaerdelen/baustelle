@@ -1,6 +1,11 @@
 export default defineNuxtConfig({
   ssr: true,
 
+  routeRules: {
+    '/information': { redirect: '/about' },
+    '/work/**': { redirect: '/projects' },
+  },
+
   app: {
     //TODO
     head: {
@@ -16,9 +21,7 @@ export default defineNuxtConfig({
       //   href: '/fonts/PFDasGroteskMonoPro-Light.woff2',
       // },
       // ],
-      // noscript: [
-      //   { children: 'JavaScript is required' }
-      // ]
+      noscript: [{ children: 'Please enable JavaScript to view this website.' }],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },

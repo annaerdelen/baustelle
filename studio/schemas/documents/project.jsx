@@ -1,6 +1,6 @@
 import { orderRankField } from '@sanity/orderable-document-list';
 import { FiSquare } from 'react-icons/fi';
-import { generatePreviewMedia, slugify, slugValidation } from '../../utils/sanityHelper';
+import { generatePreviewMedia, mediaValidation, slugify, slugValidation } from '../../utils/sanityHelper';
 
 export default {
   type: 'document',
@@ -59,6 +59,7 @@ export default {
       title: 'Preview, Hero Media',
       name: 'media',
       type: 'media',
+      validation: mediaValidation,
     },
     {
       name: 'collaborator',

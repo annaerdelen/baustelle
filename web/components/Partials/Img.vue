@@ -3,8 +3,8 @@
     provider="sanity"
     :preload="preload && !lazy ? true : false"
     :loading="!preload && lazy ? 'lazy' : 'eager'"
-    placeholder-class="placeholder-active"
     :placeholder
+    placeholder-class="placeholder-active"
     :width="width ? width : dimensions.width"
     :height="width ? '' : dimensions.height"
     densities="x1"
@@ -40,6 +40,11 @@ const placeholder = computed(() =>
     .url(),
 );
 
+const setHotspot = computed(() => {
+  if (!props.media.hotspot) return { x: 50, y: 50 };
+  return { x: props.media.hotspot?.x * 100, y: props.media.hotspot?.y * 100 };
+});
+
 const dimensions = computed(() => {
   const originalWidth = props.media.dimensions.width;
   const originalHeight = props.media.dimensions.height;
@@ -57,7 +62,7 @@ const dimensions = computed(() => {
 
 const modifiers = computed(() => ({ crop: props.media.crop || '', hotspot: props.media.hotspot || '' }));
 
-const styles = `aspect-ratio:${dimensions.value.width / dimensions.value.height}`;
+const styles = `aspect-ratio:${dimensions.value.width / dimensions.value.height}; object-position: ${setHotspot.value.x}% ${setHotspot.value.y}%`;
 
 const sizes = '640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536px 2560:1920px 3200:2560px 3201:3200px';
 </script>

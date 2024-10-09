@@ -10,8 +10,6 @@
 </template>
 
 <script setup>
-import { global, media } from '@/utils/queries';
-
 const query = groq`{
   ${global}
   "projectsOverview": *[_type == "projectsOverview"][0],

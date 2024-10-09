@@ -6,6 +6,7 @@
 
 <script setup>
 import { PortableText } from '@portabletext/vue';
+import BlockContentLink from './BlockContentLink.vue';
 
 defineProps({
   blocks: Array,
@@ -17,8 +18,7 @@ const components = {
   //   mainImage: Image,
   // },
   marks: {
-    externalLink: ({ value }, { slots }) => h('a', { href: value.href, target: '_blank', rel: 'noopener noreferrer' }, slots.default?.()),
-    internalLink: ({ value }, { slots }) => h('a', { href: value.slug || value.page }, slots.default?.()),
+    link: BlockContentLink,
     highlight: (_, { slots }) => h('span', { class: 'block-highlight' }, slots.default?.()),
   },
 };

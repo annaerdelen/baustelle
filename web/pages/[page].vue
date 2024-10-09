@@ -5,8 +5,6 @@
 </template>
 
 <script setup>
-import { seo, global, blockContent, media, modules } from '@/utils/queries';
-
 const query = groq`{
   ${global}
   "page": *[_type == "page" && slug.current == $slug][0]{

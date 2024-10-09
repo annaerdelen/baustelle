@@ -33,36 +33,40 @@ export default defineType({
         ],
         annotations: [
           {
-            name: 'externalLink',
+            name: 'link',
             type: 'object',
-            title: 'External Link',
             icon: FiLink,
             fields: [
+              {
+                name: 'type',
+                type: 'string',
+                options: {
+                  list: [
+                    { title: 'External Link', value: 'externalLink' },
+                    { title: 'Internal Link', value: 'internalLink' },
+                  ],
+                  layout: 'radio',
+                  direction: 'horizontal',
+                },
+                initialValue: 'externalLink',
+              },
+              {
+                name: 'page',
+                type: 'reference',
+                to: PAGES,
+                hidden: ({ parent }) => !parent?.type || parent.type !== 'internalLink',
+                options: { disableNew: true },
+              },
               {
                 name: 'href',
                 type: 'url',
                 title: 'URL',
+                description: 'To link email addresses use "mailto:" infront of the email, for phone numbers use "tel:"',
+                hidden: ({ parent }) => !parent?.type || parent.type !== 'externalLink',
                 validation: (Rule) =>
                   Rule.uri({
                     scheme: ['http', 'https', 'mailto', 'tel'],
                   }),
-              },
-            ],
-          },
-          {
-            name: 'internalLink',
-            type: 'object',
-            title: 'Internal Link',
-            icon: FiFile,
-            fields: [
-              {
-                title: 'Page',
-                name: 'page',
-                type: 'reference',
-                to: PAGES,
-                options: {
-                  disableNew: true,
-                },
               },
             ],
           },

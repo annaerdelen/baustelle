@@ -1,29 +1,19 @@
 <template>
-  <video ref="video" :class="classNames" :poster="thumbnail" :autoplay="autoplay" :playsinline="playsinline" :muted="muted" :loop="loop" />
+  <video ref="video" :class="classNames" :poster="thumbnail" :playsinline :muted :loop />
 </template>
 
 <script setup>
+import { gsap } from 'gsap';
 import Hls from 'hls.js';
 
 const props = defineProps({
   src: String,
   classNames: [String, Object, Array],
-  autoplay: {
-    type: Boolean,
-    default: true,
-  },
-  playsinline: {
-    type: Boolean,
-    default: true,
-  },
-  muted: {
-    type: Boolean,
-    default: true,
-  },
-  loop: {
-    type: Boolean,
-    default: true,
-  },
+  autoplay: { type: Boolean, default: true },
+  playsinline: { type: Boolean, default: true },
+  muted: { type: Boolean, default: true },
+  loop: { type: Boolean, default: true },
+  bgImg: { type: Boolean, default: false },
 });
 
 const video = ref(null);
@@ -41,6 +31,22 @@ onMounted(() => {
   } else if (video.value.canPlayType('application/vnd.apple.mpegurl')) {
     video.value.src = videoSrc;
   }
+
+  if (props.bgImg)
+    gsap.set(video.value, {
+      backgroundImage: `url("${thumbnail.value}")`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    });
+
+  if (props.autoplay)
+    video.value
+      .play()
+      .then(function () {
+        // autoplay was successful!
+      })
+      .catch((error) => console.log('video autoplay', error));
 });
 </script>
 

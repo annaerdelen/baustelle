@@ -14,7 +14,6 @@
 </template>
 
 <script setup>
-import { global } from '@/utils/queries';
 import { product } from '@/utils/shopify/queries';
 import { convertPriceEur } from '@/utils/shopify/helper';
 

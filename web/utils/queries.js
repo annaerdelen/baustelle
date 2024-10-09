@@ -33,6 +33,7 @@ export const image = `
 
 export const video = `
   type == "video" => {
+    'aspectRatio': video.asset->data.aspect_ratio,
     'src': video.asset->playbackId,
   },
 `;
@@ -50,6 +51,7 @@ export const mediaGallery = `
       'originalFilename': asset->originalFilename,
     },
     _type == "mainVideo" => {
+      'aspectRatio': video.asset->data.aspect_ratio,
       'src': video.asset->playbackId,
     },
   }
@@ -75,23 +77,31 @@ export const link = `
   }
 `;
 
-export const blockContent = `
-  _type == "block" => {
-    markDefs[]{
-      ...,
-      'type': _type,
-      _type == "internalLink" => {
-        'page': page->_type,
-        'slug': page->slug.current,
+export const blockContent = (block) => `
+  ${block}[]{
+    ...,
+    _type == "block" => {
+      markDefs[]{
+        _type == "link" => {
+          type,
+          type == "externalLink" => {
+            ...,
+          },
+          type == "internalLink" => {
+            ...,
+            'page': page->_type,
+            'slug': page->slug.current,
+          },
+        },
       },
     },
-  },
-  _type == "image" => {
-    ...,
-    'src': image.asset->url,
-    'crop': image.crop,
-    'hotspot': image.hotspot,
-    'dimensions': image.asset->metadata.dimensions,
+    _type == "image" => {
+      ...,
+      'src': image.asset->url,
+      'crop': image.crop,
+      'hotspot': image.hotspot,
+      'dimensions': image.asset->metadata.dimensions,
+    },
   },
 `;
 

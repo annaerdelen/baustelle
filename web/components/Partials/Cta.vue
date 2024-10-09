@@ -2,7 +2,7 @@
   <NuxtLink
     v-if="cta && (cta.slug || cta.page || cta.href)"
     class="bg-black text-white"
-    :to="cta.type === 'internalLink' ? cta.slug || cta.page : cta.href"
+    :to="cta.type === 'internalLink' ? '/' + (cta.slug || cta.page) : cta.href"
     :target="cta.type === 'externalLink' ? '_blank' : ''"
   >
     {{ cta.title }}

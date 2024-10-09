@@ -26,6 +26,12 @@ export const slugValidation = (Rule) =>
     return slugRule.test(slug.current) ? true : 'Please only use lowercase letters, numbers or single hyphens.';
   }).required();
 
+export const mediaValidation = (Rule) =>
+  Rule.custom((props) => {
+    if ((props.type === 'image' && props.image) || (props.type === 'video' && props.video)) return true;
+    return 'Bild oder Video erforderlich';
+  });
+
 export const generatePreviewMediaTitle = (options) => {
   if ((options.type === 'image' || options.type === 'mainImage') && options.image) return options.imageName;
   if ((options.type === 'video' || options.type === 'mainVideo') && options.playbackId) return 'Video';

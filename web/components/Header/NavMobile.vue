@@ -18,7 +18,7 @@ const route = useRoute();
 const { key } = useKey();
 
 watch(
-  () => route.href,
+  () => route.fullPath,
   () => {
     if (isMenuOpen.value) isMenuOpen.value = false;
   },

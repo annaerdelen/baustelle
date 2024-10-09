@@ -22,3 +22,7 @@ export const slugToString = (slug) => {
 export const refreshScrollTriggers = () => {
   ScrollTrigger.getAll().forEach((st) => st.refresh());
 };
+
+export const videoAspect = (video) => {
+  return `aspect-ratio:${video.aspectRatio.split(':')[0] / video.aspectRatio.split(':')[1]}`;
+};

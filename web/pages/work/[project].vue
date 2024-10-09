@@ -13,18 +13,13 @@
 </template>
 
 <script setup>
-import { seo, global, blockContent, media, mediaGallery } from '@/utils/queries';
-
 const query = groq`{
   ${global}
   "project": *[_type == "project" && slug.current == $slug]|order(_updatedAt desc)[0]{
     ...,
     ${seo}
     ${media}
-    description[]{
-      ...,
-      ${blockContent}
-    },
+    ${blockContent('description')}
     ${mediaGallery}
   },
 }`;

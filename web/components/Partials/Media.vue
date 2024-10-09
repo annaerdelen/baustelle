@@ -1,7 +1,7 @@
 <template>
   <figure>
     <Img v-if="image && media.image" :preload :lazy :width :media :src="media.image" :alt="media.alt" :class-names="assetClassNames" />
-    <Video v-if="video && media.src" :src="media.src" :class-names="assetClassNames" />
+    <Video v-if="video && media.src" :src="media.src" :class-names="assetClassNames" :autoplay="autoplay" :bg-img="bgImg" />
   </figure>
 </template>
 
@@ -12,6 +12,8 @@ const { media } = defineProps({
   width: Number,
   preload: { type: Boolean, default: false },
   lazy: { type: Boolean, default: false },
+  bgImg: { type: Boolean, default: false },
+  autoplay: { type: Boolean, default: true },
 });
 
 const image = media.type === 'image' || media._type === 'mainImage';
