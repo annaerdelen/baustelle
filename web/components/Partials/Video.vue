@@ -1,5 +1,5 @@
 <template>
-  <video ref="video" :class="classNames" :poster="thumbnail" :playsinline :muted :loop />
+  <video ref="video" :class="classNames" :poster="thumbnail" :playsinline="playsinline" :muted="muted" :loop="loop" />
 </template>
 
 <script setup>
@@ -7,8 +7,9 @@ import { gsap } from 'gsap';
 import Hls from 'hls.js';
 
 const props = defineProps({
-  src: String,
+  media: Object,
   classNames: [String, Object, Array],
+  lazyVideo: { type: Boolean, default: false },
   autoplay: { type: Boolean, default: true },
   playsinline: { type: Boolean, default: true },
   muted: { type: Boolean, default: true },
@@ -17,19 +18,39 @@ const props = defineProps({
 });
 
 const video = ref(null);
+const { isInView } = useInView(() => video.value);
 
-const thumbnail = computed(() => `https://image.mux.com/${props.src}/thumbnail.webp?time=0`);
+const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=0&w=1200`);
+
+const playVideo = () => {
+  video.value.play().catch((error) => console.log('video play error', error));
+};
 
 onMounted(() => {
-  const videoSrc = `https://stream.mux.com/${props.src}.m3u8`;
+  const { playbackId } = props.media;
 
-  if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(videoSrc);
-    hls.attachMedia(video.value);
-    // hls.startLevel = 3;
-  } else if (video.value.canPlayType('application/vnd.apple.mpegurl')) {
-    video.value.src = videoSrc;
+  if (props.media.mp4Supported) {
+    const mp4Url = `https://stream.mux.com/${playbackId}/high.mp4`;
+    video.value.src = mp4Url;
+  } else {
+    const streamUrl = `https://stream.mux.com/${playbackId}.m3u8`;
+
+    if (Hls.isSupported()) {
+      // const hls = new Hls({
+      //   startLevel: props.quality === 'auto' ? -1 : parseInt(props.quality),
+      //   capLevelToPlayerSize: true,
+      //   maxBufferLength: 30,
+      // });
+      const hls = new Hls();
+      hls.loadSource(streamUrl);
+      hls.attachMedia(video.value);
+
+      // hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+      //   console.log('Available qualities:', data.levels.map(l => l.height));
+      // });
+    } else if (video.value.canPlayType('application/vnd.apple.mpegurl')) {
+      video.value.src = streamUrl;
+    }
   }
 
   if (props.bgImg)
@@ -40,13 +61,11 @@ onMounted(() => {
       backgroundPosition: 'center',
     });
 
-  if (props.autoplay)
-    video.value
-      .play()
-      .then(function () {
-        // autoplay was successful!
-      })
-      .catch((error) => console.log('video autoplay', error));
+  if (!props.lazyVideo && props.autoplay) playVideo();
+});
+
+watch(isInView, (value) => {
+  if (value && props.lazyVideo) playVideo();
 });
 </script>
 

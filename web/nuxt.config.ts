@@ -78,6 +78,7 @@ export default defineNuxtConfig({
 
   //TODO
   // runtimeConfig: {
+  //   shoeStoreApiSecret: 'my-secret-key', private keys which are only available server-side
   //   public: {
   //     shopifyDomain: process.env.SHOPIFY_DOMAIN,
   //     shopifyStorefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,

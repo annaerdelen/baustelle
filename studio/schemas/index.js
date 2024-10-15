@@ -15,6 +15,7 @@ import copy from './modules/copy';
 import cta from './objects/cta';
 import guide from './documents/guide';
 import mainVideo from './objects/mainVideo';
+import slugField from './objects/slug';
 
 export const schemaTypes = [
   guide,
@@ -34,4 +35,5 @@ export const schemaTypes = [
   socialLink,
   copy,
   cta,
+  slugField,
 ];

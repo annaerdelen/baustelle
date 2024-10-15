@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import { global, media } from '@/utils/queries';
-
 const query = groq`{
   ${global}
   "homepage": *[_type == "homepage"][0]{

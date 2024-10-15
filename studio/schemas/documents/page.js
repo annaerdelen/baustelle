@@ -1,5 +1,4 @@
 import { FiSidebar } from 'react-icons/fi';
-import { slugify, slugValidation } from '../../utils/sanityHelper';
 import { MODULES } from '../../utils/sanityConstants';
 
 export default {
@@ -9,6 +8,7 @@ export default {
   fields: [
     {
       name: 'seo',
+      title: 'SEO',
       type: 'seo',
       options: { collapsible: true, collapsed: true },
     },
@@ -18,19 +18,17 @@ export default {
     },
     {
       name: 'slug',
-      type: 'slug',
-      options: { source: 'title', slugify },
-      validation: slugValidation,
+      type: 'slugField',
     },
     {
       name: 'description',
       type: 'blockContent',
     },
-    {
-      name: 'content',
-      type: 'array',
-      of: MODULES,
-    },
+    // {
+    //   name: 'content',
+    //   type: 'array',
+    //   of: MODULES,
+    // },
   ],
   preview: {
     select: {

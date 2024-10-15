@@ -31,10 +31,15 @@ export const image = `
   },
   `;
 
+export const videoContent = `
+  'aspectRatio': video.asset->data.aspect_ratio,
+  'playbackId': video.asset->playbackId,
+  'mp4Supported': video.asset->data.mp4_support == "standard",
+`;
+
 export const video = `
   type == "video" => {
-    'aspectRatio': video.asset->data.aspect_ratio,
-    'src': video.asset->playbackId,
+    ${videoContent}
   },
 `;
 
@@ -51,8 +56,7 @@ export const mediaGallery = `
       'originalFilename': asset->originalFilename,
     },
     _type == "mainVideo" => {
-      'aspectRatio': video.asset->data.aspect_ratio,
-      'src': video.asset->playbackId,
+      ${videoContent}
     },
   }
 `;
