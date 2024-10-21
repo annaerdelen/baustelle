@@ -32,6 +32,7 @@ export default {
       name: 'href',
       type: 'url',
       title: 'URL',
+      description: 'To link email addresses use "mailto:" infront of the email, for phone numbers use "tel:"',
       hidden: ({ parent }) => !parent?.type || parent.type !== 'externalLink',
       validation: (Rule) =>
         Rule.uri({

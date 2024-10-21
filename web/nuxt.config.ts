@@ -27,12 +27,11 @@ export default defineNuxtConfig({
   },
 
   //TODO
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sanity', '@pinia/nuxt', '@nuxt/image'],
+  modules: ['@nuxt/fonts', '@nuxtjs/tailwindcss', '@nuxtjs/sanity', '@nuxt/image', '@pinia/nuxt'],
   // '@nuxtjs/algolia'
 
   css: [
     '@/assets/styles/fallback.css',
-    '@/assets/styles/fonts.css',
     '@/assets/styles/index.css',
     '@/assets/styles/normalize.css',
     '@/assets/styles/utilities.css',

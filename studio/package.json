@@ -15,15 +15,15 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/dashboard": "^3.1.6",
+    "@sanity/dashboard": "^4.1.0",
     "@sanity/orderable-document-list": "^1.2.1",
-    "@sanity/vision": "^3.50.0",
+    "@sanity/vision": "^3.61.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-is": "^18.2.0",
     "rxjs": "^7.8.1",
-    "sanity": "^3.54.0",
+    "sanity": "^3.61.0",
     "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
     "sanity-plugin-media": "^2.2.5",
     "sanity-plugin-mux-input": "^2.3.6",

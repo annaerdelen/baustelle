@@ -49,3 +49,7 @@
 .gpu {
   transform: translate3d();
 }
+
+.grid-stacked {
+  grid-area: 1 / 1;
+}
