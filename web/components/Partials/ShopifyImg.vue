@@ -1,14 +1,13 @@
 <template>
-  <img class="lazyload" :src="`${asset}&width=2`" :data-src="asset" :alt="alt" />
+  <figure class="w-[9rem]">
+    <img :src="asset + '&width=500'" :alt="alt" loading="lazy" />
+  </figure>
 </template>
 
 <script setup>
 defineProps({
   asset: String,
-  alt: {
-    type: String,
-    default: 'Product Image',
-  },
+  alt: String,
 });
 </script>
 

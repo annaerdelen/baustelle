@@ -29,7 +29,7 @@ export const slugValidation = (Rule) =>
 export const mediaValidation = (Rule) =>
   Rule.custom((props) => {
     if ((props.type === 'image' && props.image) || (props.type === 'video' && props.video)) return true;
-    return 'Bild oder Video erforderlich';
+    return 'Image or Video required';
   });
 
 export const generatePreviewMediaTitle = (options) => {

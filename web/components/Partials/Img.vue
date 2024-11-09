@@ -34,8 +34,9 @@ const props = defineProps({
 const placeholder = computed(() =>
   $urlFor(props.src)
     .rect(dimensions.value.cropLeft || 0, dimensions.value.cropTop || 0, dimensions.value.width, dimensions.value.height)
-    .width(10)
-    .blur(20)
+    .width(5)
+    .blur(10)
+    .quality(10)
     .auto('format')
     .url(),
 );
