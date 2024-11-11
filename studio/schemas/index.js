@@ -16,6 +16,7 @@ import cta from './objects/cta';
 import guide from './documents/guide';
 import mainVideo from './objects/mainVideo';
 import slugField from './objects/slug';
+import gallery from './modules/gallery';
 
 export const schemaTypes = [
   guide,
@@ -36,4 +37,5 @@ export const schemaTypes = [
   copy,
   cta,
   slugField,
+  gallery,
 ];

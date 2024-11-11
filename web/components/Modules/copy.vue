@@ -4,7 +4,7 @@
 
     <div class="flex-1">
       <div class="max-w-[50rem]">
-        <BlockContent :blocks="module?.text || blocks" />
+        <BlockContent :blocks="module?.copy || blocks" />
       </div>
     </div>
   </section>

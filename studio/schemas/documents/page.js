@@ -24,11 +24,11 @@ export default {
       name: 'description',
       type: 'blockContent',
     },
-    // {
-    //   name: 'content',
-    //   type: 'array',
-    //   of: MODULES,
-    // },
+    {
+      name: 'content',
+      type: 'array',
+      of: MODULES,
+    },
   ],
   preview: {
     select: {

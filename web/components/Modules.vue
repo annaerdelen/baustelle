@@ -8,9 +8,7 @@ defineProps({
 });
 
 const chooseModule = (module) => {
-  if (module._type === 'accordion') return resolveComponent('accordion');
-  if (module._type === 'headlineCopy') return resolveComponent('headlineCopy');
   if (module._type === 'copy') return resolveComponent('copy');
-  if (module._type === 'mediaGallery') return resolveComponent('mediaGallery');
+  if (module._type === 'gallery') return resolveComponent('gallery');
 };
 </script>

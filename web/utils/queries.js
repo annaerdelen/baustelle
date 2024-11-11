@@ -43,22 +43,25 @@ export const video = `
   },
 `;
 
+export const mediaGalleryContent = `
+  _key,
+  _type,
+  _type == "mainImage" => {
+    'image': asset._ref,
+    'alt': alt,
+    'crop': crop,
+    'hotspot': hotspot,
+    'dimensions': asset->metadata.dimensions,
+    'originalFilename': asset->originalFilename,
+  },
+  _type == "mainVideo" => {
+    ${videoContent}
+  },
+`;
+
 export const mediaGallery = `
   mediaGallery[]{
-    _key,
-    _type,
-    _type == "mainImage" => {
-      'image': asset._ref,
-      'alt': alt,
-      'crop': crop,
-      'hotspot': hotspot,
-      'dimensions': asset->metadata.dimensions,
-      'originalFilename': asset->originalFilename,
-    },
-    _type == "mainVideo" => {
-      ${videoContent}
-    },
-  }
+    ${mediaGalleryContent}
 `;
 
 export const mediaContent = `
@@ -110,14 +113,14 @@ export const blockContent = (block) => `
 `;
 
 export const modules = `
-  _type == "mediaGallery" => {
+  _type,
+  _type == "gallery" => {
     assets[]{
-      ...,
-      ${image}
-      ${video}
+      ${mediaGalleryContent}
     },
   },
   _type == "copy" => {
-    ${blockContent}
+    title,
+    ${blockContent('copy')}
   },
 `;
