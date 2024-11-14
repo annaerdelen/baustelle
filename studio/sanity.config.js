@@ -7,7 +7,8 @@ import { structure } from './structure';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import { muxInput } from 'sanity-plugin-mux-input';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
-import { dashboardTool, projectUsersWidget } from '@sanity/dashboard';
+import { dashboardTool } from '@sanity/dashboard';
+import { PreviewAction } from './actions/actions';
 
 export default defineConfig({
   theme,
@@ -17,6 +18,10 @@ export default defineConfig({
 
   projectId: 'hnuo52b9',
   dataset: 'production',
+
+  document: {
+    actions: [PreviewAction],
+  },
 
   plugins: [
     structureTool({ structure }),
@@ -51,12 +56,10 @@ export default defineConfig({
     templates: (prev) => [...prev.filter((el) => !['media.tag', 'guide', 'global', 'homepage', 'legal'].includes(el.schemaType))],
   },
 
-  // Don't show media library on image selection
-  // form: {
-  //   image: {
-  //     assetSources: (previousAssetSources) => {
-  //       return previousAssetSources.filter((assetSource) => assetSource.title !== mediaAssetSource.title);
-  //     },
-  //   },
-  // },
+  // Show Media Library on image selection
+  form: {
+    image: {
+      assetSources: () => [mediaAssetSource],
+    },
+  },
 });

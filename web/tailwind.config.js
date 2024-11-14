@@ -22,6 +22,7 @@ module.exports = {
     },
     colors: {
       transparent: 'var(--transparent)',
+      'preview-red': 'var(--preview-red)',
       black: 'var(--black)',
       white: 'var(--white)',
       gray: 'var(--gray)',

@@ -13,11 +13,11 @@ export default function ({ global, title, seo, hidden = false }) {
       { name: 'robots', content: 'noindex, nofollow' }, //TODO
       {
         name: 'title',
-        content: global.siteTitle,
+        content: title || global.siteTitle,
       },
       {
         property: 'og:title',
-        content: global.siteTitle,
+        content: title || global.siteTitle,
       },
       description && {
         name: 'description',

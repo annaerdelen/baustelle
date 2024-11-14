@@ -1,10 +1,10 @@
 export default defineNuxtConfig({
   ssr: true,
 
-  routeRules: {
-    '/information': { redirect: '/about' },
-    '/work/**': { redirect: '/projects' },
-  },
+  // routeRules: {
+  //   '/information': { redirect: '/about' },
+  //   '/work/**': { redirect: '/projects' },
+  // },
 
   app: {
     //TODO
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
   sanity: {
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: 'production',
-    apiVersion: '2022-03-24',
+    apiVersion: '2024-10-20',
     useCdn: false,
   },
 

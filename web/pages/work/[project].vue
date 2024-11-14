@@ -26,7 +26,7 @@ const query = groq`{
   },
 }`;
 
-const { data } = await useSanityQuery(query, { slug: useRoute().params.project });
+const { data } = await useSanityData({ query, slug: useRoute().params.project });
 
 if (!data.value?.project) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 

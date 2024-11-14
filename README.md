@@ -14,6 +14,7 @@ Demo → [baustelle.erdelen.com](https://baustelle.erdelen.com/)
 - Video Hosting with [Mux](https://www.mux.com/)
 - Optimized Images with [Nuxt Image](https://image.nuxt.com/)
 - [PNPM](https://pnpm.io/) Workspaces
+- Preview Functionality
 - Basic Shopify Setup (use with Sanity E-Commerce Template and Sanity Connect)
 
 ## ● Getting Started

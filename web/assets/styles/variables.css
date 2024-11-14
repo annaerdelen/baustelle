@@ -3,6 +3,7 @@
    * Colors
    */
   --transparent: hsla(0, 0%, 100%, 0);
+  --preview-red: hsl(0, 80%, 40%);
   --black: hsl(0, 0%, 0%);
   --white: hsl(0, 0%, 100%);
   --gray: hsl(0, 0%, 36%);

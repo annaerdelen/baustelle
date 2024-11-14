@@ -90,6 +90,28 @@ export const CustomGuide = () => {
 
       <Container paddingBottom={spacing.between}>
         <Box paddingBottom={3}>
+          <Text size={4}>👀 Preview Mode</Text>
+        </Box>
+        <Text size={1}>
+          <p>
+            Preview mode allows you to see changes before publishing. Navigate to the page you want to preview and click on the the three dots in the
+            bottom right corner. Then click on »Open Preview«. This will open the page in a new tab and a red preview banner at the bottom appears.
+          </p>
+          <p>
+            After you edited content, you don't need to click »Publish«, <strong>just refresh the page</strong> and the draft changes appear
+            immediately. Remember, any changes made in preview mode will not be visible to the public until you hit the »Publish« button.
+          </p>
+          <p>Please be aware of the following:</p>
+          <ul>
+            <li>You need to be logged in to your Sanity Studio in the same browser as the preview.</li>
+            <li>This feature does not work in Firefox currently.</li>
+            <li>It may increase API requests, which are limited in the free version.</li>
+          </ul>
+        </Text>
+      </Container>
+
+      <Container paddingBottom={spacing.between}>
+        <Box paddingBottom={3}>
           <Text size={4}>📄 Working with PDFs</Text>
         </Box>
         <Text size={1}>

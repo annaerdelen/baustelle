@@ -20,7 +20,7 @@ const query = groq`{
   },
 }`;
 
-const { data } = await useSanityQuery(query);
+const { data } = await useSanityData({ query });
 
 useSeo({ global: data.value?.global, title: data.value?.projectsOverview.title, seo: data.value?.projectsOverview.seo });
 </script>
