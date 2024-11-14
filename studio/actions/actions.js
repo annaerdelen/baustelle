@@ -4,7 +4,7 @@ export function PreviewAction(props) {
   if (props.id === 'global' || props.id === 'guide') return;
 
   //TODO set url
-  const previewUrl = 'http://localhost:3000';
+  const previewUrl = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000';
 
   return {
     label: 'Open Preview',
