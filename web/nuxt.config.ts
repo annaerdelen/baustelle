@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   //   '/work/**': { redirect: '/projects' },
   // },
 
+  nitro: {
+    preset: 'netlify-static',
+  },
+
   app: {
     //TODO
     head: {
