@@ -14,8 +14,9 @@ const query = groq`{
   ${global}
   "projectsOverview": *[_type == "projectsOverview"][0],
   "projects": *[_type == "project"]|order(orderRank)[]{
-    ..., 
     ${media}
+    title,
+    slug
   },
 }`;
 

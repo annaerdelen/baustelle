@@ -16,8 +16,10 @@
 const query = groq`{
   ${global}
   "project": *[_type == "project" && slug.current == $slug]|order(_updatedAt desc)[0]{
-    ...,
     ${seo}
+    slug,
+    title,
+    date,
     ${media}
     ${blockContent('description')}
     ${mediaGallery}

@@ -62,6 +62,7 @@ export const mediaGalleryContent = `
 export const mediaGallery = `
   mediaGallery[]{
     ${mediaGalleryContent}
+  },
 `;
 
 export const mediaContent = `
