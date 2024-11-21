@@ -21,4 +21,8 @@ const query = groq`{
 }`;
 
 const { data } = await useSanityData({ query, slug: useRoute().params.page });
+
+if (!data.value?.page) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
+
+useSeo({ global: data.value?.global, title: data.value?.page.title, seo: data.value?.page.seo });
 </script>

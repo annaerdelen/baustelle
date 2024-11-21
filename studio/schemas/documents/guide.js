@@ -5,6 +5,11 @@ export default {
   name: 'guide',
   fields: [
     {
+      name: 'title',
+      type: 'string',
+      hidden: true,
+    },
+    {
       name: 'guide',
       type: 'text',
       components: {

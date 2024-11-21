@@ -30,7 +30,7 @@ const { data } = await useSanityData({ query, slug: useRoute().params.project })
 
 if (!data.value?.project) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 
-useSeo({ global: data.value.global, title: data.value?.project.title, seo: data.value?.project.seo });
+useSeo({ global: data.value?.global, title: data.value?.project.title, seo: data.value?.project.seo });
 
 const width = ref(process.client ? window.innerWidth : 0);
 

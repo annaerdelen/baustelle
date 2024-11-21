@@ -1,4 +1,4 @@
-import debounce from 'just-debounce-it';
+import { useDebounceFn } from '@vueuse/core';
 import { BREAKPOINTS } from '@/utils/constants';
 
 export default function () {
@@ -15,7 +15,7 @@ export default function () {
     isMobile.value = width.value < BREAKPOINTS.md;
   }
 
-  const debouncedResize = debounce(onResize, 300, true);
+  const debouncedResize = useDebounceFn(onResize, 300);
 
   onMounted(() => {
     onResize();
