@@ -1,7 +1,7 @@
 <template>
   <figure>
     <Img v-if="image && media.image" :preload :lazy :width :media :src="media.image" :alt="media.alt" :class-names="assetClassNames" />
-    <Video v-if="video && media.src" :media :autoplay :bg-img :lazy-video :class-names="assetClassNames" />
+    <Video v-if="video && media.playbackId" :media :autoplay :bg-img :lazy-video :class-names="assetClassNames" />
   </figure>
 </template>
 
