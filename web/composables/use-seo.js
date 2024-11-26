@@ -1,10 +1,10 @@
 export default function ({ global, title, seo, hidden = false }) {
   const lang = 'en'; //TODO
-  const description = seo?.metaDescription || global.metaDescription;
-  const image = seo?.ogImage || global.ogImage || '';
+  const description = seo?.metaDescription || global?.metaDescription;
+  const image = seo?.ogImage || global?.ogImage || '';
 
   useHead({
-    title: title ? `${title} • ${global.siteTitle}` : global.siteTitle,
+    title: title ? `${title} • ${global?.siteTitle}` : global?.siteTitle,
     htmlAttrs: {
       lang,
     },
@@ -13,11 +13,11 @@ export default function ({ global, title, seo, hidden = false }) {
       { name: 'robots', content: 'noindex, nofollow' }, //TODO
       {
         name: 'title',
-        content: title || global.siteTitle,
+        content: title || global?.siteTitle,
       },
       {
         property: 'og:title',
-        content: title || global.siteTitle,
+        content: title || global?.siteTitle,
       },
       description && {
         name: 'description',
@@ -29,7 +29,7 @@ export default function ({ global, title, seo, hidden = false }) {
       },
     ],
     link: [
-      global.favicon ? { rel: 'icon', type: 'image/png', href: global.favicon } : { rel: 'icon', href: 'data:image' },
+      global?.favicon ? { rel: 'icon', type: 'image/png', href: global?.favicon } : { rel: 'icon', href: 'data:image' },
       // { rel: 'apple-touch-icon', href: global.webClip },
     ],
   });

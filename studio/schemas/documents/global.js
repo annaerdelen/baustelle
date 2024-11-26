@@ -64,7 +64,7 @@ export default {
       group: 'content',
     },
     {
-      name: 'social',
+      name: 'socials',
       type: 'array',
       of: [{ type: 'socialLink' }],
       group: 'content',
