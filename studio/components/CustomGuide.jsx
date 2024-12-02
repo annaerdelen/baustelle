@@ -104,6 +104,7 @@ export const CustomGuide = () => {
           <p>Please be aware of the following:</p>
           <ul>
             <li>You need to be logged in to your Sanity Studio in the same browser as the preview.</li>
+            <li>Preview mode does not work for content that can be found in global settings.</li>
             <li>This feature does not work in Firefox currently.</li>
             <li>It may increase API requests, which are limited in the free version.</li>
           </ul>

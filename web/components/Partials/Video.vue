@@ -64,6 +64,14 @@ onMounted(() => {
   if (!props.lazyVideo && props.autoplay) playVideo();
 });
 
+// onBeforeUnmount(() => {
+//   if (video.value) {
+//     video.value.pause();
+//     video.value.src = '';
+//     video.value.load();
+//   }
+// });
+
 watch(isInView, (value) => {
   if (value && props.lazyVideo) playVideo();
 });
