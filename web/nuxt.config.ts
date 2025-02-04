@@ -31,11 +31,12 @@ export default defineNuxtConfig({
   },
 
   //TODO
-  modules: ['@nuxt/fonts', '@nuxtjs/tailwindcss', '@nuxtjs/sanity', '@nuxt/image', '@pinia/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sanity', '@nuxt/image'],
   // '@nuxtjs/algolia'
 
   css: [
     '@/assets/styles/fallback.css',
+    '@/assets/styles/fonts.css',
     '@/assets/styles/index.css',
     '@/assets/styles/normalize.css',
     '@/assets/styles/utilities.css',
@@ -70,6 +71,13 @@ export default defineNuxtConfig({
       3201: 3201,
     },
   },
+
+  //TODO
+  // router: {
+  //   options: {
+  //     scrollBehaviorType: 'smooth',
+  //   },
+  // },
 
   //TODO
   // algolia: {
