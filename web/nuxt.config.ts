@@ -78,21 +78,4 @@ export default defineNuxtConfig({
   //     scrollBehaviorType: 'smooth',
   //   },
   // },
-
-  //TODO
-  // algolia: {
-  //   recommend: true,
-  //   apiKey: '',
-  //   applicationId: process.env.ALGOLIA_APPLICATION_ID,
-  //   instantSearch: { theme: 'reset' },
-  // },
-
-  //TODO
-  // runtimeConfig: {
-  //   shoeStoreApiSecret: 'my-secret-key', private keys which are only available server-side
-  //   public: {
-  //     shopifyDomain: process.env.SHOPIFY_DOMAIN,
-  //     shopifyStorefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-  //   },
-  // },
 });
