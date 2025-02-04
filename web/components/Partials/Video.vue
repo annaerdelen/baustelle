@@ -18,9 +18,9 @@ const props = defineProps({
 });
 
 const video = ref(null);
-const { isInView } = useInView(() => video.value);
+const { isInView } = useInView(() => (props.lazyVideo ? video.value : null));
 
-const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=0&w=1200`);
+const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=0&width=800`);
 
 const playVideo = () => {
   video.value.play().catch((error) => console.log('video play error', error));

@@ -10,13 +10,8 @@ export const global = `
   "global": *[_type == "global"][0]{
     siteTitle,
     metaDescription,
-    navigation[]->,
     'favicon': favicon.asset->url,
     'ogImage': ogImage.asset->url,
-    social[]{
-      ...,
-      'icon': icon.asset->url,
-    },
   },
 `;
 

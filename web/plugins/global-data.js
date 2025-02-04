@@ -3,16 +3,18 @@ export default defineNuxtPlugin(async () => {
 
   const { data } = await useSanityQuery(groq`{
     "global": *[_type == "global"][0]{
+      siteTitle,
       mainNavigation[]->{
         _id,
         _type,
         title,
         slug,
       },
-      socials[]{
+      social[]{
         ...,
       },
       copyright,
+      navigation[]->,
     },
   }`);
 
