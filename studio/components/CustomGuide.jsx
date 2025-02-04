@@ -2,11 +2,8 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/react-in-jsx-scope */
 import { Container, Box, Text } from '@sanity/ui';
-import { FiGrid, FiArrowRight, FiLink } from 'react-icons/fi';
 
 const spacing = { between: 7 };
-const imagesStyles = { height: '100%', width: '100%', maxWidth: '100%', marginTop: '0.6rem', border: '0.5px solid black' };
-const iconStyles = { paddingRight: '0.4rem' };
 
 export const CustomGuide = () => {
   return (
@@ -105,6 +102,7 @@ export const CustomGuide = () => {
           <ul>
             <li>You need to be logged in to your Sanity Studio in the same browser as the preview.</li>
             <li>Preview mode does not work for content that can be found in global settings.</li>
+            <li>New pages need to be published once before they can be previewed.</li>
             <li>This feature does not work in Firefox currently.</li>
             <li>It may increase API requests, which are limited in the free version.</li>
           </ul>
@@ -122,39 +120,6 @@ export const CustomGuide = () => {
             upload the file to the <a href="/media">media library,</a> click on it, and select "Copy URL" at the bottom left.
           </p>
         </Text>
-      </Container>
-
-      <Container paddingBottom={spacing.between}>
-        <Box paddingBottom={3}>
-          <Text size={4}>🖥️ Building Pages, Choosing Content Blocks/Modules</Text>
-        </Box>
-        <Text size={1}>
-          <p>
-            Most pages are built based on the idea of content modules or blocks, these are like lego pieces you can use to build and display content
-            in a variety of ways. Feel free to create test pages and experiment with those blocks. New modules can be added at any time in
-            consultation with the designer. Here's an overview of the available blocks:
-          </p>
-        </Text>
-
-        {/* //TODO update icons */}
-        <Box paddingTop={4}>
-          <Text size={2}>
-            <FiGrid style={iconStyles} /> Hero
-          </Text>
-          <img style={imagesStyles} src="https://cdn.sanity.io/images/hnuo52b9/production/644366fb82104a6762594f3dc746d565e96c5495-1508x886.jpg" />
-        </Box>
-        <Box paddingTop={4}>
-          <Text size={2}>
-            <FiArrowRight style={iconStyles} /> Carousel
-          </Text>
-          <img style={imagesStyles} src="https://cdn.sanity.io/images/hnuo52b9/production/656cadb9644544610cdbb4cfd114913aa3c61bb4-1508x886.jpg" />
-        </Box>
-        <Box paddingTop={4}>
-          <Text size={2}>
-            <FiLink style={iconStyles} /> Link List
-          </Text>
-          <img style={imagesStyles} src="https://cdn.sanity.io/images/hnuo52b9/production/38fda2f08c8880e1c221a5c849c9c3237c80785e-1508x76.jpg" />
-        </Box>
       </Container>
 
       <Container paddingBottom={spacing.between}>
@@ -205,37 +170,40 @@ export const CustomGuide = () => {
 
       <Container paddingBottom={spacing.between}>
         <Box paddingBottom={3}>
-          <Text size={4}>🖼️ Images</Text>
+          <Text size={4}>🖼️ Image Upload</Text>
         </Box>
         <Text size={1}>
           <p>
-            Images uploaded to Sanity are automatically compressed and converted to the WebP format. In the frontend, I use the lazy loading method,
-            which means that images are only loaded when they are needed or come into the viewport. In addition, different sizes of photos are
-            rendered and automatically adapted to the respective end device.
+            Images uploaded to Sanity are automatically compressed and converted to the WebP format. On the frontend, I implement lazy loading, which
+            ensures that images are only loaded when they are needed or enter the viewport. Additionally, photos are rendered in multiple sizes and
+            automatically adjusted to match the specific device being used.
           </p>
-          <p>
-            Nevertheless, you should make sure that you do not upload images that are too large. Images that do not exceed 1MB are a good guide in
-            terms of file size. However, it also depends on the dimensions – max. 4000px on the wide side usually works well.
-          </p>
+          <p>These are some recommendations that work well in most cases:</p>
+          <ul>
+            <li>Aim for file sizes under 1MB. 2-3 MB can be tolerated, but smaller files are better for performance</li>
+            <li>A maximum of 4000px on the longest side. For most purposes, a width of 2000-3000 px is sufficient </li>
+            <li>Consider uploading lightly compressed images to achieve a smaller file size</li>
+          </ul>
         </Text>
       </Container>
 
       <Container paddingBottom={spacing.between}>
         <Box paddingBottom={3}>
-          <Text size={4}>🛒 Shopify</Text>
+          <Text size={4}>🎥 Video Upload</Text>
         </Box>
         <Text size={1}>
-          <p>
-            For the e-commerce part of the website, we use Shopify to manage the products and Sanity for their content. <br />
-          </p>
-          <p>
-            If you want to create a new product, navigate to your Shopify dashboard and proceed from there. Make sure to give the product a title,
-            upload one photo and add all important product-related information (such as price, inventory, shipping, etc.). The photo that is uploaded
-            there is only displayed in the shopping cart and in the checkout process. <br />
-            As soon as a product has been created or updated in Shopify, it is synced with Sanity. Sanity is now responsible for the entire content
-            part, which is used for the product detail pages, among other things. To customize or create the content for the products, simply go to
-            the corresponding product in Sanity.
-          </p>
+          <p>Video uploaded to Sanity are automatically compressed and optimized for various devices and bandwidths by Mux.</p>
+          <p>These are some recommendations that work well in most cases:</p>
+          <ul>
+            <li>Upload uncompressed or lightly compressed videos in MP4 (H.264 Video Codec)</li>
+            {/* <li>File format: MP4 (H.264 Video Codec and AAC Audio Codec)</li> */}
+            <li>
+              Full HD (1920x1080) is a common standard and offers a good balance between quality and file size. If higher quality is required, you can
+              also use 4K (3840x2160)
+            </li>
+            <li>A file size of under 100 MB per file is practical, as upload times could otherwise become very long</li>
+            {/* <li>AAC audio codec, at least 128 kbps</li> */}
+          </ul>
         </Text>
       </Container>
     </Container>

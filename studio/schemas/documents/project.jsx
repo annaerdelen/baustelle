@@ -8,7 +8,7 @@ export default {
   title: 'Project',
   icon: FiSquare,
   fields: [
-    orderRankField({ type: 'project' }),
+    orderRankField({ type: 'project', newItemPosition: 'before' }),
     {
       title: 'SEO',
       name: 'seo',
@@ -80,6 +80,16 @@ export default {
       name: 'mediaGallery',
       type: 'mediaGallery',
     },
+    // {
+    //   name: 'content',
+    //   type: 'array',
+    //   of: ARTICLE_MODULES,
+    //   options: {
+    //     insertMenu: {
+    //       views: [{ name: 'grid', columns: 3, previewImageUrl: (schemaTypeName) => `/static/previews/article/${schemaTypeName}.png` }],
+    //     },
+    //   },
+    // },
   ],
   preview: {
     select: {

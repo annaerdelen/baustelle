@@ -11,9 +11,21 @@ export function PreviewAction(props) {
     icon: FiEye,
     onHandle: () => {
       const doc = props.draft || props.published;
+      let slug;
+
+      switch (doc._type) {
+        case 'homepage':
+          slug = '';
+          break;
+        case 'about':
+          slug = '/about';
+          break;
+        default:
+          slug = doc.slug?.current || '';
+      }
 
       // test page preview urls
-      const url = `${previewUrl}/${doc.slug?.current || ''}?preview=true`;
+      const url = `${previewUrl}${slug}?preview=true`;
       window.open(url, '_blank');
     },
   };

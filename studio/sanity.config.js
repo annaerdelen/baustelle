@@ -10,6 +10,9 @@ import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { dashboardTool } from '@sanity/dashboard';
 import { PreviewAction } from './actions/actions';
 
+//TODO
+const singletons = ['media.tag', 'guide', 'global', 'homepage'];
+
 export default defineConfig({
   theme,
 
@@ -20,7 +23,14 @@ export default defineConfig({
   dataset: 'production',
 
   document: {
-    actions: [PreviewAction],
+    actions: (prev, context) => {
+      if (singletons.includes(context.documentId)) {
+        const filteredActions = prev.filter((item) => !['unpublish', 'delete', 'duplicate'].includes(item.action));
+        return [...filteredActions, PreviewAction];
+      }
+
+      return [...prev, PreviewAction];
+    },
   },
 
   plugins: [
@@ -52,8 +62,7 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
-    //TODO
-    templates: (prev) => [...prev.filter((el) => !['media.tag', 'guide', 'global', 'homepage', 'legal'].includes(el.schemaType))],
+    templates: (prev) => [...prev.filter((el) => !singletons.includes(el.schemaType))],
   },
 
   // Show Media Library on image selection

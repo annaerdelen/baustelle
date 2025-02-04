@@ -26,3 +26,15 @@ export const refreshScrollTriggers = () => {
 export const videoAspect = (video) => {
   return `aspect-ratio:${video.aspectRatio.split(':')[0] / video.aspectRatio.split(':')[1]}`;
 };
+
+export const imageAspect = (image) => {
+  return `aspect-ratio:${image.dimensions.width / image.dimensions.height}`;
+};
+
+export const mediaAspect = (media) => {
+  return media.type === 'video' ? videoAspect(media) : imageAspect(media);
+};
+
+export const checkIfMediaExists = (media) => {
+  return (media.type === 'image' && media.image) || (media.type === 'video' && media.playbackId);
+};

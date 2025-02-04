@@ -23,6 +23,8 @@ const query = groq`{
     ${media}
     ${blockContent('description')}
     ${mediaGallery}
+    "nextCaseStudy": *[_type == "caseStudy" && orderRank > ^.orderRank] | order(orderRank)[0],
+    "firstCaseStudy": *[_type == "caseStudy"] | order(orderRank)[0],
   },
 }`;
 
@@ -52,11 +54,5 @@ const date = computed(() => {
 //   }
 // });
 
-// const nextProject = computed(() => {
-//   if (getCurrentIndex() === homepage.value.projects.length - 1) {
-//     return homepage.value.projects[0];
-//   } else {
-//     return homepage.value.projects[getCurrentIndex() + 1];
-//   }
-// });
+// const nextProject = computed(() => data.value?.caseStudy.nextCaseStudy || data.value?.caseStudy.firstCaseStudy);
 </script>

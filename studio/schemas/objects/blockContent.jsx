@@ -1,17 +1,16 @@
 import React from 'react';
-import { FiFile, FiLink, FiEdit2 } from 'react-icons/fi';
-import { defineType, defineArrayMember } from 'sanity';
+import { FiLink, FiEdit2 } from 'react-icons/fi';
 import { PAGES } from '../../utils/sanityConstants';
 
 const Highlight = (props) => <span style={{ backgroundColor: 'hsla(50, 100%, 50%, 0.5)' }}>{props.children}</span>;
 
-export default defineType({
+export default {
   title: 'Block Content',
   name: 'blockContent',
   type: 'array',
   description: 'Create paragraphs with the key combination: shift + enter',
   of: [
-    defineArrayMember({
+    {
       title: 'Block',
       type: 'block',
       styles: [],
@@ -72,10 +71,10 @@ export default defineType({
           },
         ],
       },
-    }),
+    },
     // defineArrayMember({
     //   type: 'image',
     //   options: {hotspot: true},
     // }),
   ],
-});
+};

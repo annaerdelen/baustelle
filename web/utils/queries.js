@@ -78,11 +78,22 @@ export const media = `
   },
 `;
 
-export const link = `
-  link{
+export const ctaContent = `
+  type,
+  title,
+  type == "internalLink" => {
     'slug': page->slug.current,
     'page': page->_type,
-  }
+  },
+  type == "externalLink" => {
+    href,
+  },
+`;
+
+export const cta = `
+  cta{
+    ${ctaContent}
+  },
 `;
 
 export const blockContent = (block) => `

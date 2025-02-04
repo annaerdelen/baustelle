@@ -7,20 +7,16 @@ export default {
   options: { columns: 2 },
   fields: [
     {
-      title: 'Title',
       name: 'title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'URL',
       name: 'url',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
-    // {
-    //   title: 'Icon',
-    //   name: 'icon',
-    //   type: 'image',
-    // },
   ],
   preview: {
     select: {
