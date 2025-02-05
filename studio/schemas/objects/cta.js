@@ -1,6 +1,13 @@
 import { FiLink } from 'react-icons/fi';
 import { PAGES } from '../../utils/sanityConstants';
 
+// {
+//   title: 'CTA',
+//   name: 'cta',
+//   type: 'cta',
+//   validation: ctaValidation,
+// },
+
 export default {
   title: 'CTA',
   name: 'cta',

@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.7.4",
-    "@nuxtjs/tailwindcss": "^6.12.2",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.22.0",
@@ -23,8 +22,10 @@
     "@portabletext/vue": "^1.0.6",
     "@sanity/client": "^6.24.1",
     "@sanity/image-url": "^1.1.0",
+    "@tailwindcss/vite": "^4.0.3",
     "@vueuse/core": "^12.0.0",
     "gsap": "^3.12.5",
-    "hls.js": "^1.5.18"
+    "hls.js": "^1.5.18",
+    "tailwindcss": "^4.0.3"
   }
 }

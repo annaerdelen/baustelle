@@ -1,14 +1,20 @@
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineNuxtConfig({
   ssr: true,
+
+  nitro: {
+    preset: 'netlify-static',
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
   // routeRules: {
   //   '/information': { redirect: '/about' },
   //   '/work/**': { redirect: '/projects' },
   // },
-
-  nitro: {
-    preset: 'netlify-static',
-  },
 
   app: {
     //TODO
@@ -30,18 +36,9 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  //TODO
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sanity', '@nuxt/image'],
-  // '@nuxtjs/algolia'
+  modules: ['@nuxtjs/sanity', '@nuxt/image'],
 
-  css: [
-    '@/assets/styles/fallback.css',
-    '@/assets/styles/fonts.css',
-    '@/assets/styles/index.css',
-    '@/assets/styles/normalize.css',
-    '@/assets/styles/utilities.css',
-    '@/assets/styles/variables.css',
-  ],
+  css: ['@/assets/styles/fonts.css', '@/assets/styles/index.css', '@/assets/styles/normalize.css', '@/assets/styles/fallback.css'],
 
   imports: { dirs: ['./stores'] },
 

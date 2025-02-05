@@ -9,6 +9,8 @@ const globalStore = useGlobalStore();
 </script>
 
 <style scoped>
+@reference "tailwindcss";
+
 nav .router-link-exact-active {
   @apply underline;
 }

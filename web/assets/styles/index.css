@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /* TODO */
 .page-enter-active,
@@ -13,23 +11,87 @@
 }
 
 body {
-  @apply text-14 tracking-base selection:bg-gray leading-tight underline-offset-[3px] decoration-1;
+  @apply font-gt text-14 selection:bg-gray leading-tight tracking-tight;
 }
 
-/**
- * Layout
- */
+@theme {
+  --color-*: initial;
+  --color-preview-red: hsl(0, 80%, 40%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray: hsl(0, 0%, 36%);
 
-.spacing-x {
+  --font-gt: GT, sans-serif;
+  /* --font-georgia: Georgia, serif;
+  --font-courier: 'Courier New', mono; */
+
+  --text-*: initial;
+  --text-14: 1.4rem;
+  --text-large: clamp(2.5rem, 7vw + 0.5rem, 10rem);
+
+  /* power1 */
+  --ease-in-quad: cubic-bezier(0.11, 0, 0.5, 0);
+  --ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+  --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+  /* power2 */
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  /* power3 */
+  --ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  /* power4 */
+  --ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  /* expo */
+  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
 }
 
-/**
- * Typography
- */
+@utility scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-.copy {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-.hl {
-  @apply text-balance;
+@utility breakword {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* @utility svg-full {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+} */
+
+@utility grid-stacked {
+  grid-area: 1 / 1;
+}
+
+@utility gpu {
+  transform: translate3d();
+}
+
+@layer components {
+  /* .card {
+    background-color: var(--color-white);
+    border-radius: var(--rounded-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-xl);
+  } */
+
+  .copy {
+  }
+
+  .hl {
+    @apply text-balance;
+  }
 }

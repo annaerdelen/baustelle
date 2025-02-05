@@ -1,72 +1,76 @@
-:root {
-  font-size: 62.5%;
-}
+@import 'tailwindcss';
 
-*,
-*:before,
-*:after {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  :root {
+    font-size: 62.5%;
+  }
 
-* {
-  font: inherit;
-}
+  *,
+  *:before,
+  *:after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
 
-html,
-body {
-  height: 100%;
-}
+  * {
+    font: inherit;
+  }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  html,
+  body {
+    height: 100%;
+  }
 
-#root {
-  isolation: isolate;
-}
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-ul,
-ol {
-  list-style: none;
-}
+  #root {
+    isolation: isolate;
+  }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
+  ul,
+  ol {
+    list-style: none;
+  }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
 
-input {
-  border-radius: 0;
-  background: transparent;
-}
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
 
-textarea {
-  resize: none;
-  background: transparent;
-}
+  input {
+    border-radius: 0;
+    background: transparent;
+  }
 
-select:focus-visible,
-input:focus-visible,
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid black;
-  border-radius: 3px;
+  textarea {
+    resize: none;
+    background: transparent;
+  }
+
+  select:focus-visible,
+  input:focus-visible,
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid black;
+    border-radius: 3px;
+  }
 }

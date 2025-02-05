@@ -48,3 +48,15 @@ export const generatePreviewMedia = (options) => {
       </figure>
     );
 };
+
+export const ctaValidation = (Rule) =>
+  Rule.custom((props) => {
+    if (
+      props.type === 'none' ||
+      (props.type === 'internalLink' && props.title && props.page) ||
+      (props.type === 'externalLink' && props.title && props.href)
+    )
+      return true;
+
+    return 'Internal Link or External Link required';
+  });

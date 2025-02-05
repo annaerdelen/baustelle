@@ -69,6 +69,8 @@ const sizes = '640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536p
 </script>
 
 <style scoped>
+@reference "tailwindcss";
+
 img {
   @apply w-full h-full object-cover;
 }

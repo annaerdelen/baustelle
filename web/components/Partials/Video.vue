@@ -78,6 +78,8 @@ watch(isInView, (value) => {
 </script>
 
 <style scoped>
+@reference "tailwindcss";
+
 video {
   @apply w-full h-full object-cover;
 }

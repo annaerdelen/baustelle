@@ -25,6 +25,8 @@ const components = {
 </script>
 
 <style>
+@reference "tailwindcss";
+
 .block-content p:not(:last-child),
 .block-content ul:not(:last-child) {
   @apply pb-6;
