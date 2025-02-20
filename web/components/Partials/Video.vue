@@ -37,16 +37,20 @@ onMounted(() => {
 
     if (Hls.isSupported()) {
       // const hls = new Hls({
-      //   startLevel: props.quality === 'auto' ? -1 : parseInt(props.quality),
+      //   startLevel: 3,
       //   capLevelToPlayerSize: true,
       //   maxBufferLength: 30,
+      //   enableWorker: true,
+      //   maxLoadingDelay: 4,
+      //   manifestLoadingTimeOut: 10000,
       // });
       const hls = new Hls();
       hls.loadSource(streamUrl);
       hls.attachMedia(video.value);
 
-      // hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-      //   console.log('Available qualities:', data.levels.map(l => l.height));
+      // hls.on(Hls.Events.MANIFEST_PARSED, (event, data) => {
+      //   const highestQuality = data.levels.length - 1;
+      //   hls.currentLevel = highestQuality;
       // });
     } else if (video.value.canPlayType('application/vnd.apple.mpegurl')) {
       video.value.src = streamUrl;

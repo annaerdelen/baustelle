@@ -13,6 +13,10 @@ defineProps({
 });
 
 const components = {
+  // block: {
+  //   normal: (_, { slots }) => h('p', { class: 'copy' }, slots.default?.()),
+  //   'hl-xl': (_, { slots }) => h('p', { class: 'hl-xl' }, slots.default?.()),
+  // },
   styles: {},
   // types: {
   //   mainImage: Image,
