@@ -17,6 +17,7 @@ import guide from './documents/guide';
 import mainVideo from './objects/mainVideo';
 import slugField from './objects/slug';
 import gallery from './modules/gallery';
+import redirect from './objects/redirect';
 
 export const schemaTypes = [
   guide,
@@ -38,4 +39,5 @@ export const schemaTypes = [
   cta,
   slugField,
   gallery,
+  redirect,
 ];

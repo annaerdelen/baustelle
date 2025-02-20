@@ -1,5 +1,5 @@
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
-import { FiCircle, FiFileText, FiSettings, FiSidebar, FiSquare, FiHome, FiInfo } from 'react-icons/fi';
+import { FiCircle, FiFileText, FiSettings, FiSidebar, FiSquare, FiHome, FiInfo, FiLink } from 'react-icons/fi';
 
 export const structure = (S, context) =>
   S.list()
@@ -28,4 +28,6 @@ export const structure = (S, context) =>
         ),
       S.listItem().title('Pages').icon(FiSidebar).child(S.documentTypeList('page').title('Pages')),
       S.listItem().title('Legal').icon(FiFileText).child(S.editor().schemaType('legal').documentId('legal')),
+      S.divider(),
+      S.listItem().title('Redirects').icon(FiLink).child(S.documentTypeList('redirect').title('Redirects')),
     ]);

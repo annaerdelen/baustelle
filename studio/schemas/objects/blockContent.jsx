@@ -48,6 +48,19 @@ export default {
                   direction: 'horizontal',
                 },
                 initialValue: 'externalLink',
+                validation: (Rule) =>
+                  Rule.custom((type, context) => {
+                    const href = context.parent?.href;
+                    if (!href) return true;
+
+                    const linkType = context.parent?.type;
+
+                    if (href && !linkType) {
+                      return 'Please select a link type (Internal or External)';
+                    }
+
+                    return true;
+                  }),
               },
               {
                 name: 'page',

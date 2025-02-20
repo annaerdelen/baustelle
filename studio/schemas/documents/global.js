@@ -9,10 +9,8 @@ export default {
       name: 'seo',
       title: 'SEO',
     },
-    {
-      name: 'content',
-      title: 'Content',
-    },
+    { name: 'content' },
+    { name: 'redirects' },
   ],
   fields: [
     {
