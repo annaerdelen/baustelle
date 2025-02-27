@@ -1,30 +1,34 @@
 import tailwindcss from '@tailwindcss/vite';
-import fs from 'fs';
-import path from 'path';
-import { defineNuxtConfig } from 'nuxt/config';
-import { createClient } from '@sanity/client';
+// import { createClient } from '@sanity/client';
+// import fs from 'fs';
+// import path from 'path';
 
-const client = createClient({
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: 'production',
-  apiVersion: '2024-10-20',
-  useCdn: false, // Set to true for caching in production
-});
+// const client = createClient({
+//   projectId: process.env.SANITY_PROJECT_ID,
+//   dataset: 'production',
+//   apiVersion: '2024-10-20',
+//   useCdn: false, // Set to true for caching in production
+// });
 
 export default defineNuxtConfig({
-  hooks: {
-    'nitro:build:before': async () => {
-      console.log('Generating Netlify redirects...');
+  // hooks: {
+  //   'nitro:build:before': async () => {
+  //     console.log('Generating Netlify redirects...');
 
-      const redirects = await client.fetch('*[_type == "redirect"]');
-      const redirectsContent = redirects.map(({ from, to, statusCode }) => `${from} ${to} ${statusCode || 301}`).join('\n');
+  //     const redirects = await client.fetch('*[_type == "redirect"]');
+  //     const redirectsContent = redirects.map(({ from, to, statusCode }) => `${from} ${to} ${statusCode || 301}`).join('\n');
 
-      const redirectsPath = path.resolve('public/_redirects');
-      fs.writeFileSync(redirectsPath, redirectsContent);
+  //     const redirectsPath = path.resolve('public/_redirects');
+  //     fs.writeFileSync(redirectsPath, redirectsContent);
 
-      console.log('✅ Netlify redirects file created.');
-    },
-  },
+  //     console.log('✅ Netlify redirects file created.');
+  //   },
+  // },
+
+  // routeRules: {
+  //   '/about': { redirect: '/' },
+  //   '/work/**': { redirect: '/projects' },
+  // },
 
   ssr: true,
 
@@ -34,11 +38,6 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
-  },
-
-  routeRules: {
-    // '/about': { redirect: '/' },
-    '/work/**': { redirect: '/projects' },
   },
 
   app: {
