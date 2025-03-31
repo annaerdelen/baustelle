@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="pt-12">
-      <Modules :modules="data?.page.content" />
+    <div class="pt-12 px-2">
+      <h1>About</h1>
     </div>
   </div>
 </template>

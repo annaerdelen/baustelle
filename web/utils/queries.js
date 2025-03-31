@@ -27,6 +27,7 @@ export const image = `
   `;
 
 export const videoContent = `
+  'thumbTime': video.asset->thumbTime,
   'aspectRatio': video.asset->data.aspect_ratio,
   'playbackId': video.asset->playbackId,
   'mp4Supported': video.asset->data.mp4_support == "standard",
@@ -96,16 +97,13 @@ export const blockContent = (block) => `
     ...,
     _type == "block" => {
       markDefs[]{
-        _type == "link" => {
-          type,
-          type == "externalLink" => {
-            ...,
-          },
-          type == "internalLink" => {
-            ...,
-            'page': page->_type,
-            'slug': page->slug.current,
-          },
+        _type == "externalLink" => {
+          ...,
+        },
+        _type == "internalLink" => {
+          ...,
+          'page': page->_type,
+          'slug': page->slug.current,
         },
       },
     },

@@ -65,12 +65,12 @@ body {
   hyphens: auto;
 }
 
-/* @utility svg-full {
+@utility svg-full {
   svg {
     width: 100%;
     height: 100%;
   }
-} */
+}
 
 @utility grid-stacked {
   grid-area: 1 / 1;
@@ -81,16 +81,26 @@ body {
 }
 
 @layer components {
-  /* .card {
+  /**
+   * Components
+   */
+  .card {
     background-color: var(--color-white);
     border-radius: var(--rounded-lg);
     padding: var(--spacing-6);
     box-shadow: var(--shadow-xl);
-  } */
-
-  .copy {
   }
 
+  /**
+   * Spacing
+   */
+  .spacing-x {
+    @apply px-4 lg:px-8;
+  }
+
+  /**
+   * Typography
+   */
   .hl {
     @apply text-balance;
   }

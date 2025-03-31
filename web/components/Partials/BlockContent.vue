@@ -22,7 +22,8 @@ const components = {
   //   mainImage: Image,
   // },
   marks: {
-    link: BlockContentLink,
+    externalLink: BlockContentLink,
+    internalLink: BlockContentLink,
     highlight: (_, { slots }) => h('span', { class: 'block-highlight' }, slots.default?.()),
   },
 };

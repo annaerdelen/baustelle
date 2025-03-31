@@ -4,7 +4,7 @@
       <Media :media="data?.project.media" class="w-full h-full block" />
     </section>
 
-    <copy :title="date" :blocks="data?.project.description" />
+    <BlockContent :blocks="data?.project.description" />
 
     <section class="grid grid-cols-4">
       <Media v-for="item in data?.project.mediaGallery" :key="item._key" :media="item" />

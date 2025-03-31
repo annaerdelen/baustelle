@@ -22,7 +22,7 @@ export default function () {
     window.addEventListener('keyup', () => (key.value = undefined));
   });
 
-  onUnmounted(() => window.removeEventListener('keydown', onKey));
+  onBeforeUnmount(() => window.removeEventListener('keydown', onKey));
 
   return { key };
 }

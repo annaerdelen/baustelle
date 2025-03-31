@@ -36,5 +36,5 @@ export const mediaAspect = (media) => {
 };
 
 export const checkIfMediaExists = (media) => {
-  return (media.type === 'image' && media.image) || (media.type === 'video' && media.playbackId);
+  return (media?.type === 'image' && media?.image) || (media?.type === 'video' && media?.playbackId);
 };

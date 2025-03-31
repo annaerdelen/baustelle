@@ -23,7 +23,7 @@ export default function () {
     window.addEventListener('resize', debouncedResize);
   });
 
-  onUnmounted(() => {
+  onBeforeUnmount(() => {
     window.removeEventListener('resize', debouncedResize);
   });
 

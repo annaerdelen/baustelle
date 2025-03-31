@@ -1,15 +1,21 @@
 <template>
   <div>
-    <ul>
-      <li
-        v-for="project in data?.homepage.projects"
-        :key="project._id"
-        class="h-screen w-full flex justify-center items-center"
-        :data-project="project.slug.current"
-      >
-        <ProjectPreview :project="project" />
-      </li>
-    </ul>
+    <header><h1 /></header>
+
+    <section>
+      <ul>
+        <li
+          v-for="project in data?.homepage.projects"
+          :key="project._id"
+          class="h-screen w-full flex justify-center items-center"
+          :data-project="project.slug.current"
+        >
+          <ProjectPreview :project="project" />
+        </li>
+      </ul>
+    </section>
+
+    <section />
   </div>
 </template>
 
