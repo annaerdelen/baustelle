@@ -21,7 +21,7 @@ export function PreviewAction(props) {
           slug = '/about';
           break;
         default:
-          slug = doc.slug?.current || '';
+          slug = '/' + (doc.slug?.current || '');
       }
 
       // test page preview urls

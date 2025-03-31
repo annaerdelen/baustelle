@@ -33,3 +33,8 @@ export const CustomSlugInput = ({ basePath = '', ...props }) => {
 //     input: (props) => CustomSlugInput({ ...props, basePath: 'work-overview' }),
 //   },
 // },
+
+// {
+//   name: 'slug',
+//   type: 'slugField',
+// },

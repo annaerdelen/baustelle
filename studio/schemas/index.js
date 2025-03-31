@@ -11,11 +11,11 @@ import legal from './documents/legal';
 import global from './documents/global';
 import socialLink from './objects/socialLink';
 import mediaGallery from './objects/mediaGallery';
-import copy from './modules/copy';
+import textBlock from './modules/textBlock';
 import cta from './objects/cta';
 import guide from './documents/guide';
 import mainVideo from './objects/mainVideo';
-import slugField from './objects/slug';
+import slugField from './objects/slugField';
 import gallery from './modules/gallery';
 import redirect from './objects/redirect';
 
@@ -35,7 +35,7 @@ export const schemaTypes = [
   media,
   blockContent,
   socialLink,
-  copy,
+  textBlock,
   cta,
   slugField,
   gallery,

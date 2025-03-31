@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiLink, FiEdit2 } from 'react-icons/fi';
+import { FiEdit2, FiGlobe, FiFile } from 'react-icons/fi';
 import { PAGES } from '../../utils/sanityConstants';
 
 const Highlight = (props) => <span style={{ backgroundColor: 'hsla(50, 100%, 50%, 0.5)' }}>{props.children}</span>;
@@ -32,53 +32,43 @@ export default {
         ],
         annotations: [
           {
-            name: 'link',
+            name: 'externalLink',
             type: 'object',
-            icon: FiLink,
+            icon: FiGlobe,
             fields: [
               {
-                name: 'type',
+                name: 'title',
                 type: 'string',
-                options: {
-                  list: [
-                    { title: 'External Link', value: 'externalLink' },
-                    { title: 'Internal Link', value: 'internalLink' },
-                  ],
-                  layout: 'radio',
-                  direction: 'horizontal',
-                },
-                initialValue: 'externalLink',
+                validation: (Rule) => Rule.required(),
+              },
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                description: 'To link email addresses use "mailto:" infront of the email, for phone numbers use "tel:"',
                 validation: (Rule) =>
-                  Rule.custom((type, context) => {
-                    const href = context.parent?.href;
-                    if (!href) return true;
-
-                    const linkType = context.parent?.type;
-
-                    if (href && !linkType) {
-                      return 'Please select a link type (Internal or External)';
-                    }
-
-                    return true;
-                  }),
+                  Rule.uri({
+                    scheme: ['http', 'https', 'mailto', 'tel'],
+                  }).required(),
+              },
+            ],
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            icon: FiFile,
+            fields: [
+              {
+                name: 'title',
+                type: 'string',
+                validation: (Rule) => Rule.required(),
               },
               {
                 name: 'page',
                 type: 'reference',
-                to: PAGES,
-                hidden: ({ parent }) => !parent?.type || parent.type !== 'internalLink',
                 options: { disableNew: true },
-              },
-              {
-                name: 'href',
-                type: 'url',
-                title: 'URL',
-                description: 'To link email addresses use "mailto:" infront of the email, for phone numbers use "tel:"',
-                hidden: ({ parent }) => !parent?.type || parent.type !== 'externalLink',
-                validation: (Rule) =>
-                  Rule.uri({
-                    scheme: ['http', 'https', 'mailto', 'tel'],
-                  }),
+                validation: (Rule) => Rule.required(),
+                to: PAGES,
               },
             ],
           },
