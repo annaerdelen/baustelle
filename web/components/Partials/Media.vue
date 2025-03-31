@@ -1,5 +1,5 @@
 <template>
-  <figure :class="{ 'relative overflow-hidden': video && media.playbackId }">
+  <figure :class="{ 'overflow-hidden': video && media.playbackId, relative: video && media.playbackId && isRelative }">
     <Img v-if="image && media.image" :preload :lazy :width :media :src="media.image" :alt="media.alt" :class-names="assetClassNames" />
     <Video v-if="video && media.playbackId" :media :autoplay :lazy-video :class-names="assetClassNames" />
   </figure>
@@ -14,6 +14,7 @@ const { media } = defineProps({
   lazy: { type: Boolean, default: false },
   lazyVideo: { type: Boolean, default: false },
   autoplay: { type: Boolean, default: true },
+  isRelative: { type: Boolean, default: true },
 });
 
 const image = media.type === 'image' || media._type === 'mainImage';

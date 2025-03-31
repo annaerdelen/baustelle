@@ -24,7 +24,7 @@ export default function (getTrigger) {
     });
   });
 
-  onUnmounted(() => {
+  onBeforeUnmount(() => {
     if (scrollTrigger) scrollTrigger.kill();
   });
 

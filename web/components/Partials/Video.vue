@@ -1,5 +1,14 @@
 <template>
-  <NuxtImg v-if="showPoster" :src="thumbnail" :class="classNames" loading="lazy" class="absolute inset-0" :style="styles" />
+  <NuxtImg
+    v-show="showPoster"
+    :src="props.media.playbackId"
+    :class="classNames"
+    loading="lazy"
+    class="absolute inset-0"
+    :style="styles"
+    provider="mux"
+    alt="Mux Thumbnail"
+  />
   <video ref="video" :class="classNames" :playsinline="playsinline" :muted="muted" :loop="loop" :style="styles" />
 </template>
 
@@ -20,7 +29,7 @@ const { isInView } = useInView(() => (props.lazyVideo ? video.value : null));
 const showPoster = ref(true);
 const video = ref(null);
 
-const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=0&width=5`);
+const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=${props.media.thumbTime}&width=5`);
 
 const styles = `aspect-ratio:${props.media.aspectRatio.split(':')[0] / props.media.aspectRatio.split(':')[1]}`;
 

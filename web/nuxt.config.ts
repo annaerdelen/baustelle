@@ -62,7 +62,7 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/sanity', '@nuxt/image'],
 
-  css: ['@/assets/styles/fonts.css', '@/assets/styles/index.css', '@/assets/styles/normalize.css', '@/assets/styles/fallback.css'],
+  css: ['@/assets/styles/fonts.css', '@/assets/styles/main.css', '@/assets/styles/normalize.css', '@/assets/styles/fallback.css'],
 
   imports: { dirs: ['./stores'] },
 
@@ -76,6 +76,12 @@ export default defineNuxtConfig({
   },
 
   image: {
+    providers: {
+      mux: {
+        name: 'mux',
+        provider: '~/providers/mux-provider',
+      },
+    },
     sanity: {
       projectId: process.env.SANITY_PROJECT_ID,
     },
