@@ -8,7 +8,7 @@
 
 <script setup>
 const query = groq`{
-  ${global}
+  ${siteTitle}
   "page": *[_type == "page" && slug.current == $slug][0]{
     ${seo}
     ${media}
@@ -24,5 +24,5 @@ const { data } = await useSanityData({ query, slug: useRoute().params.page });
 
 if (!data.value?.page) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 
-useSeo({ global: data.value?.global, title: data.value?.page.title, seo: data.value?.page.seo });
+useSeo({ siteTitle: data.value?.global.siteTitle, title: data.value?.page.title, seo: data.value?.page.seo });
 </script>

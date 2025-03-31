@@ -1,36 +1,32 @@
-export default function ({ global, title, seo, hidden = false }) {
-  const lang = 'en'; //TODO
-  const description = seo?.metaDescription || global?.metaDescription;
-  const image = seo?.ogImage || global?.ogImage || '';
+export default function ({ siteTitle, title, seo, hidden = false }) {
+  const pageTitle = seo?.metaTitle || title;
+  const description = seo?.metaDescription;
+  const image = seo?.ogImage;
 
   useHead({
-    title: title ? `${title} • ${global?.siteTitle}` : global?.siteTitle,
-    htmlAttrs: {
-      lang,
-    },
+    title: pageTitle ? `${pageTitle} • ${siteTitle}` : siteTitle,
     meta: [
-      hidden || seo?.notIndexed ? { name: 'robots', content: 'noindex, nofollow' } : {}, //TODO
-      { name: 'robots', content: 'noindex, nofollow' }, //TODO
+      hidden || seo?.notIndexed ? { name: 'robots', content: 'noindex, nofollow' } : {},
       {
         name: 'title',
-        content: title || global?.siteTitle,
+        content: pageTitle || siteTitle,
       },
       {
         property: 'og:title',
-        content: title || global?.siteTitle,
+        content: pageTitle || siteTitle,
       },
       description && {
         name: 'description',
+        content: description,
+      },
+      description && {
+        property: 'og:description',
         content: description,
       },
       image && {
         property: 'og:image',
         content: image,
       },
-    ],
-    link: [
-      global?.favicon ? { rel: 'icon', type: 'image/png', href: global?.favicon } : { rel: 'icon', href: 'data:image' },
-      // { rel: 'apple-touch-icon', href: global.webClip },
     ],
   });
 }

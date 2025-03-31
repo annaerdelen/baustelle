@@ -21,7 +21,6 @@
 
 <script setup>
 const query = groq`{
-  ${global}
   "homepage": *[_type == "homepage"][0]{
     projects[]->{
       slug{current},
@@ -31,8 +30,6 @@ const query = groq`{
 }`;
 
 const { data } = await useSanityData({ query });
-
-useSeo({ global: data.value?.global });
 
 // definePageMeta({
 //   pageTransition: globalTransition,

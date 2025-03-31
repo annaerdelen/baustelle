@@ -1,8 +1,15 @@
 export const seo = `
   seo{
     notIndexed,
+    metaTitle,
     metaDescription,
     'ogImage': ogImage.asset->url,
+  },
+`;
+
+export const siteTitle = `
+  "global": *[_type == "global"][0]{
+    siteTitle,
   },
 `;
 
@@ -12,6 +19,17 @@ export const global = `
     metaDescription,
     'favicon': favicon.asset->url,
     'ogImage': ogImage.asset->url,
+    mainNavigation[]->{
+      _id,
+      _type,
+      title,
+      slug,
+    },
+    social[]{
+      ...,
+    },
+    copyright,
+    navigation[]->,
   },
 `;
 
