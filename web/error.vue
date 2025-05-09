@@ -11,9 +11,7 @@ definePageMeta({
 });
 
 //TODO
-const global = { siteTitle: 'Baustelle' };
-
-useSeo({ global });
+useSeo({ siteTitle: 'Baustelle' });
 
 const handleError = () => {
   clearError({ redirect: '/' });

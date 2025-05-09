@@ -16,16 +16,3 @@
     height: 100%;
   }
 }
-
-/* TODO */
-@supports not (aspect-ratio: 1) {
-  .thumb {
-    height: 50%;
-  }
-}
-
-@supports not (backdrop-filter: blur()) {
-  .glass {
-    background: rgba(0, 0, 0, 0.4);
-  }
-}

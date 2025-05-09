@@ -7,7 +7,7 @@
     class="absolute inset-0"
     :style="styles"
     provider="mux"
-    alt="Mux Thumbnail"
+    alt="TODO"
   />
   <video ref="video" :class="classNames" :playsinline="playsinline" :muted="muted" :loop="loop" :style="styles" />
 </template>

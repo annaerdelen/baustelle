@@ -37,11 +37,6 @@ export default {
             icon: FiGlobe,
             fields: [
               {
-                name: 'title',
-                type: 'string',
-                validation: (Rule) => Rule.required(),
-              },
-              {
                 title: 'URL',
                 name: 'href',
                 type: 'url',
@@ -58,11 +53,6 @@ export default {
             type: 'object',
             icon: FiFile,
             fields: [
-              {
-                name: 'title',
-                type: 'string',
-                validation: (Rule) => Rule.required(),
-              },
               {
                 name: 'page',
                 type: 'reference',

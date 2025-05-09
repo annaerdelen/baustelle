@@ -77,11 +77,6 @@ export const CustomGuide = () => {
             on Netlify. This means that <strong>changes will be live after 30 - 50 seconds.</strong> Have a look in your{' '}
             <a href="/dashboard">Dashboard</a> to monitor this process.
           </p>
-          {/* //TODO remove */}
-          <p style={{ color: 'crimson' }}>
-            While the website is still under development or the initial content management has not yet been completed, changes are immediately
-            visible.
-          </p>
         </Text>
       </Container>
 

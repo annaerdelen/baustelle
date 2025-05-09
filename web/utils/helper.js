@@ -38,3 +38,7 @@ export const mediaAspect = (media) => {
 export const checkIfMediaExists = (media) => {
   return (media?.type === 'image' && media?.image) || (media?.type === 'video' && media?.playbackId);
 };
+
+export const checkIfCtaExists = (cta) => {
+  return cta?.type !== 'none' && cta?.title && (cta?.slug || cta?.page || cta?.href);
+};
