@@ -1,7 +1,7 @@
 <template>
   <div class="pb-48">
     <section class="h-screen relative pointer-events-none">
-      <Media :media="data?.project.media" class="w-full h-full block" />
+      <Media :media="data?.project.media" class="w-full h-full block" fullscreen />
     </section>
 
     <BlockContent :blocks="data?.project.description" />

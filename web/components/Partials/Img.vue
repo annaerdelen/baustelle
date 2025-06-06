@@ -13,7 +13,7 @@
     :alt="alt || 'TODO'"
     :class="[classNames, { portrait: dimensions.width < dimensions.height, landscape: dimensions.width > dimensions.height }]"
     :style="styles"
-    :sizes="width ? false : sizes"
+    :sizes="width ? false : fullscreen ? fullscreenSizes : sizes"
   />
 </template>
 
@@ -29,6 +29,7 @@ const props = defineProps({
   width: Number,
   preload: { type: Boolean, default: false },
   lazy: { type: Boolean, default: false },
+  fullscreen: { type: Boolean, default: false },
 });
 
 const placeholder = computed(() =>
@@ -66,6 +67,7 @@ const modifiers = computed(() => ({ crop: props.media.crop || '', hotspot: props
 const styles = `aspect-ratio:${dimensions.value.width / dimensions.value.height}; object-position: ${setHotspot.value.x}% ${setHotspot.value.y}%`;
 
 const sizes = '640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536px 2560:1920px 3200:2560px 3201:3200px';
+const fullscreenSizes = '640:1024px 768:1024px 1024:1280px 1280:1536px 1536:1536px 1920:1920px 2560:2560px 3200:3200px 3201:4000px';
 </script>
 
 <style scoped>
