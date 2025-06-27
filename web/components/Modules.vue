@@ -1,5 +1,5 @@
 <template>
-  <component :is="chooseModule(module)" v-for="module in modules" :key="module._key" :module="module" />
+  <component :is="chooseModule(block)" v-for="block in modules" :key="block._key" :block />
 </template>
 
 <script setup>

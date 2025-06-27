@@ -13,21 +13,22 @@
 </template>
 
 <script setup>
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hls from 'hls.js';
 
 const props = defineProps({
   media: Object,
   classNames: [String, Object, Array],
-  lazyVideo: { type: Boolean, default: false },
+  lazyVideo: { type: Boolean, default: true },
   autoplay: { type: Boolean, default: true },
   playsinline: { type: Boolean, default: true },
   muted: { type: Boolean, default: true },
   loop: { type: Boolean, default: true },
 });
 
-const { isInView } = useInView(() => (props.lazyVideo ? video.value : null));
 const showPoster = ref(true);
 const video = ref(null);
+const st = ref(null);
 
 const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=${props.media.thumbTime}&width=5`);
 
@@ -35,6 +36,10 @@ const styles = `aspect-ratio:${props.media.aspectRatio.split(':')[0] / props.med
 
 const playVideo = () => {
   video.value.play().catch((error) => console.log('video play error', error));
+};
+
+const pauseVideo = () => {
+  video.value.pause();
 };
 
 onMounted(() => {
@@ -70,11 +75,24 @@ onMounted(() => {
 
   video.value.addEventListener('loadeddata', () => (showPoster.value = false));
 
-  if (!props.lazyVideo && props.autoplay) playVideo();
+  if (props.lazyVideo) {
+    st.value = ScrollTrigger.create({
+      trigger: video.value,
+      start: 'top bottom',
+      end: 'bottom top',
+      onToggle: ({ isActive }) => {
+        if (isActive) {
+          playVideo();
+        } else {
+          pauseVideo();
+        }
+      },
+    });
+  }
 });
 
-watch(isInView, (value) => {
-  if (value && props.lazyVideo) playVideo();
+onBeforeUnmount(() => {
+  st.value?.kill();
 });
 
 // onBeforeUnmount(() => {

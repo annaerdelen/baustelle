@@ -12,7 +12,7 @@ const { media } = defineProps({
   width: Number,
   preload: { type: Boolean, default: false },
   lazy: { type: Boolean, default: false },
-  lazyVideo: { type: Boolean, default: false },
+  lazyVideo: { type: Boolean, default: true },
   autoplay: { type: Boolean, default: true },
   isRelative: { type: Boolean, default: true },
   fullscreen: { type: Boolean, default: false },
