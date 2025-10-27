@@ -29,6 +29,7 @@ export default {
       name: 'favicon',
       type: 'image',
       group: 'seo',
+      description: 'Please upload a PNG file with a resolution of max. 400x400px',
     },
     // {
     //   title: 'Web Clip',

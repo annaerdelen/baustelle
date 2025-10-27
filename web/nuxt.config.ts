@@ -30,12 +30,6 @@ export default defineNuxtConfig({
   //   '/work/**': { redirect: '/projects' },
   // },
 
-  ssr: true,
-
-  nitro: {
-    preset: 'netlify-static',
-  },
-
   vite: {
     plugins: [tailwindcss()],
   },

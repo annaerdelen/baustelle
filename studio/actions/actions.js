@@ -20,8 +20,11 @@ export function PreviewAction(props) {
         case 'about':
           slug = '/about';
           break;
-        default:
-          slug = '/' + (doc.slug?.current || '');
+          case 'project':
+            slug = '/projects/' + doc.slug?.current;
+            break;
+          default:
+            slug = '/' +(doc.slug?.current || '');
       }
 
       // test page preview urls
