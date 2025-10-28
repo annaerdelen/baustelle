@@ -54,7 +54,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  modules: ['@nuxtjs/sanity', '@nuxt/image'],
+  modules: ['@nuxtjs/sanity', '@nuxt/image', '@nuxt/eslint'],
 
   css: ['@/assets/styles/fonts.css', '@/assets/styles/main.css', '@/assets/styles/normalize.css', '@/assets/styles/fallback.css'],
 

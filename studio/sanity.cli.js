@@ -5,6 +5,5 @@ export default defineCliConfig({
     projectId: 'hnuo52b9',
     dataset: 'production',
   },
-  //TODO
-  // studioHost: 'baustelle',
+  studioHost: 'baustelle',
 });

@@ -34,7 +34,7 @@ if (!data.value?.project) throw createError({ statusCode: 404, statusMessage: 'P
 
 useSeo({ siteTitle: data.value?.global.siteTitle, title: data.value?.project.title, seo: data.value?.project.seo });
 
-const width = ref(process.client ? window.innerWidth : 0);
+const width = ref(import.meta.client ? window.innerWidth : 0);
 
 const date = computed(() => {
   const date = new Date(data.value?.project.date);

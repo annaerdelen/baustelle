@@ -1,6 +1,6 @@
-module.exports = {
-  root: true,
-  extends: ['@nuxt/eslint-config'],
+import withNuxt from './.nuxt/eslint.config.mjs';
+
+export default withNuxt({
   rules: {
     'no-console': 1,
     'no-undef': 1,
@@ -11,4 +11,4 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 0,
     'vue/max-attributes-per-line': 0,
   },
-};
+});
