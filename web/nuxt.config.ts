@@ -30,6 +30,11 @@ export default defineNuxtConfig({
   //   '/work/**': { redirect: '/projects' },
   // },
 
+  //TODO
+  nitro: {
+    preset: 'netlify-static',
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
@@ -57,8 +62,6 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/sanity', '@nuxt/image', '@nuxt/eslint'],
 
   css: ['@/assets/styles/fonts.css', '@/assets/styles/main.css', '@/assets/styles/normalize.css', '@/assets/styles/fallback.css'],
-
-  imports: { dirs: ['./stores'] },
 
   components: [{ path: '~/components', pathPrefix: false }],
 

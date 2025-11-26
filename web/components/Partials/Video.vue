@@ -88,6 +88,8 @@ onMounted(() => {
         }
       },
     });
+  } else {
+    playVideo();
   }
 });
 

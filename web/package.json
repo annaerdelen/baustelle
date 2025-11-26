@@ -17,7 +17,7 @@
     "prettier": "^3.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.11.0",
+    "@nuxt/image": "^2.0.0",
     "@nuxtjs/sanity": "1.13.3",
     "@portabletext/vue": "^1.0.14",
     "@sanity/client": "^7.1.0",
