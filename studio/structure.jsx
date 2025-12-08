@@ -1,5 +1,44 @@
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import { FiCircle, FiFileText, FiSettings, FiSidebar, FiSquare, FiHome, FiInfo, FiLink } from 'react-icons/fi';
+import { Iframe } from 'sanity-plugin-iframe-pane';
+
+const getPreviewUrl = (doc) => {
+  const previewUrl = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'; //TODO
+
+  let slug;
+
+  switch (doc._type) {
+    case 'homepage':
+      slug = '';
+      break;
+    case 'project':
+      slug = '/work/' + doc.slug?.current;
+      break;
+    default:
+      slug = '/' + (doc.slug?.current || '');
+  }
+
+  return `${previewUrl}${slug}?preview=true`;
+};
+
+const views = (S) => [
+  S.view.form(),
+  S.view
+    .component(Iframe)
+    .options({
+      url: getPreviewUrl,
+      reload: { button: true },
+    })
+    .title('Preview'),
+];
+
+export const defaultDocumentNode = (S, options) => {
+  if (options.schemaType === 'footer') {
+    return S.document();
+  }
+
+  return S.document().views(views(S));
+};
 
 export const structure = (S, context) =>
   S.list()
@@ -8,7 +47,10 @@ export const structure = (S, context) =>
       S.listItem().title('Guide').icon(FiInfo).child(S.editor().schemaType('guide').documentId('guide')),
       S.listItem().title('Global Settings').icon(FiSettings).child(S.editor().schemaType('global').documentId('global')),
       S.divider(),
-      S.listItem().title('Homepage').icon(FiHome).child(S.editor().schemaType('homepage').documentId('homepage')),
+      S.listItem()
+        .title('Homepage')
+        .icon(FiHome)
+        .child(S.editor().schemaType('homepage').documentId('homepage').views(views(S))),
       S.listItem()
         .title('Work')
         .icon(FiCircle)

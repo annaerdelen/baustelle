@@ -1,13 +1,16 @@
 <template>
-  <div class="flex justify-center items-center gap-x-2 fixed bottom-0 left-0 right-0 text-white bg-preview-red text-center p-8 z-[9999]">
-    <!-- //TODO check preview mode -->
-    <p v-if="isFirefox">This feature does not work in Firefox.</p>
-    <p v-else>Preview Mode Active</p>
-    <button class="bg-black rounded-md px-6 py-2 absolute right-8" @click="stopPreviewMode()">Exit</button>
+  <div
+    class="font-preview text-[1.2rem] uppercase leading-none tracking-wide flex justify-center items-center gap-x-2 fixed bottom-0 left-0 right-0 text-center p-8 z-[9999] text-white"
+  >
+    <div class="bg-preview/90 backdrop-blur-sm rounded-full px-4 py-3">
+      <p v-if="isFirefox">Preview Mode does not work in Firefox</p>
+      <p v-else>Preview Mode</p>
+    </div>
+    <!-- <button class="bg-white text-black rounded-full px-4 pt-3 pb-2 uppercase" @click="stopPreviewMode()">Exit</button> -->
   </div>
 </template>
 
 <script setup>
-const { stopPreviewMode } = useSanityPreview();
 const { isFirefox } = useDetectBrowser();
+// const { stopPreviewMode } = useSanityPreview();
 </script>

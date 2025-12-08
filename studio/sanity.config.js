@@ -3,12 +3,11 @@ import { defineConfig, isDev } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
-import { structure } from './structure';
+import { structure, defaultDocumentNode } from './structure';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import { muxInput } from 'sanity-plugin-mux-input';
 import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { dashboardTool } from '@sanity/dashboard';
-import { PreviewAction } from './actions/actions';
 
 //TODO
 const singletons = ['media.tag', 'guide', 'global', 'homepage'];
@@ -26,15 +25,18 @@ export default defineConfig({
     actions: (prev, context) => {
       if (singletons.includes(context.documentId)) {
         const filteredActions = prev.filter((item) => !['unpublish', 'delete', 'duplicate'].includes(item.action));
-        return [...filteredActions, PreviewAction];
+        return filteredActions;
       }
 
-      return [...prev, PreviewAction];
+      return prev;
     },
   },
 
   plugins: [
-    structureTool({ structure }),
+    structureTool({
+      structure,
+      defaultDocumentNode,
+    }),
     media(),
     muxInput(),
     dashboardTool({

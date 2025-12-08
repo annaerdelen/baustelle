@@ -16,11 +16,12 @@ body {
 
 @theme {
   --color-*: initial;
-  --color-preview-red: hsl(0, 80%, 40%);
+  --color-preview: hsl(0, 80%, 40%);
   --color-black: hsl(0, 0%, 0%);
   --color-white: hsl(0, 0%, 100%);
   --color-gray: hsl(0, 0%, 36%);
 
+  --font-preview: Helvetica, system-ui, sans-serif;
   --font-gt: GT, sans-serif;
   /* --font-georgia: Georgia, serif;
   --font-courier: 'Courier New', mono; */

@@ -52,10 +52,11 @@ export const CustomGuide = () => {
             </p>
           </div>
           <div>
-            <Text size={2}>Netlify</Text>
+            {/* //TODO */}
+            <Text size={2}>Vercel</Text>
             <p>
-              <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">
-                Netlify
+              <a href="https://www.vercel.com/" target="_blank" rel="noopener noreferrer">
+                Vercel
               </a>{' '}
               is a next-generation web hosting service. It works by being permanently connected to the website's code repository and running a build
               process through this connection when it detects updates to the codebase or when content is published. This process converts the code
@@ -74,7 +75,7 @@ export const CustomGuide = () => {
         <Text size={1}>
           <p>
             Don't forget to hit »Publish« on the bottom right after you've added content. <br /> Every time you publish content, the website re-builds
-            on Netlify. This means that <strong>changes will be live after 30 - 50 seconds.</strong> Have a look in your{' '}
+            on Vercel. This means that <strong>changes will be live after 30 - 50 seconds.</strong> Have a look in your{' '}
             <a href="/dashboard">Dashboard</a> to monitor this process.
           </p>
         </Text>

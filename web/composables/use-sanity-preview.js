@@ -9,7 +9,7 @@ export default function () {
     previewMode.value = true;
 
     // modify the sanity client to use preview mode
-    const previewClient = sanity.client.withConfig({ useCdn: false, withCredentials: true, perspective: 'previewDrafts' });
+    const previewClient = sanity.client.withConfig({ useCdn: false, withCredentials: true, perspective: 'drafts' });
 
     try {
       const data = await previewClient.fetch(query, { slug });
