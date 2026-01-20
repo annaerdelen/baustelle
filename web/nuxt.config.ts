@@ -42,9 +42,6 @@ export default defineNuxtConfig({
   app: {
     //TODO
     head: {
-      // script: [
-      //   { defer: true, 'data-domain': 'domain.de', src: 'https://plausible.io/js/plausible.js' }
-      // ],
       // link: [
       // {
       //   rel: 'preload',

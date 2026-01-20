@@ -3,6 +3,7 @@
     provider="sanity"
     :preload="preload && !lazy ? true : false"
     :loading="!preload && lazy ? 'lazy' : 'eager'"
+    :fetchpriority="fetchpriority ? 'high' : 'auto'"
     :placeholder
     placeholder-class="placeholder-active"
     :width="width ? width : dimensions.width"
@@ -13,7 +14,7 @@
     :alt="alt || 'TODO'"
     :class="[classNames, { portrait: dimensions.width < dimensions.height, landscape: dimensions.width > dimensions.height }]"
     :style="styles"
-    :sizes="width ? false : fullscreen ? fullscreenSizes : sizes"
+    :sizes="width ? '' : fullscreen ? fullscreenSizes : sizes"
   />
 </template>
 
@@ -28,6 +29,7 @@ const props = defineProps({
   classNames: [String, Array, Object],
   width: Number,
   preload: { type: Boolean, default: false },
+  fetchpriority: { type: Boolean, default: false },
   lazy: { type: Boolean, default: false },
   fullscreen: { type: Boolean, default: false },
 });

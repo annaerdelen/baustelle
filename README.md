@@ -1,12 +1,12 @@
 # Baustelle
 
-Anna's starter template with Nuxt 3 and Sanity v3. 👷‍♀️  
+Anna's starter template with Nuxt and Sanity 👷‍♀️  
 Demo → [baustelle.erdelen.com](https://baustelle.erdelen.com/)
 
 ## ● Features
 
-- [Nuxt 3](https://nuxt.com/)
-- [Sanity v3](https://sanity.io)
+- [Nuxt](https://nuxt.com/)
+- [Sanity](https://sanity.io)
 - [Tailwind](https://tailwindcss.com/)
 - [GSAP](https://greensock.com/gsap/)
 - Video Hosting with [Mux](https://www.mux.com/)

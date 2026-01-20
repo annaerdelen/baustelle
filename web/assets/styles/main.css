@@ -24,7 +24,7 @@ body {
   --font-preview: Helvetica, system-ui, sans-serif;
   --font-gt: GT, sans-serif;
   /* --font-georgia: Georgia, serif;
-  --font-courier: 'Courier New', mono; */
+  --font-courier: 'Courier New', monospace; */
 
   --text-*: initial;
   --text-14: 1.4rem;
@@ -78,7 +78,7 @@ body {
 }
 
 @utility gpu {
-  transform: translate3d();
+  transform: translate3d(0, 0, 0);
 }
 
 @layer components {

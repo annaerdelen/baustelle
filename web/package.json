@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --public",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -13,11 +13,11 @@
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.5.1",
-    "nuxt": "3.17.4",
+    "nuxt": "3.18.1",
     "prettier": "^3.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^2.0.0",
+    "@nuxt/image": "1.8.1",
     "@nuxtjs/sanity": "1.13.3",
     "@portabletext/vue": "^1.0.14",
     "@sanity/client": "^7.1.0",

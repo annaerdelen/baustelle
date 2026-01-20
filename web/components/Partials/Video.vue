@@ -2,13 +2,17 @@
   <NuxtImg
     v-show="showPoster"
     :src="props.media.playbackId"
+    :placeholder="thumbnail"
     :class="classNames"
-    loading="lazy"
     class="absolute inset-0"
+    densities="x1"
     :style="styles"
     provider="mux"
     alt="TODO"
+    :sizes="sizes"
   />
+  <!-- TODO lazy loading  -->
+
   <video ref="video" :class="classNames" :playsinline="playsinline" :muted="muted" :loop="loop" :style="styles" />
 </template>
 
@@ -30,9 +34,11 @@ const showPoster = ref(true);
 const video = ref(null);
 const st = ref(null);
 
-const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=${props.media.thumbTime}&width=5`);
+const thumbnail = computed(() => `https://image.mux.com/${props.media.playbackId}/thumbnail.webp?time=0&width=2`);
 
 const styles = `aspect-ratio:${props.media.aspectRatio.split(':')[0] / props.media.aspectRatio.split(':')[1]}`;
+
+const sizes = '640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536px 2560:1920px 3200:2560px 3201:3200px';
 
 const playVideo = () => {
   video.value.play().catch((error) => console.log('video play error', error));

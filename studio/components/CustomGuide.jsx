@@ -87,8 +87,8 @@ export const CustomGuide = () => {
         </Box>
         <Text size={1}>
           <p>
-            Preview mode allows you to see changes before publishing. Navigate to the page you want to preview and click on the the three dots in the
-            bottom right corner. Then click on »Open Preview«. This will open the page in a new tab and a red preview banner at the bottom appears.
+            Preview mode allows you to see changes before publishing. Navigate to the page you want to preview and click on "Preview" at the top of
+            the document.
           </p>
           <p>
             After you edited content, you don't need to click »Publish«, <strong>just refresh the page</strong> and the draft changes appear
@@ -96,7 +96,6 @@ export const CustomGuide = () => {
           </p>
           <p>Please be aware of the following:</p>
           <ul>
-            <li>You need to be logged in to your Sanity Studio in the same browser as the preview.</li>
             <li>Preview mode does not work for content that can be found in global settings.</li>
             <li>New pages need to be published once before they can be previewed.</li>
             <li>This feature does not work in Firefox currently.</li>
@@ -123,7 +122,7 @@ export const CustomGuide = () => {
           <Text size={4}>🧑 Inviting Project Members</Text>
         </Box>
         <Text size={1}>
-          <p>Click on your avatar at the top right and go to »Invite members«.</p>
+          <p>Click on the Studio name at the top left and go to »Invite members«.</p>
         </Text>
       </Container>
 

@@ -1,6 +1,17 @@
 <template>
   <figure :class="{ 'overflow-hidden': video && media.playbackId, relative: video && media.playbackId && isRelative }">
-    <Img v-if="image && media.image" :preload :lazy :width :fullscreen :media :src="media.image" :alt="media.alt" :class-names="assetClassNames" />
+    <Img
+      v-if="image && media.image"
+      :preload
+      :fetchpriority
+      :lazy
+      :width
+      :fullscreen
+      :media
+      :src="media.image"
+      :alt="media.alt"
+      :class-names="assetClassNames"
+    />
     <Video v-if="video && media.playbackId" :media :autoplay :lazy-video :class-names="assetClassNames" />
   </figure>
 </template>
@@ -11,6 +22,7 @@ const { media } = defineProps({
   assetClassNames: [String, Object, Array],
   width: Number,
   preload: { type: Boolean, default: false },
+  fetchpriority: { type: Boolean, default: false },
   lazy: { type: Boolean, default: false },
   lazyVideo: { type: Boolean, default: true },
   autoplay: { type: Boolean, default: true },
