@@ -1,4 +1,5 @@
 export default function () {
+  //TODO
   const generateSlug = (cta) => {
     if (cta.type === 'externalLink' || cta._type === 'externalLink') return cta.href;
 

@@ -2,7 +2,7 @@
   <NuxtLink
     v-if="cta && (cta.slug || cta.page || cta.href)"
     class="bg-black text-white"
-    :to="cta.type === 'internalLink' ? '/' + (cta.slug || cta.page) : cta.href"
+    :to="generateSlug(cta)"
     :target="cta.type === 'externalLink' ? '_blank' : ''"
   >
     {{ cta.title }}
@@ -13,4 +13,6 @@
 defineProps({
   cta: Object,
 });
+
+const { generateSlug } = useGenerateSlug();
 </script>
