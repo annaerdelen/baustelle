@@ -9,9 +9,9 @@
     :width="width ? width : dimensions.width"
     :height="width ? '' : dimensions.height"
     densities="x1"
-    :src
+    :src="media.image"
     :modifiers
-    :alt="alt || 'TODO'"
+    :alt="media.alt || 'TODO'"
     :class="[classNames, { portrait: dimensions.width < dimensions.height, landscape: dimensions.width > dimensions.height }]"
     :style="styles"
     :sizes="width ? '' : fullscreen ? fullscreenSizes : sizes"
@@ -22,8 +22,6 @@
 const { $urlFor } = useNuxtApp();
 
 const props = defineProps({
-  src: String,
-  alt: String,
   media: Object,
   width: Number,
   classNames: [String, Array, Object],
@@ -35,7 +33,7 @@ const props = defineProps({
 });
 
 const placeholder = computed(() =>
-  $urlFor(props.src)
+  $urlFor(props.media.image)
     .rect(dimensions.value.cropLeft || 0, dimensions.value.cropTop || 0, dimensions.value.width, dimensions.value.height)
     .width(10)
     .blur(10)

@@ -41,7 +41,9 @@ const styles = `aspect-ratio:${props.media.aspectRatio.split(':')[0] / props.med
 const sizes = '640:320px 768:640px 1024:768px 1280:1024px 1536:1280px 1920:1536px 2560:1920px 3200:2560px 3201:3200px';
 
 const playVideo = () => {
-  video.value.play().catch((error) => console.log('video play error', error));
+  video.value.play().catch(() => {
+    // console.log('video play error', error)
+  });
 };
 
 const pauseVideo = () => {

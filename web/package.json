@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@nuxt/image": "1.8.1",
-    "@nuxtjs/sanity": "^2.0.0",
+    "@nuxtjs/sanity": "^2.2.0",
     "@portabletext/vue": "^1.0.14",
     "@sanity/client": "^7.1.0",
     "@sanity/image-url": "^1.1.0",

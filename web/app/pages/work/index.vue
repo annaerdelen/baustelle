@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black">
+  <div>
     <div class="p-2 pt-12 flex flex-col space-y-2 fixed top-0 right-0">
       <NuxtLink v-for="project in data?.projects" :key="project._id" :to="{ path: '/work', hash: '#' + project.slug.current }" class="text-right">
         {{ project.title }}
