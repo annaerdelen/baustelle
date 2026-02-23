@@ -70,7 +70,7 @@ importers:
         version: 1.8.1(db0@0.3.4)(ioredis@5.9.3)(magicast@0.5.2)
       '@nuxtjs/sanity':
         specifier: ^2.2.0
-        version: 2.2.0(@noble/hashes@2.0.1)(@sanity/telemetry@0.8.1(react@19.2.4))(@sanity/types@5.11.0(@types/react@18.3.28))(@types/node@25.3.0)(@types/react@18.3.28)(lightningcss@1.31.1)(magicast@0.5.2)(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(terser@5.46.0)(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)
+        version: 2.2.0(@emotion/is-prop-valid@1.4.0)(@noble/hashes@2.0.1)(@sanity/telemetry@0.8.1(react@19.2.4))(@sanity/types@5.11.0(@types/react@18.3.28))(@types/node@25.3.0)(@types/react@18.3.28)(lightningcss@1.31.1)(magicast@0.5.2)(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(terser@5.46.0)(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)
       '@portabletext/vue':
         specifier: ^1.0.14
         version: 1.0.14(vue@3.5.28(typescript@5.9.3))
@@ -10615,7 +10615,7 @@ snapshots:
       - vue-tsc
       - yaml
 
-  '@nuxtjs/sanity@2.2.0(@noble/hashes@2.0.1)(@sanity/telemetry@0.8.1(react@19.2.4))(@sanity/types@5.11.0(@types/react@18.3.28))(@types/node@25.3.0)(@types/react@18.3.28)(lightningcss@1.31.1)(magicast@0.5.2)(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(terser@5.46.0)(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)':
+  '@nuxtjs/sanity@2.2.0(@emotion/is-prop-valid@1.4.0)(@noble/hashes@2.0.1)(@sanity/telemetry@0.8.1(react@19.2.4))(@sanity/types@5.11.0(@types/react@18.3.28))(@types/node@25.3.0)(@types/react@18.3.28)(lightningcss@1.31.1)(magicast@0.5.2)(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(terser@5.46.0)(typescript@5.9.3)(vue@3.5.28(typescript@5.9.3))(yaml@2.8.2)':
     dependencies:
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
       '@portabletext/types': 4.0.1
@@ -10627,7 +10627,7 @@ snapshots:
       '@sanity/presentation-comlink': 2.0.1(@sanity/client@7.15.0)(@sanity/types@5.11.0(@types/react@18.3.28)(debug@4.4.3))
       '@sanity/preview-url-secret': 4.0.3(@sanity/client@7.15.0)
       '@sanity/schema': 5.11.0(@types/react@18.3.28)(debug@4.4.3)
-      '@sanity/visual-editing': 5.2.1(@sanity/client@7.15.0)(@sanity/types@5.11.0(@types/react@18.3.28))(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)
+      '@sanity/visual-editing': 5.2.1(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.15.0)(@sanity/types@5.11.0(@types/react@18.3.28))(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)
       consola: 3.4.2
       defu: 6.1.4
       groq: 5.11.0
@@ -12012,7 +12012,7 @@ snapshots:
     optionalDependencies:
       '@sanity/types': 5.11.0(@types/react@18.3.28)(debug@4.4.3)
 
-  '@sanity/visual-editing@5.2.1(@sanity/client@7.15.0)(@sanity/types@5.11.0(@types/react@18.3.28))(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)':
+  '@sanity/visual-editing@5.2.1(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.15.0)(@sanity/types@5.11.0(@types/react@18.3.28))(react-dom@19.2.4(react@19.2.4))(react-is@19.2.4)(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)':
     dependencies:
       '@sanity/comlink': 4.0.1
       '@sanity/icons': 3.7.4(react@19.2.4)
