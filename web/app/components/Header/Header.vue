@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-0 w-full flex justify-between p-2 z-40">
+  <header class="fixed top-0 w-full flex justify-between p-2 z-40 text-white mix-blend-difference">
     <NuxtLink to="/">
       <h1>{{ data?.global.siteTitle }}</h1>
     </NuxtLink>

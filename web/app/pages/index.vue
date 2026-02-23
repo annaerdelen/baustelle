@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-[yellow]">
     <header><h1 /></header>
 
     <section>

@@ -37,6 +37,10 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    //TODO, fixes: https://github.com/nuxt-modules/sanity/issues/1277 https://github.com/nuxt-modules/sanity/issues/1284
+    optimizeDeps: {
+      include: ['react-compiler-runtime', 'react', 'react-dom'],
+    },
   },
 
   app: {
@@ -58,7 +62,7 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/sanity', '@nuxt/image', '@nuxt/eslint'],
 
-  css: ['@/assets/styles/fonts.css', '@/assets/styles/main.css', '@/assets/styles/normalize.css', '@/assets/styles/fallback.css'],
+  css: ['~/assets/styles/fonts.css', '~/assets/styles/main.css', '~/assets/styles/normalize.css', '~/assets/styles/fallback.css'],
 
   components: [{ path: '~/components', pathPrefix: false }],
 

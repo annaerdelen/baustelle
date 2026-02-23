@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-black">
     <div class="p-2 pt-12 flex flex-col space-y-2 fixed top-0 right-0">
       <NuxtLink v-for="project in data?.projects" :key="project._id" :to="{ path: '/work', hash: '#' + project.slug.current }" class="text-right">
         {{ project.title }}
@@ -27,7 +27,7 @@
 const query = groq`{
   ${siteTitle}
   "projectsOverview": *[_type == "projectsOverview"][0],
-  "projects": *[_type == "project"]|order(orderRank)[]{
+  "projects": *[_type == "project" && (isProjectHidden == false || !defined(isProjectHidden))]|order(orderRank)[]{
     ${media}
     title,
     slug
