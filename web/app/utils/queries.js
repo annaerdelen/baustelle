@@ -41,7 +41,6 @@ export const image = `
     'hotspot': image.hotspot,
     'dimensions': image.asset->metadata.dimensions,
     'originalFilename': image.asset->originalFilename,
-    'lqip': image.asset->metadata.lqip,
   },
   `;
 
