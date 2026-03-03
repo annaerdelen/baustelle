@@ -15,7 +15,7 @@ export default function () {
       let path = '';
 
       if (cta.page === 'project') {
-        path = `projects/${cta.slug.current || cta.slug}`;
+        path = `work/${cta.slug.current || cta.slug}`;
       } else {
         path = cta.slug.current || cta.slug;
       }
