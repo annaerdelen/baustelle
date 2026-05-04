@@ -1,6 +1,7 @@
+import { defineType } from 'sanity';
 import { FiLink2 } from 'react-icons/fi';
 
-export default {
+export default defineType({
   name: 'socialLink',
   title: 'Link',
   type: 'object',
@@ -29,4 +30,4 @@ export default {
       };
     },
   },
-};
+});

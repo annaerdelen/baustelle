@@ -1,22 +1,22 @@
+import { defineField, defineType } from 'sanity';
 import { FiGrid } from 'react-icons/fi';
 import { generatePreviewMedia } from '../../utils/sanityHelper';
 
 const moduleTitle = 'Gallery';
 const icon = FiGrid;
 
-export default {
+export default defineType({
   title: moduleTitle,
   name: 'gallery',
   type: 'object',
   icon,
   fields: [
-    {
+    defineField({
       name: 'mediaGallery',
       type: 'mediaGallery',
       validation: (Rule) => Rule.required().min(3),
-    },
+    }),
   ],
-
   preview: {
     select: {
       assets: 'mediaGallery',
@@ -33,4 +33,4 @@ export default {
       };
     },
   },
-};
+});

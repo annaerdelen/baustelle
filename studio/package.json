@@ -18,22 +18,22 @@
     "@sanity/dashboard": "^5.0.0",
     "@sanity/orderable-document-list": "^1.5.1",
     "@sanity/vision": "^5.20.0",
-    "react": "^19.2.2",
-    "react-dom": "^19.2.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-icons": "^5.0.1",
     "sanity": "^5.20.0",
     "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
     "sanity-plugin-iframe-pane": "^5.0.6",
     "sanity-plugin-media": "^4.0.0",
     "sanity-plugin-mux-input": "^2.17.0",
-    "styled-components": "^6.1.15"
+    "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^6.0.0",
     "@types/react": "^19.2.14",
-    "eslint": "^10.0.2",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3"
+    "eslint": "^9.28",
+    "prettier": "^3.5",
+    "typescript": "^5.8"
   },
   "prettier": {
     "semi": true,

@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/react-in-jsx-scope */
 import { Container, Box, Text } from '@sanity/ui';
 
 const spacing = { between: 7 };

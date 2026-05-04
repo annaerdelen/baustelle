@@ -1,23 +1,25 @@
-export default {
+import { defineField, defineType } from 'sanity';
+
+export default defineType({
   name: 'redirect',
   type: 'document',
   title: 'Redirect',
   fields: [
-    {
+    defineField({
       name: 'from',
       title: 'From Path',
       type: 'string',
       description: 'The path to redirect from (e.g., /old-page)',
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'to',
       title: 'To Path',
       type: 'string',
       description: 'The path to redirect to (e.g., /new-page)',
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'statusCode',
       title: 'Status Code',
       type: 'number',
@@ -28,6 +30,6 @@ export default {
         ],
       },
       initialValue: 301,
-    },
+    }),
   ],
-};
+});

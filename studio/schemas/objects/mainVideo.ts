@@ -1,16 +1,17 @@
+import { defineField, defineType } from 'sanity';
 import { FiVideo } from 'react-icons/fi';
 import { generatePreviewMedia } from '../../utils/sanityHelper';
 
-export default {
+export default defineType({
   title: 'Video',
   name: 'mainVideo',
   type: 'object',
   icon: FiVideo,
   fields: [
-    {
+    defineField({
       name: 'video',
       type: 'mux.video',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -20,8 +21,8 @@ export default {
     prepare({ playbackId, filename }) {
       return {
         title: filename || 'Video',
-        media: generatePreviewMedia({ type: 'video', playbackId }),
+        media: generatePreviewMedia({ type: 'video', image: '', playbackId }),
       };
     },
   },
-};
+});

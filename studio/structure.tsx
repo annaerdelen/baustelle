@@ -1,8 +1,9 @@
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import { FiCircle, FiFileText, FiSettings, FiSidebar, FiSquare, FiHome, FiInfo, FiLink } from 'react-icons/fi';
 import { Iframe } from 'sanity-plugin-iframe-pane';
+import { StructureBuilder, StructureResolverContext } from 'sanity/structure';
 
-const getPreviewUrl = (doc) => {
+const getPreviewUrl = (doc: { _type: string; slug?: { current: string } }) => {
   const previewUrl = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'; //TODO
 
   let slug;
@@ -21,7 +22,7 @@ const getPreviewUrl = (doc) => {
   return `${previewUrl}${slug}?preview=true`;
 };
 
-const views = (S) => [
+const views = (S: StructureBuilder) => [
   S.view.form(),
   S.view
     .component(Iframe)
@@ -32,7 +33,7 @@ const views = (S) => [
     .title('Preview'),
 ];
 
-export const defaultDocumentNode = (S, options) => {
+export const defaultDocumentNode = (S: StructureBuilder, options: { schemaType: string }) => {
   if (options.schemaType === 'footer') {
     return S.document();
   }
@@ -40,7 +41,7 @@ export const defaultDocumentNode = (S, options) => {
   return S.document().views(views(S));
 };
 
-export const structure = (S, context) =>
+export const structure = (S: StructureBuilder, context: StructureResolverContext) =>
   S.list()
     .title('Content')
     .items([
@@ -69,7 +70,7 @@ export const structure = (S, context) =>
             ]),
         ),
       S.listItem().title('Pages').icon(FiSidebar).child(S.documentTypeList('page').title('Pages')),
-      S.listItem().title('Legal').icon(FiFileText).child(S.editor().schemaType('legal').documentId('legal')),
+      // S.listItem().title('Legal').icon(FiFileText).child(S.editor().schemaType('legal').documentId('legal')),
       S.divider(),
       S.listItem().title('Redirects').icon(FiLink).child(S.documentTypeList('redirect').title('Redirects')),
     ]);

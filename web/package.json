@@ -10,21 +10,21 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.9.0",
-    "eslint": "^9.38.0",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.5.1",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.4.4",
     "prettier": "^3.2.5"
   },
   "dependencies": {
     "@nuxt/image": "1.8.1",
-    "@nuxtjs/sanity": "^2.2.0",
+    "@nuxtjs/sanity": "^2.3.0",
     "@portabletext/vue": "^1.0.14",
-    "@sanity/client": "^7.1.0",
-    "@sanity/image-url": "^1.1.0",
+    "@sanity/client": "^7.22.0",
+    "@sanity/image-url": "^2.1.1",
     "@tailwindcss/vite": "^4.1.7",
-    "@vueuse/core": "^14.0.0",
-    "gsap": "^3.13.0",
+    "@vueuse/core": "^14.3.0",
+    "gsap": "^3.15.0",
     "hls.js": "^1.5.18",
     "tailwindcss": "^4.1.16"
   }

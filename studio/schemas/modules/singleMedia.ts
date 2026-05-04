@@ -1,16 +1,17 @@
+import { defineField, defineType } from 'sanity';
 import { FiImage } from 'react-icons/fi';
-import { generatePreviewMedia, generatePreviewMediaTitle, mediaValidation } from '../../../utils/sanityHelper';
+import { generatePreviewMedia, generatePreviewMediaTitle, mediaValidation } from '../../utils/sanityHelper';
 
 const moduleTitle = 'Single Media (with Video Player Option)';
 const icon = FiImage;
 
-export default {
+export default defineType({
   title: moduleTitle,
   name: 'singleMedia',
   type: 'object',
   icon,
   fields: [
-    {
+    defineField({
       name: 'layout',
       type: 'string',
       options: {
@@ -22,22 +23,21 @@ export default {
         direction: 'horizontal',
       },
       initialValue: 'small',
-    },
-    {
+    }),
+    defineField({
       name: 'media',
       type: 'media',
       validation: mediaValidation,
-    },
-    {
+    }),
+    defineField({
       name: 'useVideoPlayer',
       title: 'Display as Video Player',
       description: 'When enabled, this will display video controls (play, pause, timeline, etc.)',
       type: 'boolean',
       hidden: ({ parent }) => !parent?.media?.type || parent.media.type !== 'video',
       initialValue: true,
-    },
+    }),
   ],
-
   preview: {
     select: {
       title: 'image.alt',
@@ -54,4 +54,4 @@ export default {
       };
     },
   },
-};
+});

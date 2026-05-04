@@ -22,8 +22,7 @@ export const CustomSlugInput = ({ basePath = '', ...props }) => {
   );
 };
 
-// USE
-// {
+// defineField({
 //   name: 'slug',
 //   type: 'slug',
 //   description: 'Is a part of the URL that serves as an unique identifier of the page.',
@@ -32,9 +31,9 @@ export const CustomSlugInput = ({ basePath = '', ...props }) => {
 //   components: {
 //     input: (props) => CustomSlugInput({ ...props, basePath: 'work-overview' }),
 //   },
-// },
+// }),
 
-// {
+// defineField({
 //   name: 'slug',
 //   type: 'slugField',
-// },
+// }),

@@ -1,19 +1,20 @@
+import { defineField, defineType } from 'sanity';
 import { FiLink } from 'react-icons/fi';
 import { PAGES } from '../../utils/sanityConstants';
 
-// {
+// defineField({
 //   title: 'CTA',
 //   name: 'cta',
 //   type: 'cta',
 //   validation: ctaValidation,
-// },
+// }),
 
-export default {
+export default defineType({
   title: 'CTA',
   name: 'cta',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'type',
       type: 'string',
       options: {
@@ -26,20 +27,20 @@ export default {
         direction: 'horizontal',
       },
       initialValue: 'internalLink',
-    },
-    {
+    }),
+    defineField({
       name: 'title',
       type: 'string',
       hidden: ({ parent }) => !parent?.type || parent.type === 'none',
-    },
-    {
+    }),
+    defineField({
       name: 'page',
       type: 'reference',
       to: PAGES,
       hidden: ({ parent }) => !parent?.type || parent.type === 'none' || parent.type !== 'internalLink',
       options: { disableNew: true },
-    },
-    {
+    }),
+    defineField({
       name: 'href',
       type: 'url',
       title: 'URL',
@@ -49,7 +50,7 @@ export default {
         Rule.uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
         }),
-    },
+    }),
   ],
   preview: {
     select: {
@@ -62,4 +63,4 @@ export default {
       };
     },
   },
-};
+});

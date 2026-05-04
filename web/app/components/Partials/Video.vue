@@ -97,7 +97,7 @@ onMounted(() => {
       },
     });
   } else {
-    playVideo();
+    if (props.autoplay) playVideo();
   }
 });
 

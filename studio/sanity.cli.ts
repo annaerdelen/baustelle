@@ -5,5 +5,6 @@ export default defineCliConfig({
     projectId: process.env.SANITY_STUDIO_PROJECT_ID,
     dataset: 'production',
   },
-  studioHost: 'baustelle',
+  // TODO
+  // studioHost: 'baustelle',
 });

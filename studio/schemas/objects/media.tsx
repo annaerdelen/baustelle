@@ -1,11 +1,12 @@
+import { defineField, defineType } from 'sanity';
 import { generatePreviewMedia, generatePreviewMediaTitle } from '../../utils/sanityHelper';
 
-export default {
+export default defineType({
   name: 'media',
   type: 'object',
   initialValue: { type: 'image' },
   fields: [
-    {
+    defineField({
       name: 'type',
       type: 'string',
       options: {
@@ -16,8 +17,8 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-    },
-    {
+    }),
+    defineField({
       name: 'image',
       type: 'mainImage',
       hidden: ({ parent }) => !parent?.type || parent.type !== 'image',
@@ -25,15 +26,15 @@ export default {
         collapsed: false,
         hotspot: true,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'video',
       type: 'mux.video',
       hidden: ({ parent }) => !parent?.type || parent.type !== 'video',
       options: {
         collapsed: false,
       },
-    },
+    }),
   ],
   preview: {
     select: {
@@ -50,4 +51,4 @@ export default {
       };
     },
   },
-};
+});

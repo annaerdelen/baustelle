@@ -1,19 +1,20 @@
+import { defineField, defineType } from 'sanity';
 import { generatePreviewMedia, generatePreviewMediaTitle } from '../../utils/sanityHelper';
 
-export default {
+export default defineType({
   name: 'mediaWithMobile',
   type: 'object',
   fields: [
-    {
+    defineField({
       name: 'media',
       type: 'media',
       options: { collapsible: true, collapsed: false },
-    },
-    {
+    }),
+    defineField({
       name: 'mediaMobile',
       type: 'media',
       options: { collapsible: true, collapsed: true },
-    },
+    }),
   ],
   preview: {
     select: {
@@ -30,4 +31,4 @@ export default {
       };
     },
   },
-};
+});

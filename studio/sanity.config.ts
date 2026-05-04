@@ -18,13 +18,13 @@ export default defineConfig({
   name: 'default',
   title: 'Studio',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
   dataset: 'production',
 
   document: {
     actions: (prev, context) => {
-      if (singletons.includes(context.documentId)) {
-        const filteredActions = prev.filter((item) => !['unpublish', 'delete', 'duplicate'].includes(item.action));
+      if (singletons.includes(context.documentId || '')) {
+        const filteredActions = prev.filter((item) => !['unpublish', 'delete', 'duplicate'].includes(item.action || ''));
         return filteredActions;
       }
 

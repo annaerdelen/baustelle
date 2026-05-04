@@ -1,7 +1,8 @@
+import { defineType } from 'sanity';
 import { CustomSlugInput } from '../../components/CustomSlugInput';
 import { slugify, slugValidation } from '../../utils/sanityHelper';
 
-export default {
+export default defineType({
   name: 'slugField',
   type: 'slug',
   description: 'Is a part of the URL that serves as an unique identifier of the page.',
@@ -10,4 +11,4 @@ export default {
   components: {
     input: CustomSlugInput,
   },
-};
+});
