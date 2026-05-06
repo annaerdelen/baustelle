@@ -1,26 +1,11 @@
-<template>
-  <div id="root" class="flex flex-col min-h-screen">
-    <PreviewBanner v-if="showPreviewBanner" />
+<script setup lang="ts">
+import type { DefaultQueryResult } from '~/types/sanity';
+import { defaultQuery } from '~/utils/queries';
 
-    <Header :data />
-
-    <main class="flex-1">
-      <slot />
-    </main>
-
-    <Footer />
-  </div>
-</template>
-
-<script setup>
 useCredits();
 const showPreviewBanner = useShowPreviewBanner();
 
-const query = groq`{
-  ${global}
-}`;
-
-const { data } = await useSanityQuery(query);
+const { data } = await useSanityQuery<DefaultQueryResult>(defaultQuery);
 
 useHead({
   htmlAttrs: { lang: 'en' }, //TODO
@@ -39,3 +24,17 @@ useSeoMeta({
   ogImage: data.value?.global?.ogImage,
 });
 </script>
+
+<template>
+  <div id="root" class="flex flex-col min-h-screen">
+    <PreviewBanner v-if="showPreviewBanner" />
+
+    <Header v-if="data" :data="data" />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+  </div>
+</template>

@@ -1,38 +1,12 @@
-<template>
-  <div class="pb-48">
-    <section v-if="data?.project" class="h-screen relative pointer-events-none">
-      <Media :media="data?.project?.media" class="w-full h-full block" fullscreen />
-    </section>
+<script setup lang="ts">
+import type { ProjectQueryResult } from '~/types/sanity';
+import { projectQuery } from '~/utils/queries';
 
-    <BlockContent :blocks="data?.project?.description" />
-
-    <section class="grid grid-cols-4">
-      <Media v-for="item in data?.project?.mediaGallery" :key="item._key" :media="item" />
-    </section>
-  </div>
-</template>
-
-<script setup>
-const query = groq`{
-  ${siteTitle}
-  "project": *[_type == "project" && slug.current == $slug]|order(_updatedAt desc)[0]{
-    ${seo}
-    slug,
-    title,
-    date,
-    ${media}
-    ${blockContent('description')}
-    ${mediaGallery}
-    "nextCaseStudy": *[_type == "caseStudy" && orderRank > ^.orderRank] | order(orderRank)[0],
-    "firstCaseStudy": *[_type == "caseStudy"] | order(orderRank)[0],
-  },
-}`;
-
-const { data } = await useSanityData({ query, slug: useRoute().params.project });
+const { data } = await useSanityData<ProjectQueryResult>({ query: projectQuery, slug: useRoute().params.project as string });
 
 if (!data.value?.project) throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 
-useSeo({ siteTitle: data.value?.global.siteTitle, title: data.value?.project.title, seo: data.value?.project.seo });
+useSeo({ siteTitle: data.value?.global?.siteTitle, title: data.value?.project?.title, seo: data.value?.project?.seo });
 
 // const width = ref(import.meta.client ? window.innerWidth : 0);
 
@@ -56,3 +30,17 @@ useSeo({ siteTitle: data.value?.global.siteTitle, title: data.value?.project.tit
 
 // const nextProject = computed(() => data.value?.caseStudy.nextCaseStudy || data.value?.caseStudy.firstCaseStudy);
 </script>
+
+<template>
+  <div class="pb-48">
+    <section v-if="data?.project" class="h-screen relative pointer-events-none">
+      <Media :media="data?.project?.media" class="w-full h-full block" fullscreen />
+    </section>
+
+    <BlockContent :blocks="data?.project?.description" />
+
+    <section class="grid grid-cols-4">
+      <Media v-for="item in data?.project?.mediaGallery" :key="item._key" :media="item" />
+    </section>
+  </div>
+</template>
