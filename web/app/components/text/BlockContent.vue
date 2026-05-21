@@ -27,7 +27,7 @@ const components: PortableTextVueComponents = {
     internalLink: ({ value }, { slots }) => h(BlockContentLink, { value }, () => slots.default?.()),
     highlight: (_, { slots }) => h('span', { class: 'block-highlight' }, slots.default?.()),
   },
-  hardBreak: {},
+  hardBreak: () => h('br'),
   unknownMark: {},
   unknownType: {},
   unknownBlockStyle: {},

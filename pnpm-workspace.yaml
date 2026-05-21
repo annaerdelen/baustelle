@@ -1,3 +1,11 @@
 packages:
   - 'web'
   - 'studio'
+strictPeerDependencies: false
+shamefullyHoist: true
+allowBuilds:
+  '@parcel/watcher': false
+  '@tailwindcss/oxide': false
+  esbuild: false
+  sharp: false
+  unrs-resolver: false

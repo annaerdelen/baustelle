@@ -23,12 +23,12 @@ export default defineConfig({
 
   document: {
     actions: (prev, context) => {
-      if (singletons.includes(context.documentId || '')) {
-        const filteredActions = prev.filter((item) => !['unpublish', 'delete', 'duplicate'].includes(item.action || ''));
-        return filteredActions;
+      if (singletons.includes(context.documentId)) {
+        const filteredActions = prev.filter((item) => !['unpublish', 'delete', 'duplicate'].includes(item.action));
+        return [...filteredActions, PreviewAction];
       }
 
-      return prev;
+      return [...prev, PreviewAction];
     },
   },
 

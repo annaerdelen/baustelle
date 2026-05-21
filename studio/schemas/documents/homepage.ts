@@ -31,7 +31,7 @@ export default defineType({
     defineField({
       name: 'title',
       type: 'string',
-      title: 'Title',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'projects',
