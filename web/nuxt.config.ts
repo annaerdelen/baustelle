@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/sanity', '@nuxt/image', '@nuxt/eslint'],
 
-  css: ['~/assets/styles/fonts.css', '~/assets/styles/main.css', '~/assets/styles/normalize.css', '~/assets/styles/fallback.css'],
+  css: ['~/assets/styles/fonts.css', '~/assets/styles/main.css', '~/assets/styles/normalize.css'],
 
   components: [{ path: '~/components', pathPrefix: false }],
 
