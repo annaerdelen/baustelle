@@ -13,10 +13,6 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    //TODO, fixes: https://github.com/nuxt-modules/sanity/issues/1277 https://github.com/nuxt-modules/sanity/issues/1284
-    optimizeDeps: {
-      include: ['react-compiler-runtime', 'react', 'react-dom'],
-    },
   },
 
   app: {

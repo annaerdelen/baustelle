@@ -11,17 +11,6 @@ export function selectAll(selector: string, container: Document = document) {
   return container.querySelectorAll(selector);
 }
 
-export const removeDuplicates = (array: string[]) => {
-  const uniqueSet = new Set(array);
-  return Array.from(uniqueSet);
-};
-
-export const slugToString = (slug: string) => {
-  const slugArray = slug.split('-');
-  const stringArray = slugArray.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
-  return stringArray.join(' ');
-};
-
 export const refreshScrollTriggers = () => {
   ScrollTrigger.getAll().forEach((st) => st.refresh());
 };
