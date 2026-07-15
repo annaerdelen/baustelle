@@ -2,10 +2,10 @@
 import { PortableText } from '@portabletext/vue';
 import type { PortableTextVueComponents } from '@portabletext/vue';
 import BlockContentLink from './BlockContentLink.vue';
-import type { BlockContent } from '~/types/sanity';
+import type { BlockContentBlocks } from '~/types/ui';
 
 defineProps<{
-  blocks: BlockContent;
+  blocks: BlockContentBlocks;
 }>();
 
 const components: PortableTextVueComponents = {

@@ -6,7 +6,6 @@ import { schemaTypes } from './schemas';
 import { structure, defaultDocumentNode } from './structure';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import { muxInput } from 'sanity-plugin-mux-input';
-import { netlifyWidget } from 'sanity-plugin-dashboard-widget-netlify';
 import { dashboardTool } from '@sanity/dashboard';
 
 //TODO
@@ -42,21 +41,6 @@ export default defineConfig({
     dashboardTool({
       widgets: [
         //TODO
-        netlifyWidget({
-          title: 'Netlify Deploys',
-          description:
-            'Because this website is statically built, it needs to be re-build and re-deployed to see the changes when content is published. You can check if the build was successful:',
-          sites: [
-            {
-              title: 'Website',
-              apiId: 'yyyyy-xxxxx-zzzz-xxxx-yyyyyyyy',
-              buildHookId: 'yyyyxxxxxyyyxxdxxx',
-              name: 'sanity-gatsby-blog-20-web',
-              url: 'https://my-sanity-deployment.com',
-            },
-          ],
-        }),
-        // projectUsersWidget({ layout: 'medium' }),
       ],
     }),
     ...(isDev ? [visionTool()] : []),

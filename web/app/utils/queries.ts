@@ -153,7 +153,7 @@ export const defaultQuery = defineQuery(`{
   }
 }`);
 
-export const homagepageQuery = defineQuery(`{
+export const homepageQuery = defineQuery(`{
   "homepage": *[_type == "homepage"][0]{
     projects[]->{
       _id,

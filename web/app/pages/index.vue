@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { HomagepageQueryResult } from '~/types/sanity';
-import { homagepageQuery } from '~/utils/queries';
+import type { HomepageQueryResult } from '~/types/sanity';
+import { homepageQuery } from '~/utils/queries';
 
-const { data } = await useSanityData<HomagepageQueryResult>({ query: homagepageQuery });
+const { data } = await useSanityData<HomepageQueryResult>({ query: homepageQuery });
 
 // definePageMeta({
 //   pageTransition: globalTransition,
