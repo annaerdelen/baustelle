@@ -21,7 +21,6 @@ const props = withDefaults(
     fullscreen: false,
   },
 );
-
 const dimensions = computed(() => {
   const originalWidth = props.media.dimensions?.width || 0;
   const originalHeight = props.media.dimensions?.height || 0;
@@ -30,24 +29,25 @@ const dimensions = computed(() => {
   const cropRight = props.media.crop?.right || 0;
   const cropBottom = props.media.crop?.bottom || 0;
 
+  const left = Math.floor(originalWidth * cropLeft);
+  const top = Math.floor(originalHeight * cropTop);
   const cropWidth = Math.floor(originalWidth - originalWidth * cropLeft - originalWidth * cropRight);
   const cropHeight = Math.floor(originalHeight - originalHeight * cropTop - originalHeight * cropBottom);
 
   const width = cropWidth || originalWidth;
   const height = cropHeight || originalHeight;
 
-  return { width, height, cropLeft, cropTop };
+  return { width, height, left, top };
 });
 
-const placeholder = computed(() =>
-  $urlFor(props.media.image || '')
-    .rect(dimensions.value.cropLeft || 0, dimensions.value.cropTop || 0, dimensions.value.width, dimensions.value.height)
-    .width(10)
-    .blur(10)
-    .quality(10)
-    .auto('format')
-    .url(),
-);
+const placeholder = computed(() => {
+  let builder = $urlFor(props.media.image || '');
+
+  if (dimensions.value.width && dimensions.value.height)
+    builder = builder.rect(dimensions.value.left, dimensions.value.top, dimensions.value.width, dimensions.value.height);
+
+  return builder.width(10).blur(10).quality(10).auto('format').url();
+});
 
 const setHotspot = computed(() => {
   if (!props.media.hotspot) return { x: 50, y: 50 };

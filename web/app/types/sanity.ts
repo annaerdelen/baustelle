@@ -14,14 +14,16 @@
 
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
-type ArrayOf<T> = Array<T & {
-  _key: string;
-}>;
+type ArrayOf<T> = Array<
+  T & {
+    _key: string;
+  }
+>;
 
 // Source: schema.json
 export type Redirect = {
   _id: string;
-  _type: "redirect";
+  _type: 'redirect';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -31,7 +33,7 @@ export type Redirect = {
 };
 
 export type Gallery = {
-  _type: "gallery";
+  _type: 'gallery';
   mediaGallery?: MediaGallery;
 };
 
@@ -39,48 +41,48 @@ export type SlugField = Slug;
 
 export type HomepageReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "homepage";
+  [internalGroqTypeReferenceTo]?: 'homepage';
 };
 
 export type ProjectsOverviewReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "projectsOverview";
+  [internalGroqTypeReferenceTo]?: 'projectsOverview';
 };
 
 export type PageReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "page";
+  [internalGroqTypeReferenceTo]?: 'page';
 };
 
 export type ProjectReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "project";
+  [internalGroqTypeReferenceTo]?: 'project';
 };
 
 export type Cta = {
-  _type: "cta";
-  type?: "internalLink" | "externalLink" | "none";
+  _type: 'cta';
+  type?: 'internalLink' | 'externalLink' | 'none';
   title?: string;
   page?: HomepageReference | ProjectsOverviewReference | PageReference | ProjectReference;
   href?: string;
 };
 
 export type TextBlock = {
-  _type: "textBlock";
+  _type: 'textBlock';
   text?: BlockContent;
   cta?: Cta;
 };
 
 export type SocialLink = {
-  _type: "socialLink";
+  _type: 'socialLink';
   title?: string;
   url?: string;
 };
@@ -89,52 +91,58 @@ export type BlockContent = Array<{
   children?: Array<{
     marks?: Array<string>;
     text?: string;
-    _type: "span";
+    _type: 'span';
     _key: string;
   }>;
-  style?: "normal";
-  listItem?: "bullet";
-  markDefs?: Array<{
-    href?: string;
-    _type: "externalLink";
-    _key: string;
-  } | {
-    page?: HomepageReference | ProjectsOverviewReference | PageReference | ProjectReference;
-    _type: "internalLink";
-    _key: string;
-  }>;
+  style?: 'normal';
+  listItem?: 'bullet';
+  markDefs?: Array<
+    | {
+        href?: string;
+        _type: 'externalLink';
+        _key: string;
+      }
+    | {
+        page?: HomepageReference | ProjectsOverviewReference | PageReference | ProjectReference;
+        _type: 'internalLink';
+        _key: string;
+      }
+  >;
   level?: number;
-  _type: "block";
+  _type: 'block';
   _key: string;
 }>;
 
 export type Media = {
-  _type: "media";
-  type?: "image" | "video";
+  _type: 'media';
+  type?: 'image' | 'video';
   image?: MainImage;
   video?: MuxVideo;
 };
 
-export type MediaGallery = Array<{
-  _key: string;
-} & MainImage | {
-  _key: string;
-} & MainVideo>;
+export type MediaGallery = Array<
+  | ({
+      _key: string;
+    } & MainImage)
+  | ({
+      _key: string;
+    } & MainVideo)
+>;
 
 export type MainVideo = {
-  _type: "mainVideo";
+  _type: 'mainVideo';
   video?: MuxVideo;
 };
 
 export type SanityImageAssetReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
 };
 
 export type MainImage = {
-  _type: "mainImage";
+  _type: 'mainImage';
   asset?: SanityImageAssetReference;
   media?: unknown;
   hotspot?: SanityImageHotspot;
@@ -143,7 +151,7 @@ export type MainImage = {
 };
 
 export type Seo = {
-  _type: "seo";
+  _type: 'seo';
   notIndexed?: boolean;
   metaTitle?: string;
   metaDescription?: string;
@@ -152,13 +160,13 @@ export type Seo = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: 'image';
   };
 };
 
 export type Category = {
   _id: string;
-  _type: "category";
+  _type: 'category';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -167,7 +175,7 @@ export type Category = {
 
 export type Page = {
   _id: string;
-  _type: "page";
+  _type: 'page';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -175,23 +183,26 @@ export type Page = {
   title?: string;
   slug?: SlugField;
   description?: BlockContent;
-  content?: Array<{
-    _key: string;
-  } & TextBlock | {
-    _key: string;
-  } & Gallery>;
+  content?: Array<
+    | ({
+        _key: string;
+      } & TextBlock)
+    | ({
+        _key: string;
+      } & Gallery)
+  >;
 };
 
 export type CategoryReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "category";
+  [internalGroqTypeReferenceTo]?: 'category';
 };
 
 export type Project = {
   _id: string;
-  _type: "project";
+  _type: 'project';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -202,36 +213,41 @@ export type Project = {
   slug?: Slug;
   date?: string;
   description?: BlockContent;
-  filter?: Array<{
-    _key: string;
-  } & CategoryReference>;
+  filter?: Array<
+    {
+      _key: string;
+    } & CategoryReference
+  >;
   media?: Media;
   collaborator?: {
     name?: string;
     website?: string;
   };
   mediaGallery?: MediaGallery;
-  content?: Array<{
-    _key: string;
-  } & TextBlock | {
-    _key: string;
-  } & Gallery>;
+  content?: Array<
+    | ({
+        _key: string;
+      } & TextBlock)
+    | ({
+        _key: string;
+      } & Gallery)
+  >;
 };
 
 export type MuxVideoAssetReference = {
   _ref: string;
-  _type: "reference";
+  _type: 'reference';
   _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "mux.videoAsset";
+  [internalGroqTypeReferenceTo]?: 'mux.videoAsset';
 };
 
 export type MuxVideo = {
-  _type: "mux.video";
+  _type: 'mux.video';
   asset?: MuxVideoAssetReference;
 };
 
 export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
+  _type: 'sanity.imageCrop';
   top?: number;
   bottom?: number;
   left?: number;
@@ -239,7 +255,7 @@ export type SanityImageCrop = {
 };
 
 export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
+  _type: 'sanity.imageHotspot';
   x?: number;
   y?: number;
   height?: number;
@@ -247,14 +263,14 @@ export type SanityImageHotspot = {
 };
 
 export type Slug = {
-  _type: "slug";
+  _type: 'slug';
   current?: string;
   source?: string;
 };
 
 export type ProjectsOverview = {
   _id: string;
-  _type: "projectsOverview";
+  _type: 'projectsOverview';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -264,7 +280,7 @@ export type ProjectsOverview = {
 
 export type Homepage = {
   _id: string;
-  _type: "homepage";
+  _type: 'homepage';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -273,14 +289,16 @@ export type Homepage = {
     isOption2?: boolean;
   };
   title?: string;
-  projects?: Array<{
-    _key: string;
-  } & ProjectReference>;
+  projects?: Array<
+    {
+      _key: string;
+    } & ProjectReference
+  >;
 };
 
 export type Global = {
   _id: string;
-  _type: "global";
+  _type: 'global';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -291,26 +309,28 @@ export type Global = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: 'image';
   };
   ogImage?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: 'image';
   };
   navigation?: ArrayOf<HomepageReference | ProjectsOverviewReference | PageReference | ProjectReference>;
   email?: string;
-  socials?: Array<{
-    _key: string;
-  } & SocialLink>;
+  socials?: Array<
+    {
+      _key: string;
+    } & SocialLink
+  >;
   copyright?: string;
 };
 
 export type Guide = {
   _id: string;
-  _type: "guide";
+  _type: 'guide';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -320,7 +340,7 @@ export type Guide = {
 
 export type MuxVideoAsset = {
   _id: string;
-  _type: "mux.videoAsset";
+  _type: 'mux.videoAsset';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -333,7 +353,7 @@ export type MuxVideoAsset = {
 };
 
 export type MuxAssetData = {
-  _type: "mux.assetData";
+  _type: 'mux.assetData';
   resolution_tier?: string;
   upload_id?: string;
   created_at?: string;
@@ -349,25 +369,31 @@ export type MuxAssetData = {
   max_stored_frame_rate?: number;
   mp4_support?: string;
   max_resolution_tier?: string;
-  tracks?: Array<{
-    _key: string;
-  } & MuxTrack>;
-  playback_ids?: Array<{
-    _key: string;
-  } & MuxPlaybackId>;
+  tracks?: Array<
+    {
+      _key: string;
+    } & MuxTrack
+  >;
+  playback_ids?: Array<
+    {
+      _key: string;
+    } & MuxPlaybackId
+  >;
   static_renditions?: MuxStaticRenditions;
 };
 
 export type MuxStaticRenditions = {
-  _type: "mux.staticRenditions";
+  _type: 'mux.staticRenditions';
   status?: string;
-  files?: Array<{
-    _key: string;
-  } & MuxStaticRenditionFile>;
+  files?: Array<
+    {
+      _key: string;
+    } & MuxStaticRenditionFile
+  >;
 };
 
 export type MuxStaticRenditionFile = {
-  _type: "mux.staticRenditionFile";
+  _type: 'mux.staticRenditionFile';
   name?: string;
   ext?: string;
   height?: number;
@@ -383,13 +409,13 @@ export type MuxStaticRenditionFile = {
 };
 
 export type MuxPlaybackId = {
-  _type: "mux.playbackId";
+  _type: 'mux.playbackId';
   id?: string;
   policy?: string;
 };
 
 export type MuxTrack = {
-  _type: "mux.track";
+  _type: 'mux.track';
   id?: string;
   type?: string;
   max_width?: number;
@@ -405,7 +431,7 @@ export type MuxTrack = {
 
 export type MediaTag = {
   _id: string;
-  _type: "media.tag";
+  _type: 'media.tag';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -413,7 +439,7 @@ export type MediaTag = {
 };
 
 export type SanityImagePaletteSwatch = {
-  _type: "sanity.imagePaletteSwatch";
+  _type: 'sanity.imagePaletteSwatch';
   background?: string;
   foreground?: string;
   population?: number;
@@ -421,7 +447,7 @@ export type SanityImagePaletteSwatch = {
 };
 
 export type SanityImagePalette = {
-  _type: "sanity.imagePalette";
+  _type: 'sanity.imagePalette';
   darkMuted?: SanityImagePaletteSwatch;
   lightVibrant?: SanityImagePaletteSwatch;
   darkVibrant?: SanityImagePaletteSwatch;
@@ -432,14 +458,14 @@ export type SanityImagePalette = {
 };
 
 export type SanityImageDimensions = {
-  _type: "sanity.imageDimensions";
+  _type: 'sanity.imageDimensions';
   height?: number;
   width?: number;
   aspectRatio?: number;
 };
 
 export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
+  _type: 'sanity.imageMetadata';
   location?: Geopoint;
   dimensions?: SanityImageDimensions;
   palette?: SanityImagePalette;
@@ -452,7 +478,7 @@ export type SanityImageMetadata = {
 
 export type SanityFileAsset = {
   _id: string;
-  _type: "sanity.fileAsset";
+  _type: 'sanity.fileAsset';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -473,7 +499,7 @@ export type SanityFileAsset = {
 };
 
 export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
+  _type: 'sanity.assetSourceData';
   name?: string;
   id?: string;
   url?: string;
@@ -481,7 +507,7 @@ export type SanityAssetSourceData = {
 
 export type SanityImageAsset = {
   _id: string;
-  _type: "sanity.imageAsset";
+  _type: 'sanity.imageAsset';
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -503,13 +529,58 @@ export type SanityImageAsset = {
 };
 
 export type Geopoint = {
-  _type: "geopoint";
+  _type: 'geopoint';
   lat?: number;
   lng?: number;
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Redirect | Gallery | SlugField | HomepageReference | ProjectsOverviewReference | PageReference | ProjectReference | Cta | TextBlock | SocialLink | BlockContent | Media | MediaGallery | MainVideo | SanityImageAssetReference | MainImage | Seo | Category | Page | CategoryReference | Project | MuxVideoAssetReference | MuxVideo | SanityImageCrop | SanityImageHotspot | Slug | ProjectsOverview | Homepage | Global | Guide | MuxVideoAsset | MuxAssetData | MuxStaticRenditions | MuxStaticRenditionFile | MuxPlaybackId | MuxTrack | MediaTag | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes =
+  | Redirect
+  | Gallery
+  | SlugField
+  | HomepageReference
+  | ProjectsOverviewReference
+  | PageReference
+  | ProjectReference
+  | Cta
+  | TextBlock
+  | SocialLink
+  | BlockContent
+  | Media
+  | MediaGallery
+  | MainVideo
+  | SanityImageAssetReference
+  | MainImage
+  | Seo
+  | Category
+  | Page
+  | CategoryReference
+  | Project
+  | MuxVideoAssetReference
+  | MuxVideo
+  | SanityImageCrop
+  | SanityImageHotspot
+  | Slug
+  | ProjectsOverview
+  | Homepage
+  | Global
+  | Guide
+  | MuxVideoAsset
+  | MuxAssetData
+  | MuxStaticRenditions
+  | MuxStaticRenditionFile
+  | MuxPlaybackId
+  | MuxTrack
+  | MediaTag
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityImageMetadata
+  | SanityFileAsset
+  | SanityAssetSourceData
+  | SanityImageAsset
+  | Geopoint;
 
 // Source: ../web/app/utils/queries.ts
 // Variable: defaultQuery
@@ -523,117 +594,137 @@ export type DefaultQueryResult = {
     mainNavigation: null;
     social: null;
     copyright: string | null;
-    navigation: Array<{
-      _id: string;
-      _type: "homepage";
-      _createdAt: string;
-      _updatedAt: string;
-      _rev: string;
-      options?: {
-        isOption?: boolean;
-        isOption2?: boolean;
-      };
-      title?: string;
-      projects?: Array<{
-        _key: string;
-      } & ProjectReference>;
-    } | {
-      _id: string;
-      _type: "page";
-      _createdAt: string;
-      _updatedAt: string;
-      _rev: string;
-      seo?: Seo;
-      title?: string;
-      slug?: SlugField;
-      description?: BlockContent;
-      content?: Array<{
-        _key: string;
-      } & Gallery | {
-        _key: string;
-      } & TextBlock>;
-    } | {
-      _id: string;
-      _type: "project";
-      _createdAt: string;
-      _updatedAt: string;
-      _rev: string;
-      orderRank?: string;
-      seo?: Seo;
-      isProjectHidden?: boolean;
-      title?: string;
-      slug?: Slug;
-      date?: string;
-      description?: BlockContent;
-      filter?: Array<{
-        _key: string;
-      } & CategoryReference>;
-      media?: Media;
-      collaborator?: {
-        name?: string;
-        website?: string;
-      };
-      mediaGallery?: MediaGallery;
-      content?: Array<{
-        _key: string;
-      } & Gallery | {
-        _key: string;
-      } & TextBlock>;
-    } | {
-      _id: string;
-      _type: "projectsOverview";
-      _createdAt: string;
-      _updatedAt: string;
-      _rev: string;
-      title?: string;
-      slug?: Slug;
-    }> | null;
+    navigation: Array<
+      | {
+          _id: string;
+          _type: 'homepage';
+          _createdAt: string;
+          _updatedAt: string;
+          _rev: string;
+          options?: {
+            isOption?: boolean;
+            isOption2?: boolean;
+          };
+          title?: string;
+          projects?: Array<
+            {
+              _key: string;
+            } & ProjectReference
+          >;
+        }
+      | {
+          _id: string;
+          _type: 'page';
+          _createdAt: string;
+          _updatedAt: string;
+          _rev: string;
+          seo?: Seo;
+          title?: string;
+          slug?: SlugField;
+          description?: BlockContent;
+          content?: Array<
+            | ({
+                _key: string;
+              } & Gallery)
+            | ({
+                _key: string;
+              } & TextBlock)
+          >;
+        }
+      | {
+          _id: string;
+          _type: 'project';
+          _createdAt: string;
+          _updatedAt: string;
+          _rev: string;
+          orderRank?: string;
+          seo?: Seo;
+          isProjectHidden?: boolean;
+          title?: string;
+          slug?: Slug;
+          date?: string;
+          description?: BlockContent;
+          filter?: Array<
+            {
+              _key: string;
+            } & CategoryReference
+          >;
+          media?: Media;
+          collaborator?: {
+            name?: string;
+            website?: string;
+          };
+          mediaGallery?: MediaGallery;
+          content?: Array<
+            | ({
+                _key: string;
+              } & Gallery)
+            | ({
+                _key: string;
+              } & TextBlock)
+          >;
+        }
+      | {
+          _id: string;
+          _type: 'projectsOverview';
+          _createdAt: string;
+          _updatedAt: string;
+          _rev: string;
+          title?: string;
+          slug?: Slug;
+        }
+    > | null;
   } | null;
 };
 
 // Source: ../web/app/utils/queries.ts
-// Variable: homagepageQuery
+// Variable: homepageQuery
 // Query: {  "homepage": *[_type == "homepage"][0]{    projects[]->{      _id,      slug{current},        media{      _key,  type,    type == "image" => {    'image': image.asset._ref,    'alt': image.alt,    'crop': image.crop,    'hotspot': image.hotspot,    'dimensions': image.asset->metadata.dimensions,    'originalFilename': image.asset->originalFilename,  },      type == "video" => {      'thumbTime': video.asset->thumbTime,  'aspectRatio': video.asset->data.aspect_ratio,  'playbackId': video.asset->playbackId,  'mp4Supported': video.asset->data.mp4_support == "standard",  },  },    }  }}
-export type HomagepageQueryResult = {
+export type HomepageQueryResult = {
   homepage: {
     projects: Array<{
       _id: string;
       slug: {
         current: string | null;
       } | null;
-      media: {
-        _key: null;
-        type: "image" | "video" | null;
-        image: string | null;
-        alt: string | null;
-        crop: SanityImageCrop | null;
-        hotspot: SanityImageHotspot | null;
-        dimensions: SanityImageDimensions | null;
-        originalFilename: string | null;
-        thumbTime: number | null;
-        aspectRatio: string | null;
-        playbackId: string | null;
-        mp4Supported: boolean | false;
-      } | {
-        _key: null;
-        type: "image" | "video" | null;
-        image: string | null;
-        alt: string | null;
-        crop: SanityImageCrop | null;
-        hotspot: SanityImageHotspot | null;
-        dimensions: SanityImageDimensions | null;
-        originalFilename: string | null;
-      } | {
-        _key: null;
-        type: "image" | "video" | null;
-        thumbTime: number | null;
-        aspectRatio: string | null;
-        playbackId: string | null;
-        mp4Supported: boolean | false;
-      } | {
-        _key: null;
-        type: "image" | "video" | null;
-      } | null;
+      media:
+        | {
+            _key: null;
+            type: 'image' | 'video' | null;
+            image: string | null;
+            alt: string | null;
+            crop: SanityImageCrop | null;
+            hotspot: SanityImageHotspot | null;
+            dimensions: SanityImageDimensions | null;
+            originalFilename: string | null;
+            thumbTime: number | null;
+            aspectRatio: string | null;
+            playbackId: string | null;
+            mp4Supported: boolean | false;
+          }
+        | {
+            _key: null;
+            type: 'image' | 'video' | null;
+            image: string | null;
+            alt: string | null;
+            crop: SanityImageCrop | null;
+            hotspot: SanityImageHotspot | null;
+            dimensions: SanityImageDimensions | null;
+            originalFilename: string | null;
+          }
+        | {
+            _key: null;
+            type: 'image' | 'video' | null;
+            thumbTime: number | null;
+            aspectRatio: string | null;
+            playbackId: string | null;
+            mp4Supported: boolean | false;
+          }
+        | {
+            _key: null;
+            type: 'image' | 'video' | null;
+          }
+        | null;
     }> | null;
   } | null;
 };
@@ -655,12 +746,15 @@ export type PageQueryResult = {
     media: null;
     _id: string;
     title: string | null;
-    content: Array<{
-      _type: "gallery";
-      assets: null;
-    } | {
-      _type: "textBlock";
-    }> | null;
+    content: Array<
+      | {
+          _type: 'gallery';
+          assets: null;
+        }
+      | {
+          _type: 'textBlock';
+        }
+    > | null;
   } | null;
 };
 
@@ -679,39 +773,44 @@ export type ProjectsQueryResult = {
   } | null;
   projects: Array<{
     _id: string;
-    media: {
-      _key: null;
-      type: "image" | "video" | null;
-      image: string | null;
-      alt: string | null;
-      crop: SanityImageCrop | null;
-      hotspot: SanityImageHotspot | null;
-      dimensions: SanityImageDimensions | null;
-      originalFilename: string | null;
-      thumbTime: number | null;
-      aspectRatio: string | null;
-      playbackId: string | null;
-      mp4Supported: boolean | false;
-    } | {
-      _key: null;
-      type: "image" | "video" | null;
-      image: string | null;
-      alt: string | null;
-      crop: SanityImageCrop | null;
-      hotspot: SanityImageHotspot | null;
-      dimensions: SanityImageDimensions | null;
-      originalFilename: string | null;
-    } | {
-      _key: null;
-      type: "image" | "video" | null;
-      thumbTime: number | null;
-      aspectRatio: string | null;
-      playbackId: string | null;
-      mp4Supported: boolean | false;
-    } | {
-      _key: null;
-      type: "image" | "video" | null;
-    } | null;
+    media:
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+          image: string | null;
+          alt: string | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          dimensions: SanityImageDimensions | null;
+          originalFilename: string | null;
+          thumbTime: number | null;
+          aspectRatio: string | null;
+          playbackId: string | null;
+          mp4Supported: boolean | false;
+        }
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+          image: string | null;
+          alt: string | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          dimensions: SanityImageDimensions | null;
+          originalFilename: string | null;
+        }
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+          thumbTime: number | null;
+          aspectRatio: string | null;
+          playbackId: string | null;
+          mp4Supported: boolean | false;
+        }
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+        }
+      | null;
     title: string | null;
     slug: Slug | null;
   }>;
@@ -734,95 +833,108 @@ export type ProjectQueryResult = {
     slug: Slug | null;
     title: string | null;
     date: string | null;
-    media: {
-      _key: null;
-      type: "image" | "video" | null;
-      image: string | null;
-      alt: string | null;
-      crop: SanityImageCrop | null;
-      hotspot: SanityImageHotspot | null;
-      dimensions: SanityImageDimensions | null;
-      originalFilename: string | null;
-      thumbTime: number | null;
-      aspectRatio: string | null;
-      playbackId: string | null;
-      mp4Supported: boolean | false;
-    } | {
-      _key: null;
-      type: "image" | "video" | null;
-      image: string | null;
-      alt: string | null;
-      crop: SanityImageCrop | null;
-      hotspot: SanityImageHotspot | null;
-      dimensions: SanityImageDimensions | null;
-      originalFilename: string | null;
-    } | {
-      _key: null;
-      type: "image" | "video" | null;
-      thumbTime: number | null;
-      aspectRatio: string | null;
-      playbackId: string | null;
-      mp4Supported: boolean | false;
-    } | {
-      _key: null;
-      type: "image" | "video" | null;
-    } | null;
+    media:
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+          image: string | null;
+          alt: string | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          dimensions: SanityImageDimensions | null;
+          originalFilename: string | null;
+          thumbTime: number | null;
+          aspectRatio: string | null;
+          playbackId: string | null;
+          mp4Supported: boolean | false;
+        }
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+          image: string | null;
+          alt: string | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          dimensions: SanityImageDimensions | null;
+          originalFilename: string | null;
+        }
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+          thumbTime: number | null;
+          aspectRatio: string | null;
+          playbackId: string | null;
+          mp4Supported: boolean | false;
+        }
+      | {
+          _key: null;
+          type: 'image' | 'video' | null;
+        }
+      | null;
     description: Array<{
       children?: Array<{
         marks?: Array<string>;
         text?: string;
-        _type: "span";
+        _type: 'span';
         _key: string;
       }>;
-      style?: "normal";
-      listItem?: "bullet";
-      markDefs: Array<{
-        href?: string;
-        _type: "externalLink";
-        _key: string;
-        type: "externalLink";
-      } | {
-        page: "homepage" | "page" | "project" | "projectsOverview" | null;
-        _type: "internalLink";
-        _key: string;
-        type: "internalLink";
-        slug: Slug | SlugField | null;
-      }> | null;
+      style?: 'normal';
+      listItem?: 'bullet';
+      markDefs: Array<
+        | {
+            href?: string;
+            _type: 'externalLink';
+            _key: string;
+            type: 'externalLink';
+          }
+        | {
+            page: 'homepage' | 'page' | 'project' | 'projectsOverview' | null;
+            _type: 'internalLink';
+            _key: string;
+            type: 'internalLink';
+            slug: Slug | SlugField | null;
+          }
+      > | null;
       level?: number;
-      _type: "block";
+      _type: 'block';
       _key: string;
     }> | null;
-    mediaGallery: Array<{
-      _key: string;
-      type: "image";
-      image: string | null;
-      alt: string | null;
-      crop: SanityImageCrop | null;
-      hotspot: SanityImageHotspot | null;
-      dimensions: SanityImageDimensions | null;
-      originalFilename: string | null;
-    } | {
-      _key: string;
-      type: "video";
-      thumbTime: number | null;
-      aspectRatio: string | null;
-      playbackId: string | null;
-      mp4Supported: boolean | false;
-    }> | null;
+    mediaGallery: Array<
+      | {
+          _key: string;
+          type: 'image';
+          image: string | null;
+          alt: string | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          dimensions: SanityImageDimensions | null;
+          originalFilename: string | null;
+        }
+      | {
+          _key: string;
+          type: 'video';
+          thumbTime: number | null;
+          aspectRatio: string | null;
+          playbackId: string | null;
+          mp4Supported: boolean | false;
+        }
+    > | null;
     nextCaseStudy: null;
     firstCaseStudy: null;
   } | null;
 };
 
 // Query TypeMap
-import "@sanity/client";
-declare module "@sanity/client" {
+declare global {
   interface SanityQueries {
-    "{\n  \"global\": *[_type == \"global\"][0]{\n    siteTitle,\n    metaDescription,\n    'favicon': favicon.asset->url,\n    'ogImage': ogImage.asset->url,\n    mainNavigation[]->{\n      _id,\n      _type,\n      title,\n      slug,\n    },\n    social[]{\n      ...,\n    },\n    copyright,\n    navigation[]->,\n  }\n}": DefaultQueryResult;
-    "{\n  \"homepage\": *[_type == \"homepage\"][0]{\n    projects[]->{\n      _id,\n      slug{current},\n      \n  media{\n    \n  _key,\n  type,\n  \n  type == \"image\" => {\n    'image': image.asset._ref,\n    'alt': image.alt,\n    'crop': image.crop,\n    'hotspot': image.hotspot,\n    'dimensions': image.asset->metadata.dimensions,\n    'originalFilename': image.asset->originalFilename,\n  },\n  \n  \n  type == \"video\" => {\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n\n  },\n\n    }\n  }\n}": HomagepageQueryResult;
+    '{\n  "global": *[_type == "global"][0]{\n    siteTitle,\n    metaDescription,\n    \'favicon\': favicon.asset->url,\n    \'ogImage\': ogImage.asset->url,\n    mainNavigation[]->{\n      _id,\n      _type,\n      title,\n      slug,\n    },\n    social[]{\n      ...,\n    },\n    copyright,\n    navigation[]->,\n  }\n}': DefaultQueryResult;
+    "{\n  \"homepage\": *[_type == \"homepage\"][0]{\n    projects[]->{\n      _id,\n      slug{current},\n      \n  media{\n    \n  _key,\n  type,\n  \n  type == \"image\" => {\n    'image': image.asset._ref,\n    'alt': image.alt,\n    'crop': image.crop,\n    'hotspot': image.hotspot,\n    'dimensions': image.asset->metadata.dimensions,\n    'originalFilename': image.asset->originalFilename,\n  },\n  \n  \n  type == \"video\" => {\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n\n  },\n\n    }\n  }\n}": HomepageQueryResult;
     "{\n  \n  \"global\": *[_type == \"global\"][0]{\n    siteTitle,\n  },\n\n  \"page\": *[_type == \"page\" && slug.current == $slug][0]{\n    \n  seo{\n    notIndexed,\n    metaTitle,\n    metaDescription,\n    'ogImage': ogImage.asset->url,\n  },\n\n    \n  media{\n    \n  _key,\n  type,\n  \n  type == \"image\" => {\n    'image': image.asset._ref,\n    'alt': image.alt,\n    'crop': image.crop,\n    'hotspot': image.hotspot,\n    'dimensions': image.asset->metadata.dimensions,\n    'originalFilename': image.asset->originalFilename,\n  },\n  \n  \n  type == \"video\" => {\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n\n  },\n\n    _id,\n    title,\n    content[]{\n      \n  _type,\n  _type == \"gallery\" => {\n    assets[]{\n      \n  _key,\n  _type == \"mainImage\" => {\n    'type': 'image',\n    'image': asset._ref,\n    'alt': alt,\n    'crop': crop,\n    'hotspot': hotspot,\n    'dimensions': asset->metadata.dimensions,\n    'originalFilename': asset->originalFilename,\n  },\n  _type == \"mainVideo\" => {\n    'type': 'video',\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n    },\n  },\n  _type == \"copy\" => {\n    title,\n    \n  copy[]{\n    ...,\n    _type == \"block\" => {\n      markDefs[]{\n        _type == \"externalLink\" => {\n          ...,\n          'type': 'externalLink',\n        },\n        _type == \"internalLink\" => {\n          ...,\n          'type': 'internalLink',\n          'page': page->_type,\n          'slug': page->slug,\n        },\n      },\n    },\n    _type == \"image\" => {\n      ...,\n      'src': image.asset->url,\n      'crop': image.crop,\n      'hotspot': image.hotspot,\n      'dimensions': image.asset->metadata.dimensions,\n    },\n  },\n\n  },\n\n    }\n  }\n}": PageQueryResult;
     "{\n  \n  \"global\": *[_type == \"global\"][0]{\n    siteTitle,\n  },\n\n  \"projectsOverview\": *[_type == \"projectsOverview\"][0]{\n    _id,\n    \n  seo{\n    notIndexed,\n    metaTitle,\n    metaDescription,\n    'ogImage': ogImage.asset->url,\n  },\n\n    title,\n    slug,\n  },\n  \"projects\": *[_type == \"project\" && (isProjectHidden == false || !defined(isProjectHidden))]|order(orderRank)[]{\n    _id,\n    \n  media{\n    \n  _key,\n  type,\n  \n  type == \"image\" => {\n    'image': image.asset._ref,\n    'alt': image.alt,\n    'crop': image.crop,\n    'hotspot': image.hotspot,\n    'dimensions': image.asset->metadata.dimensions,\n    'originalFilename': image.asset->originalFilename,\n  },\n  \n  \n  type == \"video\" => {\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n\n  },\n\n    title,\n    slug\n  },\n}": ProjectsQueryResult;
     "{\n  \n  \"global\": *[_type == \"global\"][0]{\n    siteTitle,\n  },\n\n  \"project\": *[_type == \"project\" && slug.current == $slug]|order(_updatedAt desc)[0]{\n    \n  seo{\n    notIndexed,\n    metaTitle,\n    metaDescription,\n    'ogImage': ogImage.asset->url,\n  },\n\n    slug,\n    title,\n    date,\n    \n  media{\n    \n  _key,\n  type,\n  \n  type == \"image\" => {\n    'image': image.asset._ref,\n    'alt': image.alt,\n    'crop': image.crop,\n    'hotspot': image.hotspot,\n    'dimensions': image.asset->metadata.dimensions,\n    'originalFilename': image.asset->originalFilename,\n  },\n  \n  \n  type == \"video\" => {\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n\n  },\n\n    \n  description[]{\n    ...,\n    _type == \"block\" => {\n      markDefs[]{\n        _type == \"externalLink\" => {\n          ...,\n          'type': 'externalLink',\n        },\n        _type == \"internalLink\" => {\n          ...,\n          'type': 'internalLink',\n          'page': page->_type,\n          'slug': page->slug,\n        },\n      },\n    },\n    _type == \"image\" => {\n      ...,\n      'src': image.asset->url,\n      'crop': image.crop,\n      'hotspot': image.hotspot,\n      'dimensions': image.asset->metadata.dimensions,\n    },\n  },\n\n    \n  mediaGallery[]{\n    \n  _key,\n  _type == \"mainImage\" => {\n    'type': 'image',\n    'image': asset._ref,\n    'alt': alt,\n    'crop': crop,\n    'hotspot': hotspot,\n    'dimensions': asset->metadata.dimensions,\n    'originalFilename': asset->originalFilename,\n  },\n  _type == \"mainVideo\" => {\n    'type': 'video',\n    \n  'thumbTime': video.asset->thumbTime,\n  'aspectRatio': video.asset->data.aspect_ratio,\n  'playbackId': video.asset->playbackId,\n  'mp4Supported': video.asset->data.mp4_support == \"standard\",\n\n  },\n\n  },\n\n    \"nextCaseStudy\": *[_type == \"caseStudy\" && orderRank > ^.orderRank] | order(orderRank)[0],\n    \"firstCaseStudy\": *[_type == \"caseStudy\"] | order(orderRank)[0],\n  },\n}": ProjectQueryResult;
   }
 }
-
+// Lets @sanity/client releases that predate the global registry read it too
+declare module '@sanity/client' {
+  interface SanityQueries extends globalThis.SanityQueries {}
+}

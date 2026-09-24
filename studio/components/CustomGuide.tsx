@@ -6,66 +6,6 @@ export const CustomGuide = () => {
   return (
     <Container>
       <Container paddingTop={6} paddingBottom={spacing.between}>
-        <Box paddingBottom={5}>
-          <Text size={4}>🛎️ Services</Text>
-        </Box>
-        <Text size={1}>
-          <div>
-            <Text size={2}>Sanity</Text>
-            <p>
-              <a href="https://www.sanity.io" target="_blank" rel="noopener noreferrer">
-                Sanity
-              </a>{' '}
-              is a platform for structured content. It comes with an open source editing environment called{' '}
-              <a href="https://www.sanity.io/studio" target="_blank" rel="noopener noreferrer">
-                Sanity Studio
-              </a>
-              . This is the content mangement system (CMS) we use and where you are currently located. The Studio is fully customized to your needs
-              and can be extended by a developer at any time. All of the content such as text, files and images are hosted on their servers, which we
-              use to create a bespoke digital platform.
-            </p>
-            <p>
-              We use Sanity in the free (pay-as-you-go) version. If you would like to extend the feature set, have a look at the{' '}
-              <a href="https://www.sanity.io/pricing" target="_blank" rel="noopener noreferrer">
-                Growth Plan
-              </a>
-              , which enables AI Assist, Multiple user roles, Scheduled publishing or Comments.
-            </p>
-          </div>
-          <div>
-            <Text size={2}>Mux</Text>
-            <p>
-              <a href="https://www.mux.com/" target="_blank" rel="noopener noreferrer">
-                Mux
-              </a>{' '}
-              is a video hosting platform that specializes in the processing and playback of video and audio. The platform therefore enables us to
-              integrate videos into the website particularly fast and efficiently. Mux automatically adjusts the video quality to the user's bandwidth
-              and only loads videos piece by piece rather than completely, which means that videos can be played and loaded very quickly.
-            </p>
-            <p>
-              It also has excellent integration with Sanity. To upload video files, just select "Video" in the media field and upload the video
-              directly to Sanity (it is handled by Mux under the hood). Mux automatically provides a preview image of the first frame of the video,
-              which we display on the website while the video is loading.
-            </p>
-          </div>
-          <div>
-            {/* //TODO */}
-            <Text size={2}>Vercel</Text>
-            <p>
-              <a href="https://www.vercel.com/" target="_blank" rel="noopener noreferrer">
-                Vercel
-              </a>{' '}
-              is a next-generation web hosting service. It works by being permanently connected to the website's code repository and running a build
-              process through this connection when it detects updates to the codebase or when content is published. This process converts the code
-              into static HTML, CSS and JS files, which are then served to website visitors via a global network of servers (called Content Delivery
-              Network, CDN). This means that users receive a cached version of the websites from the server closest to them, which reduces load times
-              enormously.
-            </p>
-          </div>
-        </Text>
-      </Container>
-
-      <Container paddingBottom={spacing.between}>
         <Box paddingBottom={3}>
           <Text size={4}>🚀 Publishing Content</Text>
         </Box>

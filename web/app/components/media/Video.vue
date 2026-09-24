@@ -12,6 +12,7 @@ const props = withDefaults(
     playsinline?: boolean;
     muted?: boolean;
     loop?: boolean;
+    isVideoplayer?: boolean;
   }>(),
   {
     classNames: '',
@@ -20,6 +21,7 @@ const props = withDefaults(
     playsinline: true,
     muted: true,
     loop: true,
+    isVideoplayer: false,
   },
 );
 
@@ -102,20 +104,33 @@ onMounted(() => {
 onBeforeUnmount(() => {
   st.value?.kill();
 });
-
-// onBeforeUnmount(() => {
-//   if (video.value) {
-//     video.value.src = '';
-//     video.value.pause();
-//     video.value.load();
-//   }
-// });
 </script>
 
 <template>
   <NuxtImg
     v-show="showPoster"
-    :src="props.media.playbackId"
+    :src="props.media.playbackId ?? ''"
+    :placeholder="thumbnail"
+    :class="classNames"
+    densities="x1"
+    :style="styles"
+    provider="mux"
+    alt="TODO"
+    :sizes="sizes"
+  />
+
+  <video
+    ref="video"
+    :controls="isVideoplayer"
+    :class="[classNames, { 'sr-only': showPoster }]"
+    :playsinline="playsinline"
+    :muted="muted"
+    :loop="loop"
+    :style="styles"
+  />
+  <!-- <NuxtImg
+    v-show="showPoster"
+    :src="props.media.playbackId ?? ''"
     :placeholder="thumbnail"
     :class="classNames"
     class="absolute inset-0"
@@ -125,9 +140,8 @@ onBeforeUnmount(() => {
     alt="TODO"
     :sizes="sizes"
   />
-  <!-- TODO lazy loading  -->
 
-  <video ref="video" :class="classNames" :playsinline="playsinline" :muted="muted" :loop="loop" :style="styles" />
+  <video ref="video" :class="classNames" :playsinline="playsinline" :muted="muted" :loop="loop" :style="styles" /> -->
 </template>
 
 <style scoped>

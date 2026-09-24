@@ -3,7 +3,7 @@ import type { Cta } from '~/types/ui';
 //TODO
 export const useGenerateSlug = () => {
   const generateSlug = (cta: Cta) => {
-    if (cta.type === 'externalLink') return cta.href;
+    if (cta.type === 'externalLink') return cta.href ?? undefined;
 
     if (cta.type === 'internalLink') {
       if (cta.page === 'homepage') return '/';

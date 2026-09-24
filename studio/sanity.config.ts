@@ -39,9 +39,14 @@ export default defineConfig({
     media(),
     muxInput(),
     dashboardTool({
-      widgets: [
-        //TODO
-      ],
+      //TODO
+      // widgets: [
+      //   cloudflareWidget({
+      //     siteUrl: 'https://www.website.com/',
+      //     workerUrl: 'workerUrl',
+      //     layout: { width: 'medium' },
+      //   }),
+      // ],
     }),
     ...(isDev ? [visionTool()] : []),
   ],

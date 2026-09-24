@@ -31,8 +31,9 @@ const image = props.media.type === 'image';
 const video = props.media.type === 'video';
 </script>
 
+<!-- <figure :class="{ 'overflow-hidden': video && props.media.playbackId, relative: video && props.media.playbackId && isRelative }"> -->
 <template>
-  <figure :class="{ 'overflow-hidden': video && props.media.playbackId, relative: video && props.media.playbackId && isRelative }">
+  <figure>
     <Img v-if="image && props.media.image" :preload :fetchpriority :lazy :width :fullscreen :media :class-names="assetClassNames" />
     <Video v-if="video && props.media.playbackId" :media :autoplay :lazy-video :class-names="assetClassNames" />
   </figure>

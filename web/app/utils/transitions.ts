@@ -1,18 +1,19 @@
 import { gsap } from 'gsap';
+import type { TransitionProps } from 'vue';
 
 export const globalTransition = {
   name: 'global',
   mode: 'out-in',
-  onBeforeEnter(el) {
+  onBeforeEnter(el: Element) {
     gsap.set(el, { opacity: 0 });
   },
-  onEnter(el, done) {
+  onEnter(el: Element, done: () => void) {
     gsap.to(el, { opacity: 1, duration: 0.4, onComplete: done });
   },
-  onAfterEnter(el) {},
-  onEnterCancelled(el) {},
-  onBeforeLeave(el) {},
-  onLeave(el, done) {
+  onAfterEnter(_el: Element) {},
+  onEnterCancelled(_el: Element) {},
+  onBeforeLeave(_el: Element) {},
+  onLeave(el: Element, done: () => void) {
     gsap.to(el, {
       opacity: 0,
       duration: 0.4,
@@ -22,45 +23,45 @@ export const globalTransition = {
       onComplete: done,
     });
   },
-  onAfterLeave(el) {},
-  onLeaveCancelled(el) {},
-};
+  onAfterLeave(_el: Element) {},
+  onLeaveCancelled(_el: Element) {},
+} satisfies TransitionProps;
 
 export const projectTransition = {
   name: 'project',
   mode: 'in-out',
-  onBeforeEnter(el) {
+  onBeforeEnter(el: Element) {
     gsap.set(el, { opacity: 0 });
   },
-  onEnter(el, done) {
+  onEnter(el: Element, done: () => void) {
     gsap.to(el, { opacity: 1, duration: 0.4, onComplete: done });
   },
-  onAfterEnter(el) {},
-  onEnterCancelled(el) {},
-  onBeforeLeave(el) {},
-  onLeave(el, done) {
+  onAfterEnter(_el: Element) {},
+  onEnterCancelled(_el: Element) {},
+  onBeforeLeave(_el: Element) {},
+  onLeave(_el: Element, done: () => void) {
     const fromEl = select('main').firstElementChild;
     const toEl = select('main').lastElementChild;
 
     done();
   },
-  onAfterLeave(el) {},
-  onLeaveCancelled(el) {},
-};
+  onAfterLeave(_el: Element) {},
+  onLeaveCancelled(_el: Element) {},
+} satisfies TransitionProps;
 
 export const workTransition = {
   name: 'work',
   mode: 'in-out',
-  onBeforeEnter(el) {
+  onBeforeEnter(el: Element) {
     gsap.set(el, { opacity: 0 });
   },
-  onEnter(el, done) {
+  onEnter(el: Element, done: () => void) {
     gsap.to(el, { opacity: 1, duration: 0.4, onComplete: done });
   },
-  onAfterEnter(el) {},
-  onEnterCancelled(el) {},
-  onBeforeLeave(el) {},
-  onLeave(el, done) {
+  onAfterEnter(_el: Element) {},
+  onEnterCancelled(_el: Element) {},
+  onBeforeLeave(_el: Element) {},
+  onLeave(el: Element, _done: () => void) {
     gsap.to(el, {
       opacity: 0,
       duration: 0.4,
@@ -77,6 +78,6 @@ export const workTransition = {
 
     // done();
   },
-  onAfterLeave(el) {},
-  onLeaveCancelled(el) {},
-};
+  onAfterLeave(_el: Element) {},
+  onLeaveCancelled(_el: Element) {},
+} satisfies TransitionProps;
