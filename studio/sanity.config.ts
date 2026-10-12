@@ -1,4 +1,3 @@
-import { theme } from 'https://themer.sanity.build/api/hues?default=929292&primary=929292&transparent=929292&positive=darkest:101112&caution=darkest:101112&critical=darkest:101112&darkest=000000';
 import { defineConfig, isDev } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
@@ -12,8 +11,6 @@ import { dashboardTool } from '@sanity/dashboard';
 const singletons = ['media.tag', 'guide', 'global', 'homepage'];
 
 export default defineConfig({
-  theme,
-
   name: 'default',
   title: 'Studio',
 
