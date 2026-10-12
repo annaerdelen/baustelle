@@ -27,16 +27,30 @@ export default defineNuxtConfig({
       //   href: '/fonts/PFDasGroteskMonoPro-Light.woff2',
       // },
       // ],
+
+      // Overrides Nuxt SEO %siteName
+      titleTemplate: '%s',
       noscript: [{ children: 'Please enable JavaScript to view this website.' }],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  modules: ['@nuxtjs/sanity', '@nuxt/image', '@nuxt/eslint'],
+  modules: ['@nuxtjs/sanity', '@nuxt/image', '@nuxt/eslint', '@nuxtjs/seo'],
 
   css: ['~/assets/styles/fonts.css', '~/assets/styles/main.css', '~/assets/styles/normalize.css'],
 
   components: [{ path: '~/components', pathPrefix: false }],
+
+  // TODO
+  // site: {
+  //   url: process.env.NUXT_SITE_URL,
+  //   name: 'Example Website',
+  //   defaultLocale: 'en',
+  // },
+
+  seo: {
+    fallbackTitle: false,
+  },
 
   sanity: {
     projectId: process.env.SANITY_PROJECT_ID,
