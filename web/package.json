@@ -13,13 +13,13 @@
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.11.0",
-    "nuxt": "^4.5.2",
+    "nuxt": "^4.6.1",
     "prettier": "^3.9.9"
   },
   "dependencies": {
     "@nuxt/image": "1.8.1",
     "@nuxtjs/sanity": "^2.5.0",
-    "@nuxtjs/seo": "^5.3.16",
+    "@nuxtjs/seo": "^6.0.1",
     "@portabletext/vue": "^2.0.0",
     "@sanity/client": "^8.6.2",
     "@sanity/image-url": "^2.1.1",

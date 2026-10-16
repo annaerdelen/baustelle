@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import type { Component } from 'vue';
-import type { Gallery, TextBlock } from '~/types/sanity';
+import type { HomepageContent } from '~/types/ui';
 
-type Module = {
-  _type: 'gallery' | 'textBlock';
-  _key: string;
-  mediaGallery?: Gallery;
-  textBlock?: TextBlock;
-};
+type Module = NonNullable<HomepageContent>[number];
 
 defineProps<{
   modules: Module[];

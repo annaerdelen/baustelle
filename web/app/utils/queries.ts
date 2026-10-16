@@ -133,17 +133,29 @@ export const modules = `
   },
 `;
 
+export const internalExternalLinks = `
+  _type == 'reference' => @->{
+    _id,
+    "type": "internalLink",
+    slug,
+    title,
+  },
+  _type != 'reference' => @{
+    _key,
+    "type": "externalLink",
+    title,
+    href,
+  },
+`;
+
 export const defaultQuery = defineQuery(`{
   "global": *[_type == "global"][0]{
     siteTitle,
     metaDescription,
     'favicon': favicon.asset->url,
     'ogImage': ogImage.asset->url,
-    mainNavigation[]->{
-      _id,
-      _type,
-      title,
-      slug,
+    navigation[]{
+      ${internalExternalLinks}
     },
     social[]{
       ...,

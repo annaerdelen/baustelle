@@ -1,4 +1,4 @@
-import type { HomagepageQueryResult, Slug } from './sanity';
+import type { HomepageQueryResult, Slug } from './sanity';
 
 export type Cta = {
   _type?: string;
@@ -9,6 +9,7 @@ export type Cta = {
   href?: string | null;
 };
 
-type Homepage = NonNullable<HomagepageQueryResult['homepage']>;
+type Homepage = NonNullable<HomepageQueryResult['homepage']>;
+export type HomepageContent = NonNullable<Homepage['content']>;
 
 export type BlockContentBlocks = NonNullable<Homepage['introText']> | NonNullable<TextBlockModule['text']>;

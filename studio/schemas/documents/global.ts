@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { PAGES } from '../../utils/sanityConstants';
+import { FiFile } from 'react-icons/fi';
 
 export default defineType({
   type: 'document',
@@ -47,16 +48,19 @@ export default defineType({
     }),
     defineField({
       name: 'navigation',
-      title: 'Navigation/Pages',
       type: 'array',
+      group: 'footer',
       of: [
         {
           type: 'reference',
           to: PAGES,
-          title: 'Pages',
+          title: 'Page',
+          icon: FiFile,
+        },
+        {
+          type: 'externalLink',
         },
       ],
-      group: 'content',
     }),
     defineField({
       name: 'email',
