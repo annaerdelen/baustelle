@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import type { Component } from 'vue';
-import type { HomepageContent } from '~/types/ui';
-
 type Module = NonNullable<HomepageContent>[number];
 
 defineProps<{

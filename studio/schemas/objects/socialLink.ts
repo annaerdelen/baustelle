@@ -16,7 +16,10 @@ export default defineType({
       title: 'URL',
       name: 'url',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https', 'mailto', 'tel'],
+        }).required(),
     },
   ],
   preview: {

@@ -3,11 +3,11 @@ import type { Media } from '~/types/media';
 import type { SanityImageDimensions } from '~/types/sanity';
 import type { Cta } from '~/types/ui';
 
-export function select(selector: string, container: Document = document) {
+export function select(selector: string, container: Document | Element = document) {
   return container.querySelector(selector);
 }
 
-export function selectAll(selector: string, container: Document = document) {
+export function selectAll(selector: string, container: Document | Element = document) {
   return container.querySelectorAll(selector);
 }
 
